@@ -13,9 +13,11 @@
 		BB89B56F214B8BC900B00E62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB89B56E214B8BC900B00E62 /* Assets.xcassets */; };
 		BB89B572214B8BC900B00E62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB89B570214B8BC900B00E62 /* LaunchScreen.storyboard */; };
 		BB89B575214B8BC900B00E62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB89B574214B8BC900B00E62 /* main.m */; };
+		DE505FF4DD841D53D9424869 /* libPods-ExCoin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2EB500776BDB8E467686187 /* libPods-ExCoin.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6EA4343207EEF0A50482E929 /* Pods-ExCoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExCoin.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExCoin/Pods-ExCoin.release.xcconfig"; sourceTree = "<group>"; };
 		BB89B562214B8BC900B00E62 /* ExCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB89B565214B8BC900B00E62 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BB89B566214B8BC900B00E62 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +28,8 @@
 		BB89B571214B8BC900B00E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB89B573214B8BC900B00E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB89B574214B8BC900B00E62 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C34E92B5567E8576F8CB4BD2 /* Pods-ExCoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExCoin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExCoin/Pods-ExCoin.debug.xcconfig"; sourceTree = "<group>"; };
+		D2EB500776BDB8E467686187 /* libPods-ExCoin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ExCoin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE505FF4DD841D53D9424869 /* libPods-ExCoin.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35E9874DB8D591E238D9781B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C34E92B5567E8576F8CB4BD2 /* Pods-ExCoin.debug.xcconfig */,
+				6EA4343207EEF0A50482E929 /* Pods-ExCoin.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		77254F2712A10591BA928F0E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2EB500776BDB8E467686187 /* libPods-ExCoin.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BB89B559214B8BC900B00E62 = {
 			isa = PBXGroup;
 			children = (
 				BB89B564214B8BC900B00E62 /* ExCoin */,
 				BB89B563214B8BC900B00E62 /* Products */,
+				35E9874DB8D591E238D9781B /* Pods */,
+				77254F2712A10591BA928F0E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,13 +86,181 @@
 				BB89B566214B8BC900B00E62 /* AppDelegate.m */,
 				BB89B568214B8BC900B00E62 /* ViewController.h */,
 				BB89B569214B8BC900B00E62 /* ViewController.m */,
+				BBDAD9BF214B9E190058A57F /* Market(行情) */,
+				BBDAD9C0214B9E240058A57F /* Trade(交易) */,
+				BBDAD9C1214B9E2F0058A57F /* Wallet(钱包) */,
+				BBDAD9C2214B9E370058A57F /* Account(账户) */,
+				BB89B57B214B8C5300B00E62 /* Support */,
+			);
+			path = ExCoin;
+			sourceTree = "<group>";
+		};
+		BB89B57B214B8C5300B00E62 /* Support */ = {
+			isa = PBXGroup;
+			children = (
 				BB89B56B214B8BC900B00E62 /* Main.storyboard */,
 				BB89B56E214B8BC900B00E62 /* Assets.xcassets */,
 				BB89B570214B8BC900B00E62 /* LaunchScreen.storyboard */,
 				BB89B573214B8BC900B00E62 /* Info.plist */,
 				BB89B574214B8BC900B00E62 /* main.m */,
 			);
-			path = ExCoin;
+			path = Support;
+			sourceTree = "<group>";
+		};
+		BBDAD9BF214B9E190058A57F /* Market(行情) */ = {
+			isa = PBXGroup;
+			children = (
+				BBDAD9C6214B9EBA0058A57F /* Controller */,
+				BBDAD9C4214B9EBA0058A57F /* Model */,
+				BBDAD9C3214B9EBA0058A57F /* UI */,
+				BBDAD9C5214B9EBA0058A57F /* View */,
+			);
+			path = "Market(行情)";
+			sourceTree = "<group>";
+		};
+		BBDAD9C0214B9E240058A57F /* Trade(交易) */ = {
+			isa = PBXGroup;
+			children = (
+				BBDAD9C8214B9ECB0058A57F /* Controller */,
+				BBDAD9C9214B9ECB0058A57F /* Model */,
+				BBDAD9C7214B9ECB0058A57F /* UI */,
+				BBDAD9CA214B9ECB0058A57F /* View */,
+			);
+			path = "Trade(交易)";
+			sourceTree = "<group>";
+		};
+		BBDAD9C1214B9E2F0058A57F /* Wallet(钱包) */ = {
+			isa = PBXGroup;
+			children = (
+				BBDAD9CB214B9ED60058A57F /* Controller */,
+				BBDAD9CD214B9ED60058A57F /* Model */,
+				BBDAD9CC214B9ED60058A57F /* UI */,
+				BBDAD9CE214B9ED60058A57F /* View */,
+			);
+			path = "Wallet(钱包)";
+			sourceTree = "<group>";
+		};
+		BBDAD9C2214B9E370058A57F /* Account(账户) */ = {
+			isa = PBXGroup;
+			children = (
+				BBDAD9CF214B9EE40058A57F /* Controller */,
+				BBDAD9D1214B9EE40058A57F /* Model */,
+				BBDAD9D0214B9EE40058A57F /* UI */,
+				BBDAD9D2214B9EE40058A57F /* View */,
+			);
+			path = "Account(账户)";
+			sourceTree = "<group>";
+		};
+		BBDAD9C3214B9EBA0058A57F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		BBDAD9C4214B9EBA0058A57F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BBDAD9C5214B9EBA0058A57F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BBDAD9C6214B9EBA0058A57F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BBDAD9C7214B9ECB0058A57F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		BBDAD9C8214B9ECB0058A57F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BBDAD9C9214B9ECB0058A57F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BBDAD9CA214B9ECB0058A57F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BBDAD9CB214B9ED60058A57F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BBDAD9CC214B9ED60058A57F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		BBDAD9CD214B9ED60058A57F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BBDAD9CE214B9ED60058A57F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BBDAD9CF214B9EE40058A57F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BBDAD9D0214B9EE40058A57F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		BBDAD9D1214B9EE40058A57F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BBDAD9D2214B9EE40058A57F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,6 +270,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB89B578214B8BC900B00E62 /* Build configuration list for PBXNativeTarget "ExCoin" */;
 			buildPhases = (
+				6525840F6FD05AB8019EEE71 /* [CP] Check Pods Manifest.lock */,
 				BB89B55E214B8BC900B00E62 /* Sources */,
 				BB89B55F214B8BC900B00E62 /* Frameworks */,
 				BB89B560214B8BC900B00E62 /* Resources */,
@@ -135,6 +328,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6525840F6FD05AB8019EEE71 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ExCoin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BB89B55E214B8BC900B00E62 /* Sources */ = {
@@ -220,7 +434,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -272,7 +486,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -281,10 +495,13 @@
 		};
 		BB89B579214B8BC900B00E62 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C34E92B5567E8576F8CB4BD2 /* Pods-ExCoin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ExCoin/Info.plist;
+				DEVELOPMENT_TEAM = 54GR6D54X3;
+				INFOPLIST_FILE = "$(SRCROOT)/ExCoin/Support/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -297,10 +514,13 @@
 		};
 		BB89B57A214B8BC900B00E62 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EA4343207EEF0A50482E929 /* Pods-ExCoin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ExCoin/Info.plist;
+				DEVELOPMENT_TEAM = 54GR6D54X3;
+				INFOPLIST_FILE = "$(SRCROOT)/ExCoin/Support/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
