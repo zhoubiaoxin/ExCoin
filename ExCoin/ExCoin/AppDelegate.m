@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "ZBTabBarController.h"
+#import "RDVTabBarController.h"
+#import "RDVTabBarItem.h"
+#import "ZBBaseNavVC.h"
 
 @interface AppDelegate ()
 
@@ -20,12 +23,46 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[ZBTabBarController alloc] init];;
+    [self setupViewControllers];
+    [self.window setRootViewController:self.viewController];
+
     [self.window makeKeyAndVisible];
     
     return YES;
 }
 
+#pragma mark - Methods
+
+- (void)setupViewControllers {
+    NSMutableArray * vcArr = [[NSMutableArray alloc] init];
+    [childArray enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL * _Nonnull stop) {
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:dict[StoryKey] bundle:nil];
+        UIViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:dict[ClassKey]];
+        
+        [vcArr addObject:vc];
+    }];
+    
+    RDVTabBarController *tabBarController = [[RDVTabBarController alloc] init];
+    [tabBarController setViewControllers:vcArr];
+    self.viewController = tabBarController;
+    
+    [self customizeTabBarForController:tabBarController];
+}
+
+- (void)customizeTabBarForController:(RDVTabBarController *)tabBarController {
+    NSInteger index = 0;
+    for (RDVTabBarItem *item in [[tabBarController tabBar] items]) {
+        NSDictionary *dict = childArray[index];
+        UIImage *selectedimage = [UIImage imageNamed:dict[SelImgKey]];
+        UIImage *unselectedimage = [UIImage imageNamed:dict[ImgKey]];
+        [item setFinishedSelectedImage:selectedimage withFinishedUnselectedImage:unselectedimage];
+        item.backgroundColor = ZBBGColor;
+        index++;
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, -0.5, ScreenW, 0.5)];
+        view.backgroundColor = [UIColor redColor];
+        [[UITabBar appearance] insertSubview:view atIndex:0];
+    }
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

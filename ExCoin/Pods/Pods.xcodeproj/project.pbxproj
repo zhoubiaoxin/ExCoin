@@ -3,27 +3,432 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B23D0B609AB07B002BA5700E3903176B /* Pods-ExCoin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5CA4744204338890D3D9293821A051 /* Pods-ExCoin-dummy.m */; };
+		00F1F2F79F61DD2BBC968C32453CFB3B /* PYGrid.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E98A837A75788416473B4587987FA01 /* PYGrid.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		028BE20956E587F90A8642E725C4D17B /* PYItemStyleProp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1979D9DC2EBFAC846E52ECC6203EA75E /* PYItemStyleProp.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		03841CBA2F5B206423E6D1E8696794E5 /* PYWordCloudSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F3C60169BA0755DA275CC9DD2871B1 /* PYWordCloudSeries.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		041B74313A464E06A63B7643F032F641 /* PYFunnelSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CFB970F9EC833D3ECCFF2271372E4BD /* PYFunnelSeries.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		061697D6671697E7E4EB16282542D165 /* PYRoamController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FD4123CEC489C907C35FB9B4F8A6F5 /* PYRoamController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0AEB2BF95521126F1F6174E69C4D8A17 /* PYAxisPointer.h in Headers */ = {isa = PBXBuildFile; fileRef = CC7B4555797EDCCF7EA1C8E6034F47EC /* PYAxisPointer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0B2AE0572C33861E7537C2674E197342 /* PYLinkStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 04F541593BCC232FCABFEA002BD965D4 /* PYLinkStyle.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0D94482C1DA801D83AF5955F2EA5B023 /* PYChordSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = A85913F20C907E3A92461A172DDFA247 /* PYChordSeries.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0DE1022BC2F2FB41CE24AF4F6FD9E2BA /* PYNoDataLoadingOption.h in Headers */ = {isa = PBXBuildFile; fileRef = 860417210254CA63F6A0CF937A0BACC3 /* PYNoDataLoadingOption.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		10AC0C98326291B5A87AC1B3E1AF1AD2 /* PYFunnelSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE47C709004C97486B9F31A3B8B4A04 /* PYFunnelSeries.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		111A114DE8B9AD35B5B8E627F3C0CE8F /* PYZoomEchartsView.h in Headers */ = {isa = PBXBuildFile; fileRef = 81A99165D1F62D56176526F4A3F6D1D1 /* PYZoomEchartsView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		164A3098B16259D9B9F615F70832D1FC /* PYTimeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E75967EB358B5937E197E9150F875E2 /* PYTimeline.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1761255A19920B32FCE9F6653DBD47E6 /* RDVTabBarController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93DE6D6A5B1BB5B13B437C384EF96B9A /* RDVTabBarController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		18E543C13F41C3972DACF03DC72F5609 /* GYReflection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BF327B90DF74EBA9543ABF332764C13 /* GYReflection.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		19787FF12EE43E3AA003EEAEC76BCA93 /* js in Resources */ = {isa = PBXBuildFile; fileRef = E87A201216AFBEC3E67C52D82860A1DA /* js */; };
+		1CDAAE8E5A1088B4F9097596554AE5D4 /* echarts.html in Resources */ = {isa = PBXBuildFile; fileRef = CF6A47A31B66FC20D1470D62E65F9257 /* echarts.html */; };
+		1CED852C4817EF5578E77B5F06BADE4F /* NSObject+PYObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B78A3A1CCEB4A096A558090C286952D /* NSObject+PYObject.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1EA5C537A0546057BBD653FD4CBF8AF6 /* PYAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = D815D45D1AAAFA1D4680E24327DCD714 /* PYAxis.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		21D5F6BA6A5ACBC1FBE31D4E8B8FF574 /* GYModelObjectProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F627A1FDBE690C9A5CC125D9932C1D3 /* GYModelObjectProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		227F68FB08054C6E7AF4D8B4EFF497BE /* PYMarkLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9ACBADF71D3E29008C5099101DD6A5 /* PYMarkLine.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		277F368709977FDF76A425B0BA50D5B5 /* GYDataCenter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5829EA92C9E1503574D8471E6C1026 /* GYDataCenter-dummy.m */; };
+		294AADC5DDB870177E53FEDFCC5E5383 /* GYDCUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = AED356425DAFBC9A159A6774784190A1 /* GYDCUtilities.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		295B49E4E8C35A05AF6E56ABAE5D96B7 /* PYPolar.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A4031FC549FF5600D22EA9367A9EBE /* PYPolar.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		299A5241FDC74EC2965785B9030215E7 /* PYAxisPointer.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AD6F3B14BDD18B892BDAB80B5AD4D0 /* PYAxisPointer.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2AB199715E4AFC805E8C6C6E34912611 /* FMDB-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C7C3943A089F74269C5E8D81DA68EA /* FMDB-dummy.m */; };
+		2D16F26ABBED16BC463202D68D289491 /* PYToolboxFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = 52A0A60E6F7CD4F2A867C9C9B6D207EA /* PYToolboxFeature.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2DC7391FF54F44CC7150EBF3A058A51C /* RDVTabBar.h in Headers */ = {isa = PBXBuildFile; fileRef = D5FAD3CD9123C0256CDBE09AC30EF763 /* RDVTabBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3207116E5C51BA439D37C8F0268D7DBC /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA30C30A117DF98254259013A88574F /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		37DCB9BBA589C475A78D23321904CF24 /* PYGaugeSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 2971BA31111F5636F45B329027E61461 /* PYGaugeSeries.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		387DD4A250190C3E4FD1FCE8B2CDC852 /* PYHeatmapSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = D78B9FBF98D9D3D50F65C2CFC3597453 /* PYHeatmapSeries.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3F7770303380CB31193AA91C274CB8C4 /* PYLineStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9CC0531AFC07C50F4811F01613B551 /* PYLineStyle.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3FC0A0B3C9CECCC63171AE95DCFCEC2F /* PYEventRiverSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F25158242A1BFD78FC8CF95B9EEA83 /* PYEventRiverSeries.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		40EFDE9F2E48BA1DC2684C516C4990DF /* PYOption.h in Headers */ = {isa = PBXBuildFile; fileRef = 510CAB30F5F6DEACE8AC4626A79501C1 /* PYOption.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		41BD2419CC2455CF37E1B45D1EF7C15F /* PYTextStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2D673490A1C15CB17EC586D81E6244 /* PYTextStyle.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		41ED6D138627A96A4C3E29F3736D9A7D /* PYTreeMapSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B31A95DDEE40BAB8ABF8177846B95FB /* PYTreeMapSeries.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		424A4732EBD1A473B0637DB3FD279ED5 /* WKEchartsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B003B10264EC7D1E4CE9A3126B4B7A4 /* WKEchartsView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		430D57E8D1F7E142D62422A469F82D6E /* PYLegend.m in Sources */ = {isa = PBXBuildFile; fileRef = A12DCBCB66DBA91B1C1B2FE89820209F /* PYLegend.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		455CA0DB8902DE9D1BAD1FD1DAE63BE2 /* PYToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2402AF9A00C06A12C6BAE264E8005A /* PYToolbox.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		48724EA77AD96F756D898ED37FFA834F /* PYCartesianSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7412490BC1A05A10F3EA997E5F0E05 /* PYCartesianSeries.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		491A632F0075898A543B914652714335 /* PYTreeMapSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 779FEE40C54F04290E760EF1ECB22A59 /* PYTreeMapSeries.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4AD5E55559D072136241F99A16ECC4D5 /* PYLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = 93663A72A33433DA2F0F2B732F51DDB0 /* PYLinks.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4F743D7CB6DFD0551BB38187C7F4D47B /* PYPieSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = D7264F026AEF37380C7B93595887D36A /* PYPieSeries.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4FD28711D6E246A4549714ABE28E4B6E /* GYModelObject.h in Headers */ = {isa = PBXBuildFile; fileRef = D27387E3CD95AAEE6FF10D40DFA1A0B8 /* GYModelObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		544BBA4AC68E138EB5CEA21746FB9AE3 /* PYHeatmapSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 69027EDEC3EED1EFA744A8EC2066DC61 /* PYHeatmapSeries.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		56D2421764E27D8514D03AE751847E95 /* PYLoadingOption.h in Headers */ = {isa = PBXBuildFile; fileRef = 044AD6A7E155D040D636AF883B10CF57 /* PYLoadingOption.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		578859A9E459AE3CD127BBAA9358A9C7 /* PYEventRiverSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 10DE725DAC50242AA4F14651EA1F33BE /* PYEventRiverSeries.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5ABF1EB2818B928D2DCE089C26B828F3 /* PYChordStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = B76AD6F3AB1D493E8755BA578C63B009 /* PYChordStyle.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5D54206C499AF4E7204E5CD244ED17BB /* PYMarkPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D9D4E935F4F1100E80216FD3C89440 /* PYMarkPoint.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5E707AC772B0D7F94B57095FBDA24D59 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C387D4FBC08CC3E1EFD5941F28BE2EB /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5F07644B78BFB7B06E7A05A07D2CC495 /* PYOption.m in Sources */ = {isa = PBXBuildFile; fileRef = BF393419FBF913D5979DF8B61FD28FB2 /* PYOption.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		609B90876938C5318F1C64A73C267DA1 /* PYChordSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C1C3D6C599953F08F05DBD7992498F2 /* PYChordSeries.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		60C11331CB04D7E3B080A3A32F5642F8 /* PYAxisSplitLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3BB5686376978EE1CC29E242764BAA /* PYAxisSplitLine.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6121B0F5037B0893EEE4CE6D5FDB1469 /* PYAreaStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8165B590A8FD2B2166DB0224FA519926 /* PYAreaStyle.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		66D57D1876B5B163FA9FB76B6CE3E54D /* NSObject+PYObject.h in Headers */ = {isa = PBXBuildFile; fileRef = EEAC5F94FAA48251904A37647BDD6A05 /* NSObject+PYObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		67D747DBE48B0576F31CC6A65708E95D /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0535A0F5B3C63E2CEE2AF5ABCF9E05 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		696474495A5B78610DDA6E677C9D45CA /* PYToolboxFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E711980139A861203D53120360DB144 /* PYToolboxFeature.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6A6E0F73729ED35546AA84CEB4518329 /* PYNodeStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 038A1DD1139F334E8EF0C84DF864C523 /* PYNodeStyle.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6B1A19378F1273CFB22D4061E8D48658 /* PYWordCloudSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 09B94059CFFD53C7CEA5CD82F9952511 /* PYWordCloudSeries.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6B64AE43A08C2A738EC4E8947C898405 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 2218A9CD84FD7BC3B71D540524E9AB35 /* FMDatabase.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6E5806338005EAEBB406E12D25435E43 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = F4ADBAB9E75200B45224CFF680A7ECD7 /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6EEEFB6505574674F7683E5915DDFC69 /* PYMapSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2336F24621AB9265B76AA41CFF9F51 /* PYMapSeries.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		71B8737275444D3B36FD701498168BCE /* GYDataCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = D634B809B3FDAFFAD4224045FBBC045F /* GYDataCenter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		732DB105D8AD0F46ED07B4358EA8F9C8 /* GYDataContext.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA31E8AF03B33ED305C0871C3FD3CD8 /* GYDataContext.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7334AB046A112426E282C686CE787714 /* PYItemStyleProp.h in Headers */ = {isa = PBXBuildFile; fileRef = 2600C902FB91081443EC1AAB08D7F6D6 /* PYItemStyleProp.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		73A2FADC28D10550512D491367A0E0B1 /* PYRadarSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D529D544F74C5DEBD12E59044AC275 /* PYRadarSeries.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		73FFE5C9BBD1758E7858AF1297BD4F46 /* PYAxisLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 892630FDBF0617E5AC7088D1199E754D /* PYAxisLine.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		77AABF22D6D4F8BFFA6B3868250CF26D /* PYRoamController.h in Headers */ = {isa = PBXBuildFile; fileRef = DC1D885FD8023B5C8D973765F8C6ECA2 /* PYRoamController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7A94BC0AA89299A5AB35E2E6041AB693 /* FMDatabaseQueue+Async.m in Sources */ = {isa = PBXBuildFile; fileRef = CC87988AA8B28A72A433852864359772 /* FMDatabaseQueue+Async.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7CA38CAF3C4D34C63E527F656AA6129F /* RDVTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B12C25E6563CB12C40211F3E07896719 /* RDVTabBarItem.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7D88AAE7FF77E5D986B4A62231160FC5 /* iOS-Echarts.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F4AE9E0D53B827AC9D8ED7E5F1606DD /* iOS-Echarts.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7E115FD84CAFCFD022340D22E741763C /* FMDatabaseQueue+Async.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B6E62503EBC6B5E1AD98F91DDD9CD8B /* FMDatabaseQueue+Async.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7E3853AFD2131DB12394416B2FEB089C /* PYTreeSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 77AEC28C3DCAD997D6D58EEFC75C8501 /* PYTreeSeries.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7FC79632312F3F81303F26B61BE819FE /* WKEchartsView.h in Headers */ = {isa = PBXBuildFile; fileRef = E5F45550162A81646F1E37A9A170E7F3 /* WKEchartsView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		84D41D21E081F240305BCE0C37474CC7 /* RDVTabBarController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E53144409A6E8339C9E9E99914E1767D /* RDVTabBarController-dummy.m */; };
+		87312498C37647415EE62B78816AF509 /* PYAxisLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 52AAA287890E47B88D57827F3F038833 /* PYAxisLine.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8AC58A28357F0DE13ABDD7B6EF32087E /* GYDBRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9728E409E69788CF39C1C283EA3FCEB4 /* GYDBRunner.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8C3D76AAC0C348D6BC5756AE085D1FEB /* PYAxisSplitLine.h in Headers */ = {isa = PBXBuildFile; fileRef = D73CE15D0FF1AAE500B061579BE5D7BD /* PYAxisSplitLine.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8EBF2D86EC780AABDB9EF4977BC1C0B3 /* PYAxis.h in Headers */ = {isa = PBXBuildFile; fileRef = EF2A2F88CAB0BDA51B03FEF1671567A4 /* PYAxis.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8F305F4230207662154F143D2F2EA26A /* PYJsonUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 725D94D88C561D556EBC3D0F1DC4D3E2 /* PYJsonUtil.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8FC1EAEF8DCEE63430E105DE81426934 /* PYLinkStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FFC11ED0F5255193FF590D97CD3BC1 /* PYLinkStyle.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		90EB1AD1CE143F3C9DCD6A82A631C926 /* PYAreaStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = D69611CDE349C5D329A346CC4DC4E3A0 /* PYAreaStyle.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9197CF18531F9FB444B5FFF821E5CC9A /* PYCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6EAAAE3FA4E60C30F6B2483DEAA429 /* PYCategories.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		937F5A439FE5FDD6F97F46D7FF9E169E /* PYSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 5294CB42338BE04FF4206A70099788CA /* PYSeries.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		93FC7E21D4B980BC46BE17932932B46E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ACF330A72DC40E450388407F7DFB2F7 /* UIKit.framework */; };
+		942021A7E84F584E799C3E9D7F9A925C /* PYLineStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 181C5860492E613280C36772B73AFF29 /* PYLineStyle.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		94C0DE9CB03524CBFA5584BAD5B946E6 /* PYCartesianSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = B247D923B869FEFD7DDEB6DE3464BF2F /* PYCartesianSeries.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		958A213A844D537D936BB0015F36A8AC /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = EF28EA667AB79D511E33DF181F2D2EFE /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		97574094E1F996ED504E9C90F716B641 /* theme in Resources */ = {isa = PBXBuildFile; fileRef = 6A5C853A9AFAFD10DCA8BBB994576887 /* theme */; };
+		990D0A30E046F55A4825AB84E1DABFEF /* PYSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 79BFF6815D9AC2CF2EF264371AB5ABA3 /* PYSeries.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9B9156E6BB4B1FF56CE4844FCBACCA23 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ACF330A72DC40E450388407F7DFB2F7 /* UIKit.framework */; };
+		9C48B43DBDE2136B644605F59BE20B21 /* PYVennSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = F3C17FD2AFA9769F62158AB2D8CBEE27 /* PYVennSeries.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9D0F160C11E1EE8112C1D0E41B461D8E /* PYTextStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 248D52846CF1931F7224E9829456DCE4 /* PYTextStyle.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A15D7ECB69B75B79906248E6E3BC9CC7 /* GYReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF2874EB10FE66C303467CDB6A5FDD0 /* GYReflection.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A18893EDCCBCA7F549EF21483264B80B /* PYChordStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A1ADD08412536C13D7C590114278B3 /* PYChordStyle.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A2D4B33CFD28DBCCB3B222628D7AB47D /* GYDCUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 9246E71ED47EC6012ADACFD37D9A3A00 /* GYDCUtilities.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A41D556CB521DB8C9550E804065AA8AE /* PYAxisTick.m in Sources */ = {isa = PBXBuildFile; fileRef = 168713F86C3C3652D8BFA3C00269D5E7 /* PYAxisTick.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A5C9507931A589AD4671091A355844E7 /* GYDBRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E9D1321FC3588951BB0120019064A53 /* GYDBRunner.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A5FE84969A66A9E1F92A27E72AB22558 /* PYVennSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB3D5FC658F1C5FAEDB3B29F760FC6B /* PYVennSeries.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A641D0326CF4F2E50B9B3FC6A8D72E41 /* PYColor.m in Sources */ = {isa = PBXBuildFile; fileRef = BF66F6F0824C30C58ADA774CA2EA22FA /* PYColor.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A77A09FCD558B81E269146E88CA90F1B /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1A33F79B00012822270FA3B5DC8E18 /* RDVTabBar.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A7A3227213131CA2C31C03F526E26BF1 /* PYCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A11DCFEB3BA80AB330FE213445F0A69 /* PYCategories.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A7E84E3E02AA15605C36892AEFE6F300 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C639AB9BF9E2781DDE5D1271A7B7A3A /* FMResultSet.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A94C4837623C28C901EE57807584946E /* PYMarkPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F4E96A9AE6C9FEA82D49174ABCE4BB /* PYMarkPoint.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A988BA041F96D75962EB095EF3FD63E2 /* PYDataZoom.h in Headers */ = {isa = PBXBuildFile; fileRef = A4B67886E040AD3DCEFC3502D2ACFA6A /* PYDataZoom.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A9A74CAEFB0291D34D18A20E8CD67458 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888156FA7EF8DE87950E8D5F409FB575 /* Foundation.framework */; };
+		AA90DA4C6D20561133D364A614CFB08C /* PYTreeSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 59091E9D17B98545465D038D1CD3DE34 /* PYTreeSeries.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		AEFA65CCA635F42C4B4D4B4B431702E6 /* PYPolar.h in Headers */ = {isa = PBXBuildFile; fileRef = A471A6C42DA447186B43C60F96E3854F /* PYPolar.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B69394F48C16F5460611A08C49749074 /* PYDataRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8E620FC0E2B78459EBE1FEAFEBA6B8 /* PYDataRange.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B716560EAB2510D47802699FD0A18FFD /* PYEchartsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C963B5E38B9FB69D7A20C4163557A21E /* PYEchartsView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		BA6F3C90377990995510FAA8056E1AF1 /* PYNodes.h in Headers */ = {isa = PBXBuildFile; fileRef = CC00B93FD90D429092EFC48B299EB583 /* PYNodes.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BC9B764C70B0B76CBAC3FC8A757E02DC /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7099C9F4B03A442C198600DE22613768 /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BE634D2F2C87B24DABC37AB48A98A547 /* PYLinks.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FDC5C6DF86F43991486BE63879158E9 /* PYLinks.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C0A6CE096ED134795A4CB4490F7B4A27 /* PYLoadingOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6644704CCC150DBC6665BA7C7931A2 /* PYLoadingOption.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C218A3CA01297A999CE67C416C5A03C6 /* PYJsonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B4F289FFEBB2A16B8D1977517658F88 /* PYJsonUtil.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C32363AF2C2D8CAE297D23043076A95D /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 57E2BEF983AE38A96B6F3D0EE81A3D5E /* FMDB.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C35C98C0066C2D88EB4284EA5F95C36B /* PYGaugeSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A21ACF7011B02359E724716A51E51E /* PYGaugeSeries.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C38E53C51B59DD781C56D29B6184CC43 /* RDVTabBarItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 64EA8D6094B1A7D3CA4FAD7B5A7FF21F /* RDVTabBarItem.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C47CE13BF381AA10F4F1EBAF2A1BC629 /* PYSplitArea.h in Headers */ = {isa = PBXBuildFile; fileRef = 74E2782CEE769D71A471A3756BB10531 /* PYSplitArea.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C617CDAE065060A7E78DE4F04B8DD7BA /* PYTitle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FBA5D84DAD9FC79E0DC542F27A7DB2F /* PYTitle.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C71DCAFF5AB8C1AACEA2C0007ACCCA8E /* PYItemStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 652FA09D0B4F955091DACFA4DC119C2C /* PYItemStyle.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C7BBA890480FF28AFA45C442C974BCF8 /* PYNodes.m in Sources */ = {isa = PBXBuildFile; fileRef = A33B0C3B7F9A842CA1D5C4DFDDFF564C /* PYNodes.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C7E2C026FDBAE64F1CF5C919E4F2E759 /* PYTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = FE463826B353DF57750832CB52C33A60 /* PYTitle.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C96DDEC1BA5C7FAAF2864071228B14A8 /* PYLegend.h in Headers */ = {isa = PBXBuildFile; fileRef = 97AF95DF6F6803DD93A492C9DCBCB480 /* PYLegend.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CD8721FED6303CFFF5997794C9DFDF8B /* GYDataContext.h in Headers */ = {isa = PBXBuildFile; fileRef = B2ECFA9FA22F63F6F3D50E8A1A6C5B7D /* GYDataContext.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CF6B694B3D29325ED4C6A3CF98741B66 /* iOS-Echarts-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B38E3D010BB45D80DDE8D910E9A3C27D /* iOS-Echarts-dummy.m */; };
+		CFC4E60724303240DBE6A9E0DCE6823C /* PYAxisTick.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEBFDC2C95B42A22E05C992FE383407 /* PYAxisTick.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D249A02EFE43684C9FDA7A0E03657211 /* PYForceSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 284A68BC432B92104A7AA00BF1FEE70D /* PYForceSeries.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D2D5A2F646E0A3CA35A39CBD7025A87F /* PYDataZoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C86C154BFA0FDBAA2323D13DAAA5F6 /* PYDataZoom.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D6465B530597BB27BB9C6CA2A5A230BC /* GYModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED2A2CDC2372BBC17A09CF13139562 /* GYModelObject.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D772E908BB7AD2C151257126626E3749 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD88DCD5873E78C5D6177D17DD10EFFE /* CoreGraphics.framework */; };
+		D8DA20815B00E8B6E04FBB3F9CC10DEE /* PYAxisLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7600553FB39B6539DD249148BB7717C /* PYAxisLabel.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D9434AFAFE4F9F83FC88C097E5799D60 /* PYTooltip.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A9BD9843C43B6EC8E903D7B00FFF30 /* PYTooltip.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D9F848B837FE960B045BC2D1770A56F5 /* PYToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 86DA27E0FABE2EB7B123B6CF7902A3F6 /* PYToolbox.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DA6F503BEBC3631865C9B1D0EF40878A /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AB88D8AC56FFA626C6C8CCF5169B055 /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DC24F7DDBDC74464CC4F90685A788E88 /* PYPieSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE618C620AB01AB1FCF13B6A1984A45 /* PYPieSeries.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		E051663CC8EBB27A9528E33BD1CA498F /* PYColor.h in Headers */ = {isa = PBXBuildFile; fileRef = BFE13704F901A1971759D287962C7A5E /* PYColor.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E12550F18057906E11F2187F0B846B7F /* PYItemStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 203D5AABB6B0DE84414BBA133F52115C /* PYItemStyle.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E18F8801D05ECC03A37E6D0027B325F3 /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B321ADB40EE57A9D5E57A0FCA76AF2E4 /* RDVTabBarController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		E3A8EA7C937BFDAA2B53C5F2188B67D8 /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = BB5EA34EC10FCF3D88B92206D6468591 /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E583736DC28DF44556BBE1C10A8BD7EB /* PYAxisLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D755171729BAC1D37BE8B3D2895EC2 /* PYAxisLabel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E8D67B1B14C12C0FDCA73F1D99D283C2 /* PYDataRange.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BF8FA7F7076ECF07389B6FA783393F1 /* PYDataRange.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EBE489BB80C76131D59923214AD6DD29 /* PYNodeStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = B14C1077550FDAE005AE8F282B3920E6 /* PYNodeStyle.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EC72B91B8933EEC01BED491BA8B35F43 /* PYZoomEchartsView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED82B1E27DF00E28F31229F938A12C74 /* PYZoomEchartsView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		ED567C96285524CD01316B74C450BC66 /* PYRadarSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = FDCB9DCE79661A040DC309A08ACC6C0B /* PYRadarSeries.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F08D1DFD6A1CEC9C72FA982C5983F9D4 /* Pods-ExCoin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5CA4744204338890D3D9293821A051 /* Pods-ExCoin-dummy.m */; };
+		F2207B6CCB2F9A7A80CBD61D847C8A00 /* PYTimeline.h in Headers */ = {isa = PBXBuildFile; fileRef = 81D1C232BD09FFEE308D02E7F9301E37 /* PYTimeline.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F4101DF6CF4063437E46440FD5F3703F /* PYSplitArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C5F8DFF45B48B96D373FCA27C756AA7 /* PYSplitArea.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F4ADD3D524B608B623D34A474E95C612 /* PYUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B9449580CF102A0D2930B919455313A2 /* PYUtilities.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F72CA835ADEDC7BF6A84B79F9F9FF867 /* PYForceSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = B663C7C39C39F2846DFDDB9B4D54E9D4 /* PYForceSeries.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FA117CE75EC823795DD45A7781CC20B2 /* PYGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 670AE74B06B189B35ADC9F8CB885C2AC /* PYGrid.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FB2C10A7B311B8D08E83362AB519ECAB /* PYMapSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = EC219CD9CB7A1F8ACF792823BDCD05EC /* PYMapSeries.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FBE41F97709704D590670C741FA88AD3 /* PYTooltip.h in Headers */ = {isa = PBXBuildFile; fileRef = D558608518651A23E7FF0E17750BD6CE /* PYTooltip.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FC025BA1C128D4818761F630B158A62D /* PYEchartsView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A7C9D272FD0F8E4E3A99AE3061973B6 /* PYEchartsView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FF0B52548161EBBA381E0D142361B1D5 /* PYMarkLine.h in Headers */ = {isa = PBXBuildFile; fileRef = BA39349B47B22700C87EA99927DE228C /* PYMarkLine.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FFE256DC5B1667464F7D74D63537F393 /* PYNoDataLoadingOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 6685DD788A6391C67230288F2BA80FCD /* PYNoDataLoadingOption.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4E7AEAF100129F163599C5B96597FD3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D52F3FEDC54BCF9E839322F8FF66949B;
+			remoteInfo = RDVTabBarController;
+		};
+		567640F77719C09629FEC750B21C16B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD1AE16515BC23A92CC12B34FC84B0CC;
+			remoteInfo = GYDataCenter;
+		};
+		857F230886E249D2114190909E5AA474 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 563CFC01733EEFF7BC491B560ED1DBFA;
+			remoteInfo = FMDB;
+		};
+		B3A0AED3AEC05AF484F6B8DD2648B00E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 563CFC01733EEFF7BC491B560ED1DBFA;
+			remoteInfo = FMDB;
+		};
+		D2C23C4B8A21F6233963A137A5819633 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE5BB35B652B5A8006A9120BCDD05D7C;
+			remoteInfo = "iOS-Echarts";
+		};
+		DB25A579FD62C23B47B9930208EE9E7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1B7CCFF23CDFBBB38A6490083C63941;
+			remoteInfo = "iOS-Echarts-iOS-Echarts";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		038A1DD1139F334E8EF0C84DF864C523 /* PYNodeStyle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYNodeStyle.m; path = "iOS-Echarts/Model/PYNodeStyle.m"; sourceTree = "<group>"; };
+		044AD6A7E155D040D636AF883B10CF57 /* PYLoadingOption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYLoadingOption.h; path = "iOS-Echarts/Model/PYLoadingOption.h"; sourceTree = "<group>"; };
+		04F541593BCC232FCABFEA002BD965D4 /* PYLinkStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYLinkStyle.h; path = "iOS-Echarts/Model/PYLinkStyle.h"; sourceTree = "<group>"; };
+		09B94059CFFD53C7CEA5CD82F9952511 /* PYWordCloudSeries.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYWordCloudSeries.h; path = "iOS-Echarts/Model/Series/PYWordCloudSeries.h"; sourceTree = "<group>"; };
+		0B003B10264EC7D1E4CE9A3126B4B7A4 /* WKEchartsView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WKEchartsView.m; path = "iOS-Echarts/View/WKEchartsView.m"; sourceTree = "<group>"; };
+		0BF8FA7F7076ECF07389B6FA783393F1 /* PYDataRange.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYDataRange.h; path = "iOS-Echarts/Model/PYDataRange.h"; sourceTree = "<group>"; };
+		0DB3D5FC658F1C5FAEDB3B29F760FC6B /* PYVennSeries.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYVennSeries.m; path = "iOS-Echarts/Model/Series/PYVennSeries.m"; sourceTree = "<group>"; };
+		0E75967EB358B5937E197E9150F875E2 /* PYTimeline.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYTimeline.m; path = "iOS-Echarts/Model/PYTimeline.m"; sourceTree = "<group>"; };
+		0EE47C709004C97486B9F31A3B8B4A04 /* PYFunnelSeries.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYFunnelSeries.m; path = "iOS-Echarts/Model/Series/PYFunnelSeries.m"; sourceTree = "<group>"; };
+		0F4AE9E0D53B827AC9D8ED7E5F1606DD /* iOS-Echarts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "iOS-Echarts.h"; path = "iOS-Echarts/iOS-Echarts.h"; sourceTree = "<group>"; };
+		10DE725DAC50242AA4F14651EA1F33BE /* PYEventRiverSeries.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYEventRiverSeries.h; path = "iOS-Echarts/Model/Series/PYEventRiverSeries.h"; sourceTree = "<group>"; };
+		168713F86C3C3652D8BFA3C00269D5E7 /* PYAxisTick.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYAxisTick.m; path = "iOS-Echarts/Model/PYAxisTick.m"; sourceTree = "<group>"; };
+		181C5860492E613280C36772B73AFF29 /* PYLineStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYLineStyle.h; path = "iOS-Echarts/Model/PYLineStyle.h"; sourceTree = "<group>"; };
+		1979D9DC2EBFAC846E52ECC6203EA75E /* PYItemStyleProp.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYItemStyleProp.m; path = "iOS-Echarts/Model/PYItemStyleProp.m"; sourceTree = "<group>"; };
+		1ACF330A72DC40E450388407F7DFB2F7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		1B1A33F79B00012822270FA3B5DC8E18 /* RDVTabBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDVTabBar.m; path = RDVTabBarController/RDVTabBar.m; sourceTree = "<group>"; };
+		1B31A95DDEE40BAB8ABF8177846B95FB /* PYTreeMapSeries.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYTreeMapSeries.m; path = "iOS-Echarts/Model/Series/PYTreeMapSeries.m"; sourceTree = "<group>"; };
+		1BBC27961F194A3769C3E1368F37FE00 /* iOS-Echarts.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "iOS-Echarts.xcconfig"; sourceTree = "<group>"; };
+		1E711980139A861203D53120360DB144 /* PYToolboxFeature.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYToolboxFeature.m; path = "iOS-Echarts/Model/PYToolboxFeature.m"; sourceTree = "<group>"; };
+		1E98A837A75788416473B4587987FA01 /* PYGrid.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYGrid.h; path = "iOS-Echarts/Model/PYGrid.h"; sourceTree = "<group>"; };
+		1FDC5C6DF86F43991486BE63879158E9 /* PYLinks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYLinks.h; path = "iOS-Echarts/Model/PYLinks.h"; sourceTree = "<group>"; };
+		203D5AABB6B0DE84414BBA133F52115C /* PYItemStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYItemStyle.h; path = "iOS-Echarts/Model/PYItemStyle.h"; sourceTree = "<group>"; };
+		2218A9CD84FD7BC3B71D540524E9AB35 /* FMDatabase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
+		248D52846CF1931F7224E9829456DCE4 /* PYTextStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYTextStyle.h; path = "iOS-Echarts/Model/PYTextStyle.h"; sourceTree = "<group>"; };
+		2600C902FB91081443EC1AAB08D7F6D6 /* PYItemStyleProp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYItemStyleProp.h; path = "iOS-Echarts/Model/PYItemStyleProp.h"; sourceTree = "<group>"; };
+		284A68BC432B92104A7AA00BF1FEE70D /* PYForceSeries.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYForceSeries.h; path = "iOS-Echarts/Model/Series/PYForceSeries.h"; sourceTree = "<group>"; };
+		28BC912D8A624B8004C4F6289ECCA6ED /* libFMDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFMDB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		28FB897BFEFDFCF78961B073515B249F /* iOS-Echarts-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOS-Echarts-prefix.pch"; sourceTree = "<group>"; };
+		2971BA31111F5636F45B329027E61461 /* PYGaugeSeries.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYGaugeSeries.h; path = "iOS-Echarts/Model/Series/PYGaugeSeries.h"; sourceTree = "<group>"; };
+		2B6644704CCC150DBC6665BA7C7931A2 /* PYLoadingOption.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYLoadingOption.m; path = "iOS-Echarts/Model/PYLoadingOption.m"; sourceTree = "<group>"; };
+		2B9CC0531AFC07C50F4811F01613B551 /* PYLineStyle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYLineStyle.m; path = "iOS-Echarts/Model/PYLineStyle.m"; sourceTree = "<group>"; };
+		2BBA78F888E324CA6B7FCB19CC6D8A3C /* GYDataCenter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GYDataCenter-prefix.pch"; sourceTree = "<group>"; };
+		2C1C3D6C599953F08F05DBD7992498F2 /* PYChordSeries.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYChordSeries.h; path = "iOS-Echarts/Model/Series/PYChordSeries.h"; sourceTree = "<group>"; };
+		2C387D4FBC08CC3E1EFD5941F28BE2EB /* FMDatabaseQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = src/fmdb/FMDatabaseQueue.m; sourceTree = "<group>"; };
+		2C639AB9BF9E2781DDE5D1271A7B7A3A /* FMResultSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
+		2CFB970F9EC833D3ECCFF2271372E4BD /* PYFunnelSeries.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYFunnelSeries.h; path = "iOS-Echarts/Model/Series/PYFunnelSeries.h"; sourceTree = "<group>"; };
+		2E9D1321FC3588951BB0120019064A53 /* GYDBRunner.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GYDBRunner.h; path = GYDataCenter/GYDBRunner.h; sourceTree = "<group>"; };
+		2EA30C30A117DF98254259013A88574F /* FMResultSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
+		37F3C60169BA0755DA275CC9DD2871B1 /* PYWordCloudSeries.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYWordCloudSeries.m; path = "iOS-Echarts/Model/Series/PYWordCloudSeries.m"; sourceTree = "<group>"; };
+		393F1354B5280B1A430F541A05EF547A /* ResourceBundle-iOS-Echarts-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-iOS-Echarts-Info.plist"; sourceTree = "<group>"; };
 		3BC76C19F0538633AAB76EBD2172ECB2 /* Pods-ExCoin-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ExCoin-resources.sh"; sourceTree = "<group>"; };
+		3D2D673490A1C15CB17EC586D81E6244 /* PYTextStyle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYTextStyle.m; path = "iOS-Echarts/Model/PYTextStyle.m"; sourceTree = "<group>"; };
+		3D5DE993F80F3CA8AB699D53E40B6B78 /* libRDVTabBarController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRDVTabBarController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F9ACBADF71D3E29008C5099101DD6A5 /* PYMarkLine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYMarkLine.m; path = "iOS-Echarts/Model/Series/PYMarkLine.m"; sourceTree = "<group>"; };
+		45884E169512031EF60658EEBFE79B88 /* FMDB.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FMDB.xcconfig; sourceTree = "<group>"; };
+		46F4E96A9AE6C9FEA82D49174ABCE4BB /* PYMarkPoint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYMarkPoint.m; path = "iOS-Echarts/Model/Series/PYMarkPoint.m"; sourceTree = "<group>"; };
+		4FF2874EB10FE66C303467CDB6A5FDD0 /* GYReflection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GYReflection.m; path = GYDataCenter/Utilities/GYReflection.m; sourceTree = "<group>"; };
+		510CAB30F5F6DEACE8AC4626A79501C1 /* PYOption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYOption.h; path = "iOS-Echarts/Model/PYOption.h"; sourceTree = "<group>"; };
+		5294CB42338BE04FF4206A70099788CA /* PYSeries.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYSeries.h; path = "iOS-Echarts/Model/Series/PYSeries.h"; sourceTree = "<group>"; };
+		52A0A60E6F7CD4F2A867C9C9B6D207EA /* PYToolboxFeature.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYToolboxFeature.h; path = "iOS-Echarts/Model/PYToolboxFeature.h"; sourceTree = "<group>"; };
+		52AAA287890E47B88D57827F3F038833 /* PYAxisLine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYAxisLine.h; path = "iOS-Echarts/Model/PYAxisLine.h"; sourceTree = "<group>"; };
+		53CFD99B56DD3DAEBBCDA0F8F8C41276 /* libPods-ExCoin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ExCoin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56A21ACF7011B02359E724716A51E51E /* PYGaugeSeries.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYGaugeSeries.m; path = "iOS-Echarts/Model/Series/PYGaugeSeries.m"; sourceTree = "<group>"; };
+		56A4031FC549FF5600D22EA9367A9EBE /* PYPolar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYPolar.m; path = "iOS-Echarts/Model/PYPolar.m"; sourceTree = "<group>"; };
+		57E2BEF983AE38A96B6F3D0EE81A3D5E /* FMDB.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = src/fmdb/FMDB.h; sourceTree = "<group>"; };
+		59091E9D17B98545465D038D1CD3DE34 /* PYTreeSeries.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYTreeSeries.m; path = "iOS-Echarts/Model/Series/PYTreeSeries.m"; sourceTree = "<group>"; };
+		5A2402AF9A00C06A12C6BAE264E8005A /* PYToolbox.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYToolbox.m; path = "iOS-Echarts/Model/PYToolbox.m"; sourceTree = "<group>"; };
 		5A7C343A93C8E5DE0A589186AD08918B /* Pods-ExCoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ExCoin.release.xcconfig"; sourceTree = "<group>"; };
+		5C5F8DFF45B48B96D373FCA27C756AA7 /* PYSplitArea.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYSplitArea.m; path = "iOS-Echarts/Model/PYSplitArea.m"; sourceTree = "<group>"; };
+		5FBA5D84DAD9FC79E0DC542F27A7DB2F /* PYTitle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYTitle.h; path = "iOS-Echarts/Model/PYTitle.h"; sourceTree = "<group>"; };
+		60D755171729BAC1D37BE8B3D2895EC2 /* PYAxisLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYAxisLabel.h; path = "iOS-Echarts/Model/PYAxisLabel.h"; sourceTree = "<group>"; };
+		61FFC11ED0F5255193FF590D97CD3BC1 /* PYLinkStyle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYLinkStyle.m; path = "iOS-Echarts/Model/PYLinkStyle.m"; sourceTree = "<group>"; };
+		64EA8D6094B1A7D3CA4FAD7B5A7FF21F /* RDVTabBarItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDVTabBarItem.h; path = RDVTabBarController/RDVTabBarItem.h; sourceTree = "<group>"; };
+		652FA09D0B4F955091DACFA4DC119C2C /* PYItemStyle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYItemStyle.m; path = "iOS-Echarts/Model/PYItemStyle.m"; sourceTree = "<group>"; };
+		6685DD788A6391C67230288F2BA80FCD /* PYNoDataLoadingOption.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYNoDataLoadingOption.m; path = "iOS-Echarts/Model/PYNoDataLoadingOption.m"; sourceTree = "<group>"; };
+		670AE74B06B189B35ADC9F8CB885C2AC /* PYGrid.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYGrid.m; path = "iOS-Echarts/Model/PYGrid.m"; sourceTree = "<group>"; };
+		68D529D544F74C5DEBD12E59044AC275 /* PYRadarSeries.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYRadarSeries.m; path = "iOS-Echarts/Model/Series/PYRadarSeries.m"; sourceTree = "<group>"; };
+		69027EDEC3EED1EFA744A8EC2066DC61 /* PYHeatmapSeries.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYHeatmapSeries.m; path = "iOS-Echarts/Model/Series/PYHeatmapSeries.m"; sourceTree = "<group>"; };
+		6A11DCFEB3BA80AB330FE213445F0A69 /* PYCategories.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYCategories.h; path = "iOS-Echarts/Model/PYCategories.h"; sourceTree = "<group>"; };
+		6A5C853A9AFAFD10DCA8BBB994576887 /* theme */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = theme; path = "iOS-Echarts/Resources/theme"; sourceTree = "<group>"; };
+		6AB88D8AC56FFA626C6C8CCF5169B055 /* FMDatabasePool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
+		6B4F289FFEBB2A16B8D1977517658F88 /* PYJsonUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYJsonUtil.m; path = "iOS-Echarts/Util/PYJsonUtil.m"; sourceTree = "<group>"; };
+		6B78A3A1CCEB4A096A558090C286952D /* NSObject+PYObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+PYObject.m"; path = "iOS-Echarts/Categories/NSObject+PYObject.m"; sourceTree = "<group>"; };
+		6BF327B90DF74EBA9543ABF332764C13 /* GYReflection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GYReflection.h; path = GYDataCenter/Utilities/GYReflection.h; sourceTree = "<group>"; };
+		6E7412490BC1A05A10F3EA997E5F0E05 /* PYCartesianSeries.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYCartesianSeries.m; path = "iOS-Echarts/Model/Series/PYCartesianSeries.m"; sourceTree = "<group>"; };
+		6F627A1FDBE690C9A5CC125D9932C1D3 /* GYModelObjectProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GYModelObjectProtocol.h; path = GYDataCenter/GYModelObjectProtocol.h; sourceTree = "<group>"; };
+		7099C9F4B03A442C198600DE22613768 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		725D94D88C561D556EBC3D0F1DC4D3E2 /* PYJsonUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYJsonUtil.h; path = "iOS-Echarts/Util/PYJsonUtil.h"; sourceTree = "<group>"; };
+		74E2782CEE769D71A471A3756BB10531 /* PYSplitArea.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYSplitArea.h; path = "iOS-Echarts/Model/PYSplitArea.h"; sourceTree = "<group>"; };
+		758C118921844B937005C743C7495777 /* RDVTabBarController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RDVTabBarController-prefix.pch"; sourceTree = "<group>"; };
+		76A9BD9843C43B6EC8E903D7B00FFF30 /* PYTooltip.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYTooltip.m; path = "iOS-Echarts/Model/PYTooltip.m"; sourceTree = "<group>"; };
+		779FEE40C54F04290E760EF1ECB22A59 /* PYTreeMapSeries.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYTreeMapSeries.h; path = "iOS-Echarts/Model/Series/PYTreeMapSeries.h"; sourceTree = "<group>"; };
+		77AEC28C3DCAD997D6D58EEFC75C8501 /* PYTreeSeries.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYTreeSeries.h; path = "iOS-Echarts/Model/Series/PYTreeSeries.h"; sourceTree = "<group>"; };
 		77D291AD03D0122E4A2DDAAD08BC8CFD /* Pods-ExCoin-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ExCoin-frameworks.sh"; sourceTree = "<group>"; };
+		79BFF6815D9AC2CF2EF264371AB5ABA3 /* PYSeries.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYSeries.m; path = "iOS-Echarts/Model/Series/PYSeries.m"; sourceTree = "<group>"; };
+		7F8E620FC0E2B78459EBE1FEAFEBA6B8 /* PYDataRange.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYDataRange.m; path = "iOS-Echarts/Model/PYDataRange.m"; sourceTree = "<group>"; };
+		80C86C154BFA0FDBAA2323D13DAAA5F6 /* PYDataZoom.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYDataZoom.m; path = "iOS-Echarts/Model/PYDataZoom.m"; sourceTree = "<group>"; };
 		81583AA91BB4289914357E0E0862FF18 /* Pods-ExCoin-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ExCoin-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8165B590A8FD2B2166DB0224FA519926 /* PYAreaStyle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYAreaStyle.m; path = "iOS-Echarts/Model/PYAreaStyle.m"; sourceTree = "<group>"; };
+		81A99165D1F62D56176526F4A3F6D1D1 /* PYZoomEchartsView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYZoomEchartsView.h; path = "iOS-Echarts/View/PYZoomEchartsView.h"; sourceTree = "<group>"; };
+		81D1C232BD09FFEE308D02E7F9301E37 /* PYTimeline.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYTimeline.h; path = "iOS-Echarts/Model/PYTimeline.h"; sourceTree = "<group>"; };
 		8535CEF70B87D34AC968AC0F6DFFFAF4 /* Pods-ExCoin-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ExCoin-acknowledgements.plist"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9C2D53F4C941CCE67ABF941E4C60137A /* libPods-ExCoin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ExCoin.a"; path = "libPods-ExCoin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		860417210254CA63F6A0CF937A0BACC3 /* PYNoDataLoadingOption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYNoDataLoadingOption.h; path = "iOS-Echarts/Model/PYNoDataLoadingOption.h"; sourceTree = "<group>"; };
+		86DA27E0FABE2EB7B123B6CF7902A3F6 /* PYToolbox.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYToolbox.h; path = "iOS-Echarts/Model/PYToolbox.h"; sourceTree = "<group>"; };
+		888156FA7EF8DE87950E8D5F409FB575 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		892630FDBF0617E5AC7088D1199E754D /* PYAxisLine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYAxisLine.m; path = "iOS-Echarts/Model/PYAxisLine.m"; sourceTree = "<group>"; };
+		8B6E62503EBC6B5E1AD98F91DDD9CD8B /* FMDatabaseQueue+Async.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FMDatabaseQueue+Async.h"; path = "GYDataCenter/FMDBExtension/FMDatabaseQueue+Async.h"; sourceTree = "<group>"; };
+		8F3BB5686376978EE1CC29E242764BAA /* PYAxisSplitLine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYAxisSplitLine.m; path = "iOS-Echarts/Model/PYAxisSplitLine.m"; sourceTree = "<group>"; };
+		9246E71ED47EC6012ADACFD37D9A3A00 /* GYDCUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GYDCUtilities.m; path = GYDataCenter/Utilities/GYDCUtilities.m; sourceTree = "<group>"; };
+		93663A72A33433DA2F0F2B732F51DDB0 /* PYLinks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYLinks.m; path = "iOS-Echarts/Model/PYLinks.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93DE6D6A5B1BB5B13B437C384EF96B9A /* RDVTabBarController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDVTabBarController.h; path = RDVTabBarController/RDVTabBarController.h; sourceTree = "<group>"; };
+		9728E409E69788CF39C1C283EA3FCEB4 /* GYDBRunner.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GYDBRunner.m; path = GYDataCenter/GYDBRunner.m; sourceTree = "<group>"; };
+		97AF95DF6F6803DD93A492C9DCBCB480 /* PYLegend.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYLegend.h; path = "iOS-Echarts/Model/PYLegend.h"; sourceTree = "<group>"; };
+		9A7C9D272FD0F8E4E3A99AE3061973B6 /* PYEchartsView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYEchartsView.h; path = "iOS-Echarts/View/PYEchartsView.h"; sourceTree = "<group>"; };
+		A12DCBCB66DBA91B1C1B2FE89820209F /* PYLegend.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYLegend.m; path = "iOS-Echarts/Model/PYLegend.m"; sourceTree = "<group>"; };
+		A33B0C3B7F9A842CA1D5C4DFDDFF564C /* PYNodes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYNodes.m; path = "iOS-Echarts/Model/PYNodes.m"; sourceTree = "<group>"; };
+		A471A6C42DA447186B43C60F96E3854F /* PYPolar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYPolar.h; path = "iOS-Echarts/Model/PYPolar.h"; sourceTree = "<group>"; };
+		A4B67886E040AD3DCEFC3502D2ACFA6A /* PYDataZoom.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYDataZoom.h; path = "iOS-Echarts/Model/PYDataZoom.h"; sourceTree = "<group>"; };
+		A85913F20C907E3A92461A172DDFA247 /* PYChordSeries.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYChordSeries.m; path = "iOS-Echarts/Model/Series/PYChordSeries.m"; sourceTree = "<group>"; };
+		ABF50C28A3504F6F327E565C1BA5D8D0 /* GYDataCenter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GYDataCenter.xcconfig; sourceTree = "<group>"; };
+		AED356425DAFBC9A159A6774784190A1 /* GYDCUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GYDCUtilities.h; path = GYDataCenter/Utilities/GYDCUtilities.h; sourceTree = "<group>"; };
+		B025276FFF5D14A306B5EB8464AEC37E /* libiOS-Echarts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libiOS-Echarts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F6CCF6026E6CF44C0E7D8E289F3645 /* Pods-ExCoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ExCoin.debug.xcconfig"; sourceTree = "<group>"; };
+		B12C25E6563CB12C40211F3E07896719 /* RDVTabBarItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDVTabBarItem.m; path = RDVTabBarController/RDVTabBarItem.m; sourceTree = "<group>"; };
+		B14C1077550FDAE005AE8F282B3920E6 /* PYNodeStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYNodeStyle.h; path = "iOS-Echarts/Model/PYNodeStyle.h"; sourceTree = "<group>"; };
+		B1A1ADD08412536C13D7C590114278B3 /* PYChordStyle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYChordStyle.m; path = "iOS-Echarts/Model/PYChordStyle.m"; sourceTree = "<group>"; };
+		B247D923B869FEFD7DDEB6DE3464BF2F /* PYCartesianSeries.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYCartesianSeries.h; path = "iOS-Echarts/Model/Series/PYCartesianSeries.h"; sourceTree = "<group>"; };
+		B2AD6F3B14BDD18B892BDAB80B5AD4D0 /* PYAxisPointer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYAxisPointer.m; path = "iOS-Echarts/Model/PYAxisPointer.m"; sourceTree = "<group>"; };
+		B2ECFA9FA22F63F6F3D50E8A1A6C5B7D /* GYDataContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GYDataContext.h; path = GYDataCenter/GYDataContext.h; sourceTree = "<group>"; };
+		B321ADB40EE57A9D5E57A0FCA76AF2E4 /* RDVTabBarController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RDVTabBarController.m; path = RDVTabBarController/RDVTabBarController.m; sourceTree = "<group>"; };
+		B38E3D010BB45D80DDE8D910E9A3C27D /* iOS-Echarts-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iOS-Echarts-dummy.m"; sourceTree = "<group>"; };
+		B3FD4123CEC489C907C35FB9B4F8A6F5 /* PYRoamController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYRoamController.m; path = "iOS-Echarts/Model/PYRoamController.m"; sourceTree = "<group>"; };
+		B4979B2EA80C5D8461EADE4BF85B5225 /* libGYDataCenter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGYDataCenter.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B663C7C39C39F2846DFDDB9B4D54E9D4 /* PYForceSeries.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYForceSeries.m; path = "iOS-Echarts/Model/Series/PYForceSeries.m"; sourceTree = "<group>"; };
+		B76AD6F3AB1D493E8755BA578C63B009 /* PYChordStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYChordStyle.h; path = "iOS-Echarts/Model/PYChordStyle.h"; sourceTree = "<group>"; };
+		B9449580CF102A0D2930B919455313A2 /* PYUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYUtilities.h; path = "iOS-Echarts/PYUtilities.h"; sourceTree = "<group>"; };
+		BA39349B47B22700C87EA99927DE228C /* PYMarkLine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYMarkLine.h; path = "iOS-Echarts/Model/Series/PYMarkLine.h"; sourceTree = "<group>"; };
+		BB5EA34EC10FCF3D88B92206D6468591 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = src/fmdb/FMDatabaseQueue.h; sourceTree = "<group>"; };
+		BD5829EA92C9E1503574D8471E6C1026 /* GYDataCenter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GYDataCenter-dummy.m"; sourceTree = "<group>"; };
+		BD88DCD5873E78C5D6177D17DD10EFFE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		BF0535A0F5B3C63E2CEE2AF5ABCF9E05 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		BF393419FBF913D5979DF8B61FD28FB2 /* PYOption.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYOption.m; path = "iOS-Echarts/Model/PYOption.m"; sourceTree = "<group>"; };
+		BF66F6F0824C30C58ADA774CA2EA22FA /* PYColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYColor.m; path = "iOS-Echarts/Model/PYColor.m"; sourceTree = "<group>"; };
+		BFE13704F901A1971759D287962C7A5E /* PYColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYColor.h; path = "iOS-Echarts/Model/PYColor.h"; sourceTree = "<group>"; };
+		C5ED2A2CDC2372BBC17A09CF13139562 /* GYModelObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GYModelObject.m; path = GYDataCenter/GYModelObject.m; sourceTree = "<group>"; };
+		C963B5E38B9FB69D7A20C4163557A21E /* PYEchartsView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYEchartsView.m; path = "iOS-Echarts/View/PYEchartsView.m"; sourceTree = "<group>"; };
+		CC00B93FD90D429092EFC48B299EB583 /* PYNodes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYNodes.h; path = "iOS-Echarts/Model/PYNodes.h"; sourceTree = "<group>"; };
+		CC7B4555797EDCCF7EA1C8E6034F47EC /* PYAxisPointer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYAxisPointer.h; path = "iOS-Echarts/Model/PYAxisPointer.h"; sourceTree = "<group>"; };
+		CC87988AA8B28A72A433852864359772 /* FMDatabaseQueue+Async.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "FMDatabaseQueue+Async.m"; path = "GYDataCenter/FMDBExtension/FMDatabaseQueue+Async.m"; sourceTree = "<group>"; };
+		CF6A47A31B66FC20D1470D62E65F9257 /* echarts.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = echarts.html; path = "iOS-Echarts/Resources/echarts.html"; sourceTree = "<group>"; };
+		D27387E3CD95AAEE6FF10D40DFA1A0B8 /* GYModelObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GYModelObject.h; path = GYDataCenter/GYModelObject.h; sourceTree = "<group>"; };
+		D30B1A959792663BE23CD4D557FCA4DD /* iOS-Echarts.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-Echarts.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D558608518651A23E7FF0E17750BD6CE /* PYTooltip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYTooltip.h; path = "iOS-Echarts/Model/PYTooltip.h"; sourceTree = "<group>"; };
+		D5FAD3CD9123C0256CDBE09AC30EF763 /* RDVTabBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RDVTabBar.h; path = RDVTabBarController/RDVTabBar.h; sourceTree = "<group>"; };
+		D634B809B3FDAFFAD4224045FBBC045F /* GYDataCenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GYDataCenter.h; path = GYDataCenter/GYDataCenter.h; sourceTree = "<group>"; };
+		D69611CDE349C5D329A346CC4DC4E3A0 /* PYAreaStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYAreaStyle.h; path = "iOS-Echarts/Model/PYAreaStyle.h"; sourceTree = "<group>"; };
+		D7264F026AEF37380C7B93595887D36A /* PYPieSeries.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYPieSeries.h; path = "iOS-Echarts/Model/Series/PYPieSeries.h"; sourceTree = "<group>"; };
+		D73CE15D0FF1AAE500B061579BE5D7BD /* PYAxisSplitLine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYAxisSplitLine.h; path = "iOS-Echarts/Model/PYAxisSplitLine.h"; sourceTree = "<group>"; };
+		D78B9FBF98D9D3D50F65C2CFC3597453 /* PYHeatmapSeries.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYHeatmapSeries.h; path = "iOS-Echarts/Model/Series/PYHeatmapSeries.h"; sourceTree = "<group>"; };
+		D815D45D1AAAFA1D4680E24327DCD714 /* PYAxis.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYAxis.m; path = "iOS-Echarts/Model/PYAxis.m"; sourceTree = "<group>"; };
+		DC1D885FD8023B5C8D973765F8C6ECA2 /* PYRoamController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYRoamController.h; path = "iOS-Echarts/Model/PYRoamController.h"; sourceTree = "<group>"; };
+		DCEBFDC2C95B42A22E05C992FE383407 /* PYAxisTick.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYAxisTick.h; path = "iOS-Echarts/Model/PYAxisTick.h"; sourceTree = "<group>"; };
+		DFA31E8AF03B33ED305C0871C3FD3CD8 /* GYDataContext.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GYDataContext.m; path = GYDataCenter/GYDataContext.m; sourceTree = "<group>"; };
+		E1D9D4E935F4F1100E80216FD3C89440 /* PYMarkPoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYMarkPoint.h; path = "iOS-Echarts/Model/Series/PYMarkPoint.h"; sourceTree = "<group>"; };
+		E1F25158242A1BFD78FC8CF95B9EEA83 /* PYEventRiverSeries.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYEventRiverSeries.m; path = "iOS-Echarts/Model/Series/PYEventRiverSeries.m"; sourceTree = "<group>"; };
+		E53144409A6E8339C9E9E99914E1767D /* RDVTabBarController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RDVTabBarController-dummy.m"; sourceTree = "<group>"; };
+		E5F45550162A81646F1E37A9A170E7F3 /* WKEchartsView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WKEchartsView.h; path = "iOS-Echarts/View/WKEchartsView.h"; sourceTree = "<group>"; };
+		E7600553FB39B6539DD249148BB7717C /* PYAxisLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYAxisLabel.m; path = "iOS-Echarts/Model/PYAxisLabel.m"; sourceTree = "<group>"; };
+		E87A201216AFBEC3E67C52D82860A1DA /* js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = js; path = "iOS-Echarts/Resources/js"; sourceTree = "<group>"; };
+		E9C7C3943A089F74269C5E8D81DA68EA /* FMDB-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FMDB-dummy.m"; sourceTree = "<group>"; };
+		EC219CD9CB7A1F8ACF792823BDCD05EC /* PYMapSeries.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYMapSeries.m; path = "iOS-Echarts/Model/Series/PYMapSeries.m"; sourceTree = "<group>"; };
+		ED82B1E27DF00E28F31229F938A12C74 /* PYZoomEchartsView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYZoomEchartsView.m; path = "iOS-Echarts/View/PYZoomEchartsView.m"; sourceTree = "<group>"; };
+		EEAC5F94FAA48251904A37647BDD6A05 /* NSObject+PYObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+PYObject.h"; path = "iOS-Echarts/Categories/NSObject+PYObject.h"; sourceTree = "<group>"; };
+		EEE618C620AB01AB1FCF13B6A1984A45 /* PYPieSeries.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYPieSeries.m; path = "iOS-Echarts/Model/Series/PYPieSeries.m"; sourceTree = "<group>"; };
+		EF28EA667AB79D511E33DF181F2D2EFE /* FMDatabase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
+		EF2A2F88CAB0BDA51B03FEF1671567A4 /* PYAxis.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYAxis.h; path = "iOS-Echarts/Model/PYAxis.h"; sourceTree = "<group>"; };
+		EFE71BB3BAC834C03CB2BD39155011E9 /* FMDB-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FMDB-prefix.pch"; sourceTree = "<group>"; };
+		F3C17FD2AFA9769F62158AB2D8CBEE27 /* PYVennSeries.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYVennSeries.h; path = "iOS-Echarts/Model/Series/PYVennSeries.h"; sourceTree = "<group>"; };
+		F4ADBAB9E75200B45224CFF680A7ECD7 /* FMDatabasePool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
+		F945532847ACCC05E11C2263E7679170 /* RDVTabBarController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RDVTabBarController.xcconfig; sourceTree = "<group>"; };
+		FDCB9DCE79661A040DC309A08ACC6C0B /* PYRadarSeries.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYRadarSeries.h; path = "iOS-Echarts/Model/Series/PYRadarSeries.h"; sourceTree = "<group>"; };
+		FE463826B353DF57750832CB52C33A60 /* PYTitle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYTitle.m; path = "iOS-Echarts/Model/PYTitle.m"; sourceTree = "<group>"; };
+		FE6EAAAE3FA4E60C30F6B2483DEAA429 /* PYCategories.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYCategories.m; path = "iOS-Echarts/Model/PYCategories.m"; sourceTree = "<group>"; };
+		FF2336F24621AB9265B76AA41CFF9F51 /* PYMapSeries.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYMapSeries.h; path = "iOS-Echarts/Model/Series/PYMapSeries.h"; sourceTree = "<group>"; };
 		FF5CA4744204338890D3D9293821A051 /* Pods-ExCoin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ExCoin-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0601ED2D814A021181A7E6EA57FE5780 /* Frameworks */ = {
+		3AE354D65E53845C6E804207425D4AFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43337484491781D9CB7E6732626AAB67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9ABD0C931F57583BFB581300B038857F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6C0C7B393AEF2510BFFE8CEB625D4B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D772E908BB7AD2C151257126626E3749 /* CoreGraphics.framework in Frameworks */,
+				A9A74CAEFB0291D34D18A20E8CD67458 /* Foundation.framework in Frameworks */,
+				93FC7E21D4B980BC46BE17932932B46E /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF93A7FED770E2E1A9F69ED14B010C32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B9156E6BB4B1FF56CE4844FCBACCA23 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D63A784EEB309CB120FA2364672B6365 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,11 +438,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */ = {
+		0F8434F13B6362FED0884DC008506B9D /* standard */ = {
 			isa = PBXGroup;
 			children = (
+				2218A9CD84FD7BC3B71D540524E9AB35 /* FMDatabase.h */,
+				EF28EA667AB79D511E33DF181F2D2EFE /* FMDatabase.m */,
+				7099C9F4B03A442C198600DE22613768 /* FMDatabaseAdditions.h */,
+				BF0535A0F5B3C63E2CEE2AF5ABCF9E05 /* FMDatabaseAdditions.m */,
+				6AB88D8AC56FFA626C6C8CCF5169B055 /* FMDatabasePool.h */,
+				F4ADBAB9E75200B45224CFF680A7ECD7 /* FMDatabasePool.m */,
+				BB5EA34EC10FCF3D88B92206D6468591 /* FMDatabaseQueue.h */,
+				2C387D4FBC08CC3E1EFD5941F28BE2EB /* FMDatabaseQueue.m */,
+				57E2BEF983AE38A96B6F3D0EE81A3D5E /* FMDB.h */,
+				2C639AB9BF9E2781DDE5D1271A7B7A3A /* FMResultSet.h */,
+				2EA30C30A117DF98254259013A88574F /* FMResultSet.m */,
+			);
+			name = standard;
+			sourceTree = "<group>";
+		};
+		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0FEB5BC00BD5AFA53416A3538FFE0E3 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		14153B97347CC7FCED212ADFF3E2D534 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D30B1A959792663BE23CD4D557FCA4DD /* iOS-Echarts.bundle */,
+				28BC912D8A624B8004C4F6289ECCA6ED /* libFMDB.a */,
+				B4979B2EA80C5D8461EADE4BF85B5225 /* libGYDataCenter.a */,
+				B025276FFF5D14A306B5EB8464AEC37E /* libiOS-Echarts.a */,
+				53CFD99B56DD3DAEBBCDA0F8F8C41276 /* libPods-ExCoin.a */,
+				3D5DE993F80F3CA8AB699D53E40B6B78 /* libRDVTabBarController.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1C942DDFA010D16F92FE7A66FD820E6D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CF6A47A31B66FC20D1470D62E65F9257 /* echarts.html */,
+				E87A201216AFBEC3E67C52D82860A1DA /* js */,
+				6A5C853A9AFAFD10DCA8BBB994576887 /* theme */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		3E3C35B672FDE02BE9A05A113FFA83A7 /* Targets Support Files */ = {
@@ -48,22 +495,200 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		478FAD72EF448FFE1285FCECC4663DCB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				ABF50C28A3504F6F327E565C1BA5D8D0 /* GYDataCenter.xcconfig */,
+				BD5829EA92C9E1503574D8471E6C1026 /* GYDataCenter-dummy.m */,
+				2BBA78F888E324CA6B7FCB19CC6D8A3C /* GYDataCenter-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GYDataCenter";
+			sourceTree = "<group>";
+		};
+		4CB0A5EFA821E00C42703DED7687FDA6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				45884E169512031EF60658EEBFE79B88 /* FMDB.xcconfig */,
+				E9C7C3943A089F74269C5E8D81DA68EA /* FMDB-dummy.m */,
+				EFE71BB3BAC834C03CB2BD39155011E9 /* FMDB-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FMDB";
+			sourceTree = "<group>";
+		};
+		7A7B5CB2C9B38A1A2D4C5D33860A9C6D /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				0F8434F13B6362FED0884DC008506B9D /* standard */,
+				4CB0A5EFA821E00C42703DED7687FDA6 /* Support Files */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		7C19833672D58B2C2511BB38FCDAE062 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1BBC27961F194A3769C3E1368F37FE00 /* iOS-Echarts.xcconfig */,
+				B38E3D010BB45D80DDE8D910E9A3C27D /* iOS-Echarts-dummy.m */,
+				28FB897BFEFDFCF78961B073515B249F /* iOS-Echarts-prefix.pch */,
+				393F1354B5280B1A430F541A05EF547A /* ResourceBundle-iOS-Echarts-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/iOS-Echarts";
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */,
-				87CA360DC7C0158B67EDF55E5092782F /* Products */,
+				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
+				B0B2BFF0BF3DD45F16BEB79283C32BF4 /* Pods */,
+				14153B97347CC7FCED212ADFF3E2D534 /* Products */,
 				3E3C35B672FDE02BE9A05A113FFA83A7 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		87CA360DC7C0158B67EDF55E5092782F /* Products */ = {
+		A9B6CE0BEB4199CCBB34ADE4BFDB6C68 /* iOS-Echarts */ = {
 			isa = PBXGroup;
 			children = (
-				9C2D53F4C941CCE67ABF941E4C60137A /* libPods-ExCoin.a */,
+				0F4AE9E0D53B827AC9D8ED7E5F1606DD /* iOS-Echarts.h */,
+				EEAC5F94FAA48251904A37647BDD6A05 /* NSObject+PYObject.h */,
+				6B78A3A1CCEB4A096A558090C286952D /* NSObject+PYObject.m */,
+				D69611CDE349C5D329A346CC4DC4E3A0 /* PYAreaStyle.h */,
+				8165B590A8FD2B2166DB0224FA519926 /* PYAreaStyle.m */,
+				EF2A2F88CAB0BDA51B03FEF1671567A4 /* PYAxis.h */,
+				D815D45D1AAAFA1D4680E24327DCD714 /* PYAxis.m */,
+				60D755171729BAC1D37BE8B3D2895EC2 /* PYAxisLabel.h */,
+				E7600553FB39B6539DD249148BB7717C /* PYAxisLabel.m */,
+				52AAA287890E47B88D57827F3F038833 /* PYAxisLine.h */,
+				892630FDBF0617E5AC7088D1199E754D /* PYAxisLine.m */,
+				CC7B4555797EDCCF7EA1C8E6034F47EC /* PYAxisPointer.h */,
+				B2AD6F3B14BDD18B892BDAB80B5AD4D0 /* PYAxisPointer.m */,
+				D73CE15D0FF1AAE500B061579BE5D7BD /* PYAxisSplitLine.h */,
+				8F3BB5686376978EE1CC29E242764BAA /* PYAxisSplitLine.m */,
+				DCEBFDC2C95B42A22E05C992FE383407 /* PYAxisTick.h */,
+				168713F86C3C3652D8BFA3C00269D5E7 /* PYAxisTick.m */,
+				B247D923B869FEFD7DDEB6DE3464BF2F /* PYCartesianSeries.h */,
+				6E7412490BC1A05A10F3EA997E5F0E05 /* PYCartesianSeries.m */,
+				6A11DCFEB3BA80AB330FE213445F0A69 /* PYCategories.h */,
+				FE6EAAAE3FA4E60C30F6B2483DEAA429 /* PYCategories.m */,
+				2C1C3D6C599953F08F05DBD7992498F2 /* PYChordSeries.h */,
+				A85913F20C907E3A92461A172DDFA247 /* PYChordSeries.m */,
+				B76AD6F3AB1D493E8755BA578C63B009 /* PYChordStyle.h */,
+				B1A1ADD08412536C13D7C590114278B3 /* PYChordStyle.m */,
+				BFE13704F901A1971759D287962C7A5E /* PYColor.h */,
+				BF66F6F0824C30C58ADA774CA2EA22FA /* PYColor.m */,
+				0BF8FA7F7076ECF07389B6FA783393F1 /* PYDataRange.h */,
+				7F8E620FC0E2B78459EBE1FEAFEBA6B8 /* PYDataRange.m */,
+				A4B67886E040AD3DCEFC3502D2ACFA6A /* PYDataZoom.h */,
+				80C86C154BFA0FDBAA2323D13DAAA5F6 /* PYDataZoom.m */,
+				9A7C9D272FD0F8E4E3A99AE3061973B6 /* PYEchartsView.h */,
+				C963B5E38B9FB69D7A20C4163557A21E /* PYEchartsView.m */,
+				10DE725DAC50242AA4F14651EA1F33BE /* PYEventRiverSeries.h */,
+				E1F25158242A1BFD78FC8CF95B9EEA83 /* PYEventRiverSeries.m */,
+				284A68BC432B92104A7AA00BF1FEE70D /* PYForceSeries.h */,
+				B663C7C39C39F2846DFDDB9B4D54E9D4 /* PYForceSeries.m */,
+				2CFB970F9EC833D3ECCFF2271372E4BD /* PYFunnelSeries.h */,
+				0EE47C709004C97486B9F31A3B8B4A04 /* PYFunnelSeries.m */,
+				2971BA31111F5636F45B329027E61461 /* PYGaugeSeries.h */,
+				56A21ACF7011B02359E724716A51E51E /* PYGaugeSeries.m */,
+				1E98A837A75788416473B4587987FA01 /* PYGrid.h */,
+				670AE74B06B189B35ADC9F8CB885C2AC /* PYGrid.m */,
+				D78B9FBF98D9D3D50F65C2CFC3597453 /* PYHeatmapSeries.h */,
+				69027EDEC3EED1EFA744A8EC2066DC61 /* PYHeatmapSeries.m */,
+				203D5AABB6B0DE84414BBA133F52115C /* PYItemStyle.h */,
+				652FA09D0B4F955091DACFA4DC119C2C /* PYItemStyle.m */,
+				2600C902FB91081443EC1AAB08D7F6D6 /* PYItemStyleProp.h */,
+				1979D9DC2EBFAC846E52ECC6203EA75E /* PYItemStyleProp.m */,
+				725D94D88C561D556EBC3D0F1DC4D3E2 /* PYJsonUtil.h */,
+				6B4F289FFEBB2A16B8D1977517658F88 /* PYJsonUtil.m */,
+				97AF95DF6F6803DD93A492C9DCBCB480 /* PYLegend.h */,
+				A12DCBCB66DBA91B1C1B2FE89820209F /* PYLegend.m */,
+				181C5860492E613280C36772B73AFF29 /* PYLineStyle.h */,
+				2B9CC0531AFC07C50F4811F01613B551 /* PYLineStyle.m */,
+				1FDC5C6DF86F43991486BE63879158E9 /* PYLinks.h */,
+				93663A72A33433DA2F0F2B732F51DDB0 /* PYLinks.m */,
+				04F541593BCC232FCABFEA002BD965D4 /* PYLinkStyle.h */,
+				61FFC11ED0F5255193FF590D97CD3BC1 /* PYLinkStyle.m */,
+				044AD6A7E155D040D636AF883B10CF57 /* PYLoadingOption.h */,
+				2B6644704CCC150DBC6665BA7C7931A2 /* PYLoadingOption.m */,
+				FF2336F24621AB9265B76AA41CFF9F51 /* PYMapSeries.h */,
+				EC219CD9CB7A1F8ACF792823BDCD05EC /* PYMapSeries.m */,
+				BA39349B47B22700C87EA99927DE228C /* PYMarkLine.h */,
+				3F9ACBADF71D3E29008C5099101DD6A5 /* PYMarkLine.m */,
+				E1D9D4E935F4F1100E80216FD3C89440 /* PYMarkPoint.h */,
+				46F4E96A9AE6C9FEA82D49174ABCE4BB /* PYMarkPoint.m */,
+				860417210254CA63F6A0CF937A0BACC3 /* PYNoDataLoadingOption.h */,
+				6685DD788A6391C67230288F2BA80FCD /* PYNoDataLoadingOption.m */,
+				CC00B93FD90D429092EFC48B299EB583 /* PYNodes.h */,
+				A33B0C3B7F9A842CA1D5C4DFDDFF564C /* PYNodes.m */,
+				B14C1077550FDAE005AE8F282B3920E6 /* PYNodeStyle.h */,
+				038A1DD1139F334E8EF0C84DF864C523 /* PYNodeStyle.m */,
+				510CAB30F5F6DEACE8AC4626A79501C1 /* PYOption.h */,
+				BF393419FBF913D5979DF8B61FD28FB2 /* PYOption.m */,
+				D7264F026AEF37380C7B93595887D36A /* PYPieSeries.h */,
+				EEE618C620AB01AB1FCF13B6A1984A45 /* PYPieSeries.m */,
+				A471A6C42DA447186B43C60F96E3854F /* PYPolar.h */,
+				56A4031FC549FF5600D22EA9367A9EBE /* PYPolar.m */,
+				FDCB9DCE79661A040DC309A08ACC6C0B /* PYRadarSeries.h */,
+				68D529D544F74C5DEBD12E59044AC275 /* PYRadarSeries.m */,
+				DC1D885FD8023B5C8D973765F8C6ECA2 /* PYRoamController.h */,
+				B3FD4123CEC489C907C35FB9B4F8A6F5 /* PYRoamController.m */,
+				5294CB42338BE04FF4206A70099788CA /* PYSeries.h */,
+				79BFF6815D9AC2CF2EF264371AB5ABA3 /* PYSeries.m */,
+				74E2782CEE769D71A471A3756BB10531 /* PYSplitArea.h */,
+				5C5F8DFF45B48B96D373FCA27C756AA7 /* PYSplitArea.m */,
+				248D52846CF1931F7224E9829456DCE4 /* PYTextStyle.h */,
+				3D2D673490A1C15CB17EC586D81E6244 /* PYTextStyle.m */,
+				81D1C232BD09FFEE308D02E7F9301E37 /* PYTimeline.h */,
+				0E75967EB358B5937E197E9150F875E2 /* PYTimeline.m */,
+				5FBA5D84DAD9FC79E0DC542F27A7DB2F /* PYTitle.h */,
+				FE463826B353DF57750832CB52C33A60 /* PYTitle.m */,
+				86DA27E0FABE2EB7B123B6CF7902A3F6 /* PYToolbox.h */,
+				5A2402AF9A00C06A12C6BAE264E8005A /* PYToolbox.m */,
+				52A0A60E6F7CD4F2A867C9C9B6D207EA /* PYToolboxFeature.h */,
+				1E711980139A861203D53120360DB144 /* PYToolboxFeature.m */,
+				D558608518651A23E7FF0E17750BD6CE /* PYTooltip.h */,
+				76A9BD9843C43B6EC8E903D7B00FFF30 /* PYTooltip.m */,
+				779FEE40C54F04290E760EF1ECB22A59 /* PYTreeMapSeries.h */,
+				1B31A95DDEE40BAB8ABF8177846B95FB /* PYTreeMapSeries.m */,
+				77AEC28C3DCAD997D6D58EEFC75C8501 /* PYTreeSeries.h */,
+				59091E9D17B98545465D038D1CD3DE34 /* PYTreeSeries.m */,
+				B9449580CF102A0D2930B919455313A2 /* PYUtilities.h */,
+				F3C17FD2AFA9769F62158AB2D8CBEE27 /* PYVennSeries.h */,
+				0DB3D5FC658F1C5FAEDB3B29F760FC6B /* PYVennSeries.m */,
+				09B94059CFFD53C7CEA5CD82F9952511 /* PYWordCloudSeries.h */,
+				37F3C60169BA0755DA275CC9DD2871B1 /* PYWordCloudSeries.m */,
+				81A99165D1F62D56176526F4A3F6D1D1 /* PYZoomEchartsView.h */,
+				ED82B1E27DF00E28F31229F938A12C74 /* PYZoomEchartsView.m */,
+				E5F45550162A81646F1E37A9A170E7F3 /* WKEchartsView.h */,
+				0B003B10264EC7D1E4CE9A3126B4B7A4 /* WKEchartsView.m */,
+				1C942DDFA010D16F92FE7A66FD820E6D /* Resources */,
+				7C19833672D58B2C2511BB38FCDAE062 /* Support Files */,
 			);
-			name = Products;
+			path = "iOS-Echarts";
+			sourceTree = "<group>";
+		};
+		B0B2BFF0BF3DD45F16BEB79283C32BF4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7A7B5CB2C9B38A1A2D4C5D33860A9C6D /* FMDB */,
+				DE09A21E4A960D7C86EA7B30239AA3E4 /* GYDataCenter */,
+				A9B6CE0BEB4199CCBB34ADE4BFDB6C68 /* iOS-Echarts */,
+				EC0FBE7A3D8BCC066A438E20723E8597 /* RDVTabBarController */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C0FEB5BC00BD5AFA53416A3538FFE0E3 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				BD88DCD5873E78C5D6177D17DD10EFFE /* CoreGraphics.framework */,
+				888156FA7EF8DE87950E8D5F409FB575 /* Foundation.framework */,
+				1ACF330A72DC40E450388407F7DFB2F7 /* UIKit.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		CE3763612601302538D3396DAD708284 /* Pods-ExCoin */ = {
@@ -81,35 +706,275 @@
 			path = "Target Support Files/Pods-ExCoin";
 			sourceTree = "<group>";
 		};
+		DE09A21E4A960D7C86EA7B30239AA3E4 /* GYDataCenter */ = {
+			isa = PBXGroup;
+			children = (
+				8B6E62503EBC6B5E1AD98F91DDD9CD8B /* FMDatabaseQueue+Async.h */,
+				CC87988AA8B28A72A433852864359772 /* FMDatabaseQueue+Async.m */,
+				D634B809B3FDAFFAD4224045FBBC045F /* GYDataCenter.h */,
+				B2ECFA9FA22F63F6F3D50E8A1A6C5B7D /* GYDataContext.h */,
+				DFA31E8AF03B33ED305C0871C3FD3CD8 /* GYDataContext.m */,
+				2E9D1321FC3588951BB0120019064A53 /* GYDBRunner.h */,
+				9728E409E69788CF39C1C283EA3FCEB4 /* GYDBRunner.m */,
+				AED356425DAFBC9A159A6774784190A1 /* GYDCUtilities.h */,
+				9246E71ED47EC6012ADACFD37D9A3A00 /* GYDCUtilities.m */,
+				D27387E3CD95AAEE6FF10D40DFA1A0B8 /* GYModelObject.h */,
+				C5ED2A2CDC2372BBC17A09CF13139562 /* GYModelObject.m */,
+				6F627A1FDBE690C9A5CC125D9932C1D3 /* GYModelObjectProtocol.h */,
+				6BF327B90DF74EBA9543ABF332764C13 /* GYReflection.h */,
+				4FF2874EB10FE66C303467CDB6A5FDD0 /* GYReflection.m */,
+				478FAD72EF448FFE1285FCECC4663DCB /* Support Files */,
+			);
+			path = GYDataCenter;
+			sourceTree = "<group>";
+		};
+		DEC766837AED6C88F3CF78830241892D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F945532847ACCC05E11C2263E7679170 /* RDVTabBarController.xcconfig */,
+				E53144409A6E8339C9E9E99914E1767D /* RDVTabBarController-dummy.m */,
+				758C118921844B937005C743C7495777 /* RDVTabBarController-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/RDVTabBarController";
+			sourceTree = "<group>";
+		};
+		EC0FBE7A3D8BCC066A438E20723E8597 /* RDVTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				D5FAD3CD9123C0256CDBE09AC30EF763 /* RDVTabBar.h */,
+				1B1A33F79B00012822270FA3B5DC8E18 /* RDVTabBar.m */,
+				93DE6D6A5B1BB5B13B437C384EF96B9A /* RDVTabBarController.h */,
+				B321ADB40EE57A9D5E57A0FCA76AF2E4 /* RDVTabBarController.m */,
+				64EA8D6094B1A7D3CA4FAD7B5A7FF21F /* RDVTabBarItem.h */,
+				B12C25E6563CB12C40211F3E07896719 /* RDVTabBarItem.m */,
+				DEC766837AED6C88F3CF78830241892D /* Support Files */,
+			);
+			path = RDVTabBarController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		7D92FCB4113E2FD4D90AB7E3B317F9B1 /* Headers */ = {
+		32EBE71F7C8789250EED494623C71550 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DC7391FF54F44CC7150EBF3A058A51C /* RDVTabBar.h in Headers */,
+				1761255A19920B32FCE9F6653DBD47E6 /* RDVTabBarController.h in Headers */,
+				C38E53C51B59DD781C56D29B6184CC43 /* RDVTabBarItem.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		908339A7EA0985DE6D8341F72326AF87 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E115FD84CAFCFD022340D22E741763C /* FMDatabaseQueue+Async.h in Headers */,
+				71B8737275444D3B36FD701498168BCE /* GYDataCenter.h in Headers */,
+				CD8721FED6303CFFF5997794C9DFDF8B /* GYDataContext.h in Headers */,
+				A5C9507931A589AD4671091A355844E7 /* GYDBRunner.h in Headers */,
+				294AADC5DDB870177E53FEDFCC5E5383 /* GYDCUtilities.h in Headers */,
+				4FD28711D6E246A4549714ABE28E4B6E /* GYModelObject.h in Headers */,
+				21D5F6BA6A5ACBC1FBE31D4E8B8FF574 /* GYModelObjectProtocol.h in Headers */,
+				18E543C13F41C3972DACF03DC72F5609 /* GYReflection.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9823EDF374897AAE6DE3C6C996A1A23 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B64AE43A08C2A738EC4E8947C898405 /* FMDatabase.h in Headers */,
+				BC9B764C70B0B76CBAC3FC8A757E02DC /* FMDatabaseAdditions.h in Headers */,
+				DA6F503BEBC3631865C9B1D0EF40878A /* FMDatabasePool.h in Headers */,
+				E3A8EA7C937BFDAA2B53C5F2188B67D8 /* FMDatabaseQueue.h in Headers */,
+				C32363AF2C2D8CAE297D23043076A95D /* FMDB.h in Headers */,
+				A7E84E3E02AA15605C36892AEFE6F300 /* FMResultSet.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B448B160EA58B0E375258C4C18092236 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DD401C0E838BB8803AFB49ABFD8ECB43 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D88AAE7FF77E5D986B4A62231160FC5 /* iOS-Echarts.h in Headers */,
+				66D57D1876B5B163FA9FB76B6CE3E54D /* NSObject+PYObject.h in Headers */,
+				90EB1AD1CE143F3C9DCD6A82A631C926 /* PYAreaStyle.h in Headers */,
+				8EBF2D86EC780AABDB9EF4977BC1C0B3 /* PYAxis.h in Headers */,
+				E583736DC28DF44556BBE1C10A8BD7EB /* PYAxisLabel.h in Headers */,
+				87312498C37647415EE62B78816AF509 /* PYAxisLine.h in Headers */,
+				0AEB2BF95521126F1F6174E69C4D8A17 /* PYAxisPointer.h in Headers */,
+				8C3D76AAC0C348D6BC5756AE085D1FEB /* PYAxisSplitLine.h in Headers */,
+				CFC4E60724303240DBE6A9E0DCE6823C /* PYAxisTick.h in Headers */,
+				94C0DE9CB03524CBFA5584BAD5B946E6 /* PYCartesianSeries.h in Headers */,
+				A7A3227213131CA2C31C03F526E26BF1 /* PYCategories.h in Headers */,
+				609B90876938C5318F1C64A73C267DA1 /* PYChordSeries.h in Headers */,
+				5ABF1EB2818B928D2DCE089C26B828F3 /* PYChordStyle.h in Headers */,
+				E051663CC8EBB27A9528E33BD1CA498F /* PYColor.h in Headers */,
+				E8D67B1B14C12C0FDCA73F1D99D283C2 /* PYDataRange.h in Headers */,
+				A988BA041F96D75962EB095EF3FD63E2 /* PYDataZoom.h in Headers */,
+				FC025BA1C128D4818761F630B158A62D /* PYEchartsView.h in Headers */,
+				578859A9E459AE3CD127BBAA9358A9C7 /* PYEventRiverSeries.h in Headers */,
+				D249A02EFE43684C9FDA7A0E03657211 /* PYForceSeries.h in Headers */,
+				041B74313A464E06A63B7643F032F641 /* PYFunnelSeries.h in Headers */,
+				37DCB9BBA589C475A78D23321904CF24 /* PYGaugeSeries.h in Headers */,
+				00F1F2F79F61DD2BBC968C32453CFB3B /* PYGrid.h in Headers */,
+				387DD4A250190C3E4FD1FCE8B2CDC852 /* PYHeatmapSeries.h in Headers */,
+				E12550F18057906E11F2187F0B846B7F /* PYItemStyle.h in Headers */,
+				7334AB046A112426E282C686CE787714 /* PYItemStyleProp.h in Headers */,
+				8F305F4230207662154F143D2F2EA26A /* PYJsonUtil.h in Headers */,
+				C96DDEC1BA5C7FAAF2864071228B14A8 /* PYLegend.h in Headers */,
+				942021A7E84F584E799C3E9D7F9A925C /* PYLineStyle.h in Headers */,
+				BE634D2F2C87B24DABC37AB48A98A547 /* PYLinks.h in Headers */,
+				0B2AE0572C33861E7537C2674E197342 /* PYLinkStyle.h in Headers */,
+				56D2421764E27D8514D03AE751847E95 /* PYLoadingOption.h in Headers */,
+				6EEEFB6505574674F7683E5915DDFC69 /* PYMapSeries.h in Headers */,
+				FF0B52548161EBBA381E0D142361B1D5 /* PYMarkLine.h in Headers */,
+				5D54206C499AF4E7204E5CD244ED17BB /* PYMarkPoint.h in Headers */,
+				0DE1022BC2F2FB41CE24AF4F6FD9E2BA /* PYNoDataLoadingOption.h in Headers */,
+				BA6F3C90377990995510FAA8056E1AF1 /* PYNodes.h in Headers */,
+				EBE489BB80C76131D59923214AD6DD29 /* PYNodeStyle.h in Headers */,
+				40EFDE9F2E48BA1DC2684C516C4990DF /* PYOption.h in Headers */,
+				4F743D7CB6DFD0551BB38187C7F4D47B /* PYPieSeries.h in Headers */,
+				AEFA65CCA635F42C4B4D4B4B431702E6 /* PYPolar.h in Headers */,
+				ED567C96285524CD01316B74C450BC66 /* PYRadarSeries.h in Headers */,
+				77AABF22D6D4F8BFFA6B3868250CF26D /* PYRoamController.h in Headers */,
+				937F5A439FE5FDD6F97F46D7FF9E169E /* PYSeries.h in Headers */,
+				C47CE13BF381AA10F4F1EBAF2A1BC629 /* PYSplitArea.h in Headers */,
+				9D0F160C11E1EE8112C1D0E41B461D8E /* PYTextStyle.h in Headers */,
+				F2207B6CCB2F9A7A80CBD61D847C8A00 /* PYTimeline.h in Headers */,
+				C617CDAE065060A7E78DE4F04B8DD7BA /* PYTitle.h in Headers */,
+				D9F848B837FE960B045BC2D1770A56F5 /* PYToolbox.h in Headers */,
+				2D16F26ABBED16BC463202D68D289491 /* PYToolboxFeature.h in Headers */,
+				FBE41F97709704D590670C741FA88AD3 /* PYTooltip.h in Headers */,
+				491A632F0075898A543B914652714335 /* PYTreeMapSeries.h in Headers */,
+				7E3853AFD2131DB12394416B2FEB089C /* PYTreeSeries.h in Headers */,
+				F4ADD3D524B608B623D34A474E95C612 /* PYUtilities.h in Headers */,
+				9C48B43DBDE2136B644605F59BE20B21 /* PYVennSeries.h in Headers */,
+				6B1A19378F1273CFB22D4061E8D48658 /* PYWordCloudSeries.h in Headers */,
+				111A114DE8B9AD35B5B8E627F3C0CE8F /* PYZoomEchartsView.h in Headers */,
+				7FC79632312F3F81303F26B61BE819FE /* WKEchartsView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		9129BC28FBFBA656F9072BF0911813DA /* Pods-ExCoin */ = {
+		563CFC01733EEFF7BC491B560ED1DBFA /* FMDB */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2B0C18278EBB49CC501267E2D03E138F /* Build configuration list for PBXNativeTarget "Pods-ExCoin" */;
+			buildConfigurationList = 3428FA9D8846C35F2A42E9A088626AD1 /* Build configuration list for PBXNativeTarget "FMDB" */;
 			buildPhases = (
-				7D92FCB4113E2FD4D90AB7E3B317F9B1 /* Headers */,
-				E1585F44DCCD114FC4655A59D5F24986 /* Sources */,
-				0601ED2D814A021181A7E6EA57FE5780 /* Frameworks */,
+				A9823EDF374897AAE6DE3C6C996A1A23 /* Headers */,
+				C0EC4BA12BBD05AECF72FABE34B5F57D /* Sources */,
+				D63A784EEB309CB120FA2364672B6365 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			name = FMDB;
+			productName = FMDB;
+			productReference = 28BC912D8A624B8004C4F6289ECCA6ED /* libFMDB.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CD1AE16515BC23A92CC12B34FC84B0CC /* GYDataCenter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C03C9FE43401E4F96C759C7D2DD914B6 /* Build configuration list for PBXNativeTarget "GYDataCenter" */;
+			buildPhases = (
+				908339A7EA0985DE6D8341F72326AF87 /* Headers */,
+				3D318752546895D6BA6A557BC90F2FCC /* Sources */,
+				3AE354D65E53845C6E804207425D4AFD /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				834DCFB759251418D7ACC6B7198A8B29 /* PBXTargetDependency */,
+			);
+			name = GYDataCenter;
+			productName = GYDataCenter;
+			productReference = B4979B2EA80C5D8461EADE4BF85B5225 /* libGYDataCenter.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CE5BB35B652B5A8006A9120BCDD05D7C /* iOS-Echarts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E638A48E91FA2175900B52899D44987 /* Build configuration list for PBXNativeTarget "iOS-Echarts" */;
+			buildPhases = (
+				DD401C0E838BB8803AFB49ABFD8ECB43 /* Headers */,
+				4104D7FD7FDED94FE6CDA1B9F533F9B0 /* Sources */,
+				BF93A7FED770E2E1A9F69ED14B010C32 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				912A1F33F3FB31883C79F7233C746683 /* PBXTargetDependency */,
+			);
+			name = "iOS-Echarts";
+			productName = "iOS-Echarts";
+			productReference = B025276FFF5D14A306B5EB8464AEC37E /* libiOS-Echarts.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D52F3FEDC54BCF9E839322F8FF66949B /* RDVTabBarController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61D1A1BEF207512A2216B4E904FDDAF6 /* Build configuration list for PBXNativeTarget "RDVTabBarController" */;
+			buildPhases = (
+				32EBE71F7C8789250EED494623C71550 /* Headers */,
+				D0EFEA0CCF9FD7CDD08A8EBAF3E4480C /* Sources */,
+				B6C0C7B393AEF2510BFFE8CEB625D4B4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RDVTabBarController;
+			productName = RDVTabBarController;
+			productReference = 3D5DE993F80F3CA8AB699D53E40B6B78 /* libRDVTabBarController.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		DCA5681807BBBA9735E4EF3861052DFD /* Pods-ExCoin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6836E2851600E07667E8B67BEB995183 /* Build configuration list for PBXNativeTarget "Pods-ExCoin" */;
+			buildPhases = (
+				B448B160EA58B0E375258C4C18092236 /* Headers */,
+				50C555B9136080D7F3AC2C7CDA5E94A5 /* Sources */,
+				9ABD0C931F57583BFB581300B038857F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6F4D41006F85D718E3A7C4807D1611A /* PBXTargetDependency */,
+				D93C0A20AF31A56D53E0AFEC061DA929 /* PBXTargetDependency */,
+				D94763055B40C814E9CDCB0B9FD53183 /* PBXTargetDependency */,
+				FC8084F031C5B3B246B2CA912FAE51FD /* PBXTargetDependency */,
+			);
 			name = "Pods-ExCoin";
 			productName = "Pods-ExCoin";
-			productReference = 9C2D53F4C941CCE67ABF941E4C60137A /* libPods-ExCoin.a */;
+			productReference = 53CFD99B56DD3DAEBBCDA0F8F8C41276 /* libPods-ExCoin.a */;
 			productType = "com.apple.product-type.library.static";
+		};
+		F1B7CCFF23CDFBBB38A6490083C63941 /* iOS-Echarts-iOS-Echarts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5DE5731C4A282D47E0F5B2413BFDF69 /* Build configuration list for PBXNativeTarget "iOS-Echarts-iOS-Echarts" */;
+			buildPhases = (
+				4BA22B4243565A316A9FC1F9BFEF72CC /* Sources */,
+				43337484491781D9CB7E6732626AAB67 /* Frameworks */,
+				42FA89A47D67F8BFB21930B97E315A6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "iOS-Echarts-iOS-Echarts";
+			productName = "iOS-Echarts-iOS-Echarts";
+			productReference = D30B1A959792663BE23CD4D557FCA4DD /* iOS-Echarts.bundle */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -118,7 +983,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 0940;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -128,27 +993,325 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 87CA360DC7C0158B67EDF55E5092782F /* Products */;
+			productRefGroup = 14153B97347CC7FCED212ADFF3E2D534 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9129BC28FBFBA656F9072BF0911813DA /* Pods-ExCoin */,
+				563CFC01733EEFF7BC491B560ED1DBFA /* FMDB */,
+				CD1AE16515BC23A92CC12B34FC84B0CC /* GYDataCenter */,
+				CE5BB35B652B5A8006A9120BCDD05D7C /* iOS-Echarts */,
+				F1B7CCFF23CDFBBB38A6490083C63941 /* iOS-Echarts-iOS-Echarts */,
+				DCA5681807BBBA9735E4EF3861052DFD /* Pods-ExCoin */,
+				D52F3FEDC54BCF9E839322F8FF66949B /* RDVTabBarController */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		42FA89A47D67F8BFB21930B97E315A6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CDAAE8E5A1088B4F9097596554AE5D4 /* echarts.html in Resources */,
+				19787FF12EE43E3AA003EEAEC76BCA93 /* js in Resources */,
+				97574094E1F996ED504E9C90F716B641 /* theme in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		E1585F44DCCD114FC4655A59D5F24986 /* Sources */ = {
+		3D318752546895D6BA6A557BC90F2FCC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B23D0B609AB07B002BA5700E3903176B /* Pods-ExCoin-dummy.m in Sources */,
+				7A94BC0AA89299A5AB35E2E6041AB693 /* FMDatabaseQueue+Async.m in Sources */,
+				277F368709977FDF76A425B0BA50D5B5 /* GYDataCenter-dummy.m in Sources */,
+				732DB105D8AD0F46ED07B4358EA8F9C8 /* GYDataContext.m in Sources */,
+				8AC58A28357F0DE13ABDD7B6EF32087E /* GYDBRunner.m in Sources */,
+				A2D4B33CFD28DBCCB3B222628D7AB47D /* GYDCUtilities.m in Sources */,
+				D6465B530597BB27BB9C6CA2A5A230BC /* GYModelObject.m in Sources */,
+				A15D7ECB69B75B79906248E6E3BC9CC7 /* GYReflection.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4104D7FD7FDED94FE6CDA1B9F533F9B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF6B694B3D29325ED4C6A3CF98741B66 /* iOS-Echarts-dummy.m in Sources */,
+				1CED852C4817EF5578E77B5F06BADE4F /* NSObject+PYObject.m in Sources */,
+				6121B0F5037B0893EEE4CE6D5FDB1469 /* PYAreaStyle.m in Sources */,
+				1EA5C537A0546057BBD653FD4CBF8AF6 /* PYAxis.m in Sources */,
+				D8DA20815B00E8B6E04FBB3F9CC10DEE /* PYAxisLabel.m in Sources */,
+				73FFE5C9BBD1758E7858AF1297BD4F46 /* PYAxisLine.m in Sources */,
+				299A5241FDC74EC2965785B9030215E7 /* PYAxisPointer.m in Sources */,
+				60C11331CB04D7E3B080A3A32F5642F8 /* PYAxisSplitLine.m in Sources */,
+				A41D556CB521DB8C9550E804065AA8AE /* PYAxisTick.m in Sources */,
+				48724EA77AD96F756D898ED37FFA834F /* PYCartesianSeries.m in Sources */,
+				9197CF18531F9FB444B5FFF821E5CC9A /* PYCategories.m in Sources */,
+				0D94482C1DA801D83AF5955F2EA5B023 /* PYChordSeries.m in Sources */,
+				A18893EDCCBCA7F549EF21483264B80B /* PYChordStyle.m in Sources */,
+				A641D0326CF4F2E50B9B3FC6A8D72E41 /* PYColor.m in Sources */,
+				B69394F48C16F5460611A08C49749074 /* PYDataRange.m in Sources */,
+				D2D5A2F646E0A3CA35A39CBD7025A87F /* PYDataZoom.m in Sources */,
+				B716560EAB2510D47802699FD0A18FFD /* PYEchartsView.m in Sources */,
+				3FC0A0B3C9CECCC63171AE95DCFCEC2F /* PYEventRiverSeries.m in Sources */,
+				F72CA835ADEDC7BF6A84B79F9F9FF867 /* PYForceSeries.m in Sources */,
+				10AC0C98326291B5A87AC1B3E1AF1AD2 /* PYFunnelSeries.m in Sources */,
+				C35C98C0066C2D88EB4284EA5F95C36B /* PYGaugeSeries.m in Sources */,
+				FA117CE75EC823795DD45A7781CC20B2 /* PYGrid.m in Sources */,
+				544BBA4AC68E138EB5CEA21746FB9AE3 /* PYHeatmapSeries.m in Sources */,
+				C71DCAFF5AB8C1AACEA2C0007ACCCA8E /* PYItemStyle.m in Sources */,
+				028BE20956E587F90A8642E725C4D17B /* PYItemStyleProp.m in Sources */,
+				C218A3CA01297A999CE67C416C5A03C6 /* PYJsonUtil.m in Sources */,
+				430D57E8D1F7E142D62422A469F82D6E /* PYLegend.m in Sources */,
+				3F7770303380CB31193AA91C274CB8C4 /* PYLineStyle.m in Sources */,
+				4AD5E55559D072136241F99A16ECC4D5 /* PYLinks.m in Sources */,
+				8FC1EAEF8DCEE63430E105DE81426934 /* PYLinkStyle.m in Sources */,
+				C0A6CE096ED134795A4CB4490F7B4A27 /* PYLoadingOption.m in Sources */,
+				FB2C10A7B311B8D08E83362AB519ECAB /* PYMapSeries.m in Sources */,
+				227F68FB08054C6E7AF4D8B4EFF497BE /* PYMarkLine.m in Sources */,
+				A94C4837623C28C901EE57807584946E /* PYMarkPoint.m in Sources */,
+				FFE256DC5B1667464F7D74D63537F393 /* PYNoDataLoadingOption.m in Sources */,
+				C7BBA890480FF28AFA45C442C974BCF8 /* PYNodes.m in Sources */,
+				6A6E0F73729ED35546AA84CEB4518329 /* PYNodeStyle.m in Sources */,
+				5F07644B78BFB7B06E7A05A07D2CC495 /* PYOption.m in Sources */,
+				DC24F7DDBDC74464CC4F90685A788E88 /* PYPieSeries.m in Sources */,
+				295B49E4E8C35A05AF6E56ABAE5D96B7 /* PYPolar.m in Sources */,
+				73A2FADC28D10550512D491367A0E0B1 /* PYRadarSeries.m in Sources */,
+				061697D6671697E7E4EB16282542D165 /* PYRoamController.m in Sources */,
+				990D0A30E046F55A4825AB84E1DABFEF /* PYSeries.m in Sources */,
+				F4101DF6CF4063437E46440FD5F3703F /* PYSplitArea.m in Sources */,
+				41BD2419CC2455CF37E1B45D1EF7C15F /* PYTextStyle.m in Sources */,
+				164A3098B16259D9B9F615F70832D1FC /* PYTimeline.m in Sources */,
+				C7E2C026FDBAE64F1CF5C919E4F2E759 /* PYTitle.m in Sources */,
+				455CA0DB8902DE9D1BAD1FD1DAE63BE2 /* PYToolbox.m in Sources */,
+				696474495A5B78610DDA6E677C9D45CA /* PYToolboxFeature.m in Sources */,
+				D9434AFAFE4F9F83FC88C097E5799D60 /* PYTooltip.m in Sources */,
+				41ED6D138627A96A4C3E29F3736D9A7D /* PYTreeMapSeries.m in Sources */,
+				AA90DA4C6D20561133D364A614CFB08C /* PYTreeSeries.m in Sources */,
+				A5FE84969A66A9E1F92A27E72AB22558 /* PYVennSeries.m in Sources */,
+				03841CBA2F5B206423E6D1E8696794E5 /* PYWordCloudSeries.m in Sources */,
+				EC72B91B8933EEC01BED491BA8B35F43 /* PYZoomEchartsView.m in Sources */,
+				424A4732EBD1A473B0637DB3FD279ED5 /* WKEchartsView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BA22B4243565A316A9FC1F9BFEF72CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50C555B9136080D7F3AC2C7CDA5E94A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F08D1DFD6A1CEC9C72FA982C5983F9D4 /* Pods-ExCoin-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0EC4BA12BBD05AECF72FABE34B5F57D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				958A213A844D537D936BB0015F36A8AC /* FMDatabase.m in Sources */,
+				67D747DBE48B0576F31CC6A65708E95D /* FMDatabaseAdditions.m in Sources */,
+				6E5806338005EAEBB406E12D25435E43 /* FMDatabasePool.m in Sources */,
+				5E707AC772B0D7F94B57095FBDA24D59 /* FMDatabaseQueue.m in Sources */,
+				2AB199715E4AFC805E8C6C6E34912611 /* FMDB-dummy.m in Sources */,
+				3207116E5C51BA439D37C8F0268D7DBC /* FMResultSet.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0EFEA0CCF9FD7CDD08A8EBAF3E4480C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A77A09FCD558B81E269146E88CA90F1B /* RDVTabBar.m in Sources */,
+				84D41D21E081F240305BCE0C37474CC7 /* RDVTabBarController-dummy.m in Sources */,
+				E18F8801D05ECC03A37E6D0027B325F3 /* RDVTabBarController.m in Sources */,
+				7CA38CAF3C4D34C63E527F656AA6129F /* RDVTabBarItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		834DCFB759251418D7ACC6B7198A8B29 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FMDB;
+			target = 563CFC01733EEFF7BC491B560ED1DBFA /* FMDB */;
+			targetProxy = B3A0AED3AEC05AF484F6B8DD2648B00E /* PBXContainerItemProxy */;
+		};
+		912A1F33F3FB31883C79F7233C746683 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "iOS-Echarts-iOS-Echarts";
+			target = F1B7CCFF23CDFBBB38A6490083C63941 /* iOS-Echarts-iOS-Echarts */;
+			targetProxy = DB25A579FD62C23B47B9930208EE9E7C /* PBXContainerItemProxy */;
+		};
+		C6F4D41006F85D718E3A7C4807D1611A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FMDB;
+			target = 563CFC01733EEFF7BC491B560ED1DBFA /* FMDB */;
+			targetProxy = 857F230886E249D2114190909E5AA474 /* PBXContainerItemProxy */;
+		};
+		D93C0A20AF31A56D53E0AFEC061DA929 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GYDataCenter;
+			target = CD1AE16515BC23A92CC12B34FC84B0CC /* GYDataCenter */;
+			targetProxy = 567640F77719C09629FEC750B21C16B4 /* PBXContainerItemProxy */;
+		};
+		D94763055B40C814E9CDCB0B9FD53183 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RDVTabBarController;
+			target = D52F3FEDC54BCF9E839322F8FF66949B /* RDVTabBarController */;
+			targetProxy = 4E7AEAF100129F163599C5B96597FD3F /* PBXContainerItemProxy */;
+		};
+		FC8084F031C5B3B246B2CA912FAE51FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "iOS-Echarts";
+			target = CE5BB35B652B5A8006A9120BCDD05D7C /* iOS-Echarts */;
+			targetProxy = D2C23C4B8A21F6233963A137A5819633 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		0E3391D9FDAC2A211CFFCF5F3E89BC0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A7C343A93C8E5DE0A589186AD08918B /* Pods-ExCoin.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		151D76B4C5602D96678D02557A15A7F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BBC27961F194A3769C3E1368F37FE00 /* iOS-Echarts.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/iOS-Echarts";
+				INFOPLIST_FILE = "Target Support Files/iOS-Echarts/ResourceBundle-iOS-Echarts-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = "iOS-Echarts";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		353CBD6F890F232A39F299691530628F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F945532847ACCC05E11C2263E7679170 /* RDVTabBarController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/RDVTabBarController/RDVTabBarController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = RDVTabBarController;
+				PRODUCT_NAME = RDVTabBarController;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		42842163E386AC68384A00AAE92B3837 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BBC27961F194A3769C3E1368F37FE00 /* iOS-Echarts.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/iOS-Echarts/iOS-Echarts-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = iOS_Echarts;
+				PRODUCT_NAME = "iOS-Echarts";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		490DB7819E68AEC623B4300DA6EAEE76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABF50C28A3504F6F327E565C1BA5D8D0 /* GYDataCenter.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/GYDataCenter/GYDataCenter-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = GYDataCenter;
+				PRODUCT_NAME = GYDataCenter;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4E325306CC9676AE36768C29A7BF95BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45884E169512031EF60658EEBFE79B88 /* FMDB.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/FMDB/FMDB-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = FMDB;
+				PRODUCT_NAME = FMDB;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		60DAF49CA7A9F362148D49C3C3123B2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -213,9 +1376,25 @@
 			};
 			name = Debug;
 		};
-		9584694A1B17D8E23149343948E7BD3E /* Release */ = {
+		878FBBD3088D32E314E64EB1F9364AC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A7C343A93C8E5DE0A589186AD08918B /* Pods-ExCoin.release.xcconfig */;
+			baseConfigurationReference = 1BBC27961F194A3769C3E1368F37FE00 /* iOS-Echarts.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/iOS-Echarts";
+				INFOPLIST_FILE = "Target Support Files/iOS-Echarts/ResourceBundle-iOS-Echarts-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = "iOS-Echarts";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		888CA5F91BB19CFD87439F7D685A18D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0F6CCF6026E6CF44C0E7D8E289F3645 /* Pods-ExCoin.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -230,6 +1409,30 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A5355117F36974A28246067DE3E6E734 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45884E169512031EF60658EEBFE79B88 /* FMDB.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/FMDB/FMDB-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = FMDB;
+				PRODUCT_NAME = FMDB;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -294,23 +1497,72 @@
 			};
 			name = Release;
 		};
-		E3BBD61F21FED05F9E9DC89240A2D994 /* Debug */ = {
+		D22183259B05558FAA387D9EA11498E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0F6CCF6026E6CF44C0E7D8E289F3645 /* Pods-ExCoin.debug.xcconfig */;
+			baseConfigurationReference = F945532847ACCC05E11C2263E7679170 /* RDVTabBarController.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MACH_O_TYPE = staticlib;
+				GCC_PREFIX_HEADER = "Target Support Files/RDVTabBarController/RDVTabBarController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = RDVTabBarController;
+				PRODUCT_NAME = RDVTabBarController;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F45808471ABCFDC0C03B9001F4217322 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABF50C28A3504F6F327E565C1BA5D8D0 /* GYDataCenter.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/GYDataCenter/GYDataCenter-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = GYDataCenter;
+				PRODUCT_NAME = GYDataCenter;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F5AE47A5EB22EFE66D8A97781784844D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BBC27961F194A3769C3E1368F37FE00 /* iOS-Echarts.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/iOS-Echarts/iOS-Echarts-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = iOS_Echarts;
+				PRODUCT_NAME = "iOS-Echarts";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -318,20 +1570,65 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2B0C18278EBB49CC501267E2D03E138F /* Build configuration list for PBXNativeTarget "Pods-ExCoin" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E3BBD61F21FED05F9E9DC89240A2D994 /* Debug */,
-				9584694A1B17D8E23149343948E7BD3E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60DAF49CA7A9F362148D49C3C3123B2A /* Debug */,
 				C4EAA84F44D044E108500A81C635F21E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3428FA9D8846C35F2A42E9A088626AD1 /* Build configuration list for PBXNativeTarget "FMDB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E325306CC9676AE36768C29A7BF95BC /* Debug */,
+				A5355117F36974A28246067DE3E6E734 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E638A48E91FA2175900B52899D44987 /* Build configuration list for PBXNativeTarget "iOS-Echarts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5AE47A5EB22EFE66D8A97781784844D /* Debug */,
+				42842163E386AC68384A00AAE92B3837 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		61D1A1BEF207512A2216B4E904FDDAF6 /* Build configuration list for PBXNativeTarget "RDVTabBarController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D22183259B05558FAA387D9EA11498E0 /* Debug */,
+				353CBD6F890F232A39F299691530628F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6836E2851600E07667E8B67BEB995183 /* Build configuration list for PBXNativeTarget "Pods-ExCoin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				888CA5F91BB19CFD87439F7D685A18D7 /* Debug */,
+				0E3391D9FDAC2A211CFFCF5F3E89BC0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5DE5731C4A282D47E0F5B2413BFDF69 /* Build configuration list for PBXNativeTarget "iOS-Echarts-iOS-Echarts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				878FBBD3088D32E314E64EB1F9364AC7 /* Debug */,
+				151D76B4C5602D96678D02557A15A7F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C03C9FE43401E4F96C759C7D2DD914B6 /* Build configuration list for PBXNativeTarget "GYDataCenter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				490DB7819E68AEC623B4300DA6EAEE76 /* Debug */,
+				F45808471ABCFDC0C03B9001F4217322 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

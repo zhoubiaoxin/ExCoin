@@ -1,3 +1,31 @@
-PODFILE CHECKSUM: 61f4f4d4d72892e7b1b51999ae32266ec015226e
+PODS:
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - GYDataCenter (0.1.1):
+    - FMDB
+  - iOS-Echarts (1.4.4)
+  - RDVTabBarController (1.1.9)
+
+DEPENDENCIES:
+  - FMDB (= 2.6.2)
+  - GYDataCenter
+  - iOS-Echarts
+  - RDVTabBarController (~> 1.1.9)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FMDB
+    - GYDataCenter
+    - iOS-Echarts
+    - RDVTabBarController
+
+SPEC CHECKSUMS:
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  GYDataCenter: 620dc2564589f50d2370a691303e0d7215f7c0af
+  iOS-Echarts: dbc7423d861e5eedee78906a39d205b5c4da9a13
+  RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
+
+PODFILE CHECKSUM: 90303759dda444609b912992ec86c6d46f45891e
 
 COCOAPODS: 1.5.3

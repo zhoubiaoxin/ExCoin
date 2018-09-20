@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZBTabBarController : UITabBarController
+@interface ZBTabBarController : UIViewController
+@property (strong, nonatomic) UIViewController *viewController;
 
 @end

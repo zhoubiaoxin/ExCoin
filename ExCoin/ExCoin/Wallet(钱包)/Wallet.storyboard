@@ -17,7 +17,21 @@
                     <view key="view" contentMode="scaleToFill" id="UOC-9N-jQ8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sqg-1p-GSa">
+                                <rect key="frame" x="0.0" y="665" width="375" height="2"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="pky-pr-KFV"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.10980392160000001" green="0.13725490200000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="sqg-1p-GSa" firstAttribute="leading" secondItem="QVe-6D-RhC" secondAttribute="leading" id="0pB-Oc-rAG"/>
+                            <constraint firstItem="QVe-6D-RhC" firstAttribute="bottom" secondItem="sqg-1p-GSa" secondAttribute="bottom" id="3AU-99-zPB"/>
+                            <constraint firstItem="QVe-6D-RhC" firstAttribute="trailing" secondItem="sqg-1p-GSa" secondAttribute="trailing" id="8m0-b9-i7c"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="QVe-6D-RhC"/>
                     </view>
                 </viewController>

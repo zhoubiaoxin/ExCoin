@@ -4,7 +4,10 @@
 target 'ExCoin' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   inhibit_all_warnings!
-
+  pod 'RDVTabBarController', '~> 1.1.9'
+  pod 'GYDataCenter'
+  pod 'FMDB', '2.6.2' 
+  pod 'iOS-Echarts'
   # use_frameworks!
 
   # Pods for ExCoin

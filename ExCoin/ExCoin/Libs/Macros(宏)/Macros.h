@@ -33,7 +33,6 @@
 //色值
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 #define RGB(r,g,b) RGBA(r,g,b,1.0f)
-
 #define HEXCOLOR(hex) [UIColor colorWithRed:((float)((hex & 0xFF0000) >> 16)) / 255.0 green:((float)((hex & 0xFF00) >> 8)) / 255.0 blue:((float)(hex & 0xFF)) / 255.0 alpha:1]
 
 //全局背景色
@@ -57,6 +56,7 @@
 
 
 //数组
+#define childArray @[@{ClassKey : @"MarketViewController",  TitleKey : @"行情", ImgKey: @"tab1_un", SelImgKey: @"tab1_se", StoryKey:@"Market"},@{ClassKey : @"TardeViewController",   TitleKey : @"交易", ImgKey: @"tab2_un", SelImgKey: @"tab2_se", StoryKey:@"Trade"},@{ClassKey : @"WalletViewController",  TitleKey : @"钱包", ImgKey: @"tab3_un", SelImgKey: @"tab3_se", StoryKey:@"Wallet"},@{ClassKey : @"AccountViewController", TitleKey : @"账户", ImgKey: @"tab4_un", SelImgKey: @"tab4_se", StoryKey:@"Account"}]
 
 
 
