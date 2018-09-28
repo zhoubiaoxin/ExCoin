@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface MarketModel : NSObject
-
+@property (nonatomic,strong) NSString *name;
 @end

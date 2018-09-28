@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MarketModel.h"
 @interface MarketListViewController1 : UIViewController
-
+@property (nonatomic, copy) void(^passValueBlock)(MarketModel * model);
 @end

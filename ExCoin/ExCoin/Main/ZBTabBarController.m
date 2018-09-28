@@ -11,7 +11,7 @@
 #import "RDVTabBarController.h"
 #import "RDVTabBarItem.h"
 
-#define childArray @[@{ClassKey : @"MarketViewController",  TitleKey : @"行情", ImgKey: @"tab1_un", SelImgKey: @"tab1_se", StoryKey:@"Market"},@{ClassKey : @"TardeViewController",   TitleKey : @"交易", ImgKey: @"tab2_un", SelImgKey: @"tab2_se", StoryKey:@"Trade"},@{ClassKey : @"WalletViewController",  TitleKey : @"钱包", ImgKey: @"tab3_un", SelImgKey: @"tab3_se", StoryKey:@"Wallet"},@{ClassKey : @"AccountViewController", TitleKey : @"账户", ImgKey: @"tab4_un", SelImgKey: @"tab4_se", StoryKey:@"Account"}]
+//#define childArray @[@{ClassKey : @"MarketViewController",  TitleKey : @"行情", ImgKey: @"tab1_un", SelImgKey: @"tab1_se", StoryKey:@"Market"},@{ClassKey : @"TardeViewController",   TitleKey : @"交易", ImgKey: @"tab2_un", SelImgKey: @"tab2_se", StoryKey:@"Trade"},@{ClassKey : @"WalletViewController",  TitleKey : @"钱包", ImgKey: @"tab3_un", SelImgKey: @"tab3_se", StoryKey:@"Wallet"},@{ClassKey : @"AccountViewController", TitleKey : @"账户", ImgKey: @"tab4_un", SelImgKey: @"tab4_se", StoryKey:@"Account"}]
 
 @interface ZBTabBarController ()<UITabBarControllerDelegate>
 
@@ -76,11 +76,15 @@
         
         UIViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:dict[ClassKey]];
         
-        [vcArr addObject:vc];
+        ZBBaseNavVC *nav = [[ZBBaseNavVC alloc] initWithRootViewController:vc];
+
+        [vcArr addObject:nav];
     }];
-    
+        
     RDVTabBarController *tabBarController = [[RDVTabBarController alloc] init];
+    
     [tabBarController setViewControllers:vcArr];
+    
     self.viewController = tabBarController;
     
     [self customizeTabBarForController:tabBarController];

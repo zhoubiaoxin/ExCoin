@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "ZBTabBarController.h"
-#import "RDVTabBarController.h"
 #import "RDVTabBarItem.h"
 #import "ZBBaseNavVC.h"
 
@@ -28,6 +27,8 @@
 
     [self.window makeKeyAndVisible];
     
+    [self customizeInterface];
+
     return YES;
 }
 
@@ -38,8 +39,8 @@
     [childArray enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL * _Nonnull stop) {
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:dict[StoryKey] bundle:nil];
         UIViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:dict[ClassKey]];
-        
-        [vcArr addObject:vc];
+        ZBBaseNavVC *nav = [[ZBBaseNavVC alloc] initWithRootViewController:vc];
+        [vcArr addObject:nav];
     }];
     
     RDVTabBarController *tabBarController = [[RDVTabBarController alloc] init];
@@ -88,6 +89,36 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+- (void)customizeInterface {
+    UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
+    
+    UIImage *backgroundImage = nil;
+    NSDictionary *textAttributes = nil;
+    
+    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
+        backgroundImage = [UIImage imageNamed:@"navigationbar_background_tall"];
+        
+        textAttributes = @{
+                           NSFontAttributeName: [UIFont boldSystemFontOfSize:18],
+                           NSForegroundColorAttributeName: [UIColor blackColor],
+                           };
+    } else {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
+        backgroundImage = [UIImage imageNamed:@"navigationbar_background"];
+        
+        textAttributes = @{
+                           UITextAttributeFont: [UIFont boldSystemFontOfSize:18],
+                           UITextAttributeTextColor: [UIColor blackColor],
+                           UITextAttributeTextShadowColor: [UIColor clearColor],
+                           UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero],
+                           };
+#endif
+    }
+    
+    [navigationBarAppearance setBackgroundImage:backgroundImage
+                                  forBarMetrics:UIBarMetricsDefault];
+    [navigationBarAppearance setTitleTextAttributes:textAttributes];
 }
 
 

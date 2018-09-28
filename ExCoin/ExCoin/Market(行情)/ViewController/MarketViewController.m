@@ -14,9 +14,11 @@
 #import "MarketListViewController3.h"
 #import "MarketListViewController4.h"
 #import "MarketListViewController5.h"
+#import "MarketDetailViewController.h"
 
 
-@interface MarketViewController ()<UIScrollViewDelegate,scrollMenuDelegate>
+@interface MarketViewController ()<UIScrollViewDelegate,scrollMenuDelegate,UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *searchText;
 /**下方的scrollView*/
 @property(nonatomic, strong)  UIScrollView * scrollView;
 /**菜单的View*/
@@ -40,10 +42,16 @@
 
 @implementation MarketViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = RGB(28, 35, 64);
+    self.navigationController.navigationBarHidden = YES;
     [self createUI];
 }
 - (void)createUI{
@@ -56,18 +64,22 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:_menuView];
     
+    [self.searchText setValue:[UIColor colorWithHex:@"#ADB7EA"] forKeyPath:@"_placeholderLabel.textColor"];
+    self.searchText.delegate = self;
+    
     //控制器的滚动视图
     _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_menuView.frame), ScreenW, ScreenH - CGRectGetMaxY(_menuView.frame))];
     _scrollView.pagingEnabled = YES;
-//     _scrollView.backgroundColor = [UIColor clearColor];
+    //_scrollView.backgroundColor = [UIColor clearColor];
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.delegate = self;
     [self.view addSubview:_scrollView];
     
+    
     //添加controllers
     NSArray * chelidControlls = [_menuView addChildrenControllersWithArr:controllerNameArr AndSuperController:self];
-//    //给底部的滚动视图添加View  这个方法 会一次性把所有的控制器都初始化了
+    //给底部的滚动视图添加View  这个方法 会一次性把所有的控制器都初始化了
     [_menuView addSubViewToScrollView:_scrollView controllerArr:chelidControlls];
     
     /**根据下标添加控制器的View    刚开始为第一项*/
@@ -77,6 +89,18 @@
     [self.meunbg addGestureRecognizer:tapGesture];
     
     self.selectNum = 1;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(marketDetail) name:@"marketDetail" object:nil];
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.view endEditing:YES];
+    [self.searchText resignFirstResponder];
+    return YES;
+}
+-(void)marketDetail{
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Market" bundle:nil];
+    MarketDetailViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"MarketDetailViewController"];
+    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark - scrollMenuDelegate
 - (void)scrollMenuDidPressBtn:(XQQScrollBtn*)button index:(NSInteger)index{
@@ -150,5 +174,4 @@
     }
     self.meunbg.hidden = YES;
 }
-
 @end

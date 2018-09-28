@@ -8,6 +8,7 @@
 
 #import "MarketListViewController1.h"
 #import "MarketCell.h"
+#import "MarketDetailViewController.h"
 
 @interface MarketListViewController1 ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView * tableView;
@@ -24,13 +25,14 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.backgroundColor = [UIColor colorWithHex:@"#1b1e3d"];
-//    [self.tableView registerNib:[UINib nibWithNibName:@"MarketCell" bundle:nil] forCellReuseIdentifier:@"JHCELL"];
-
-//    [_tableView registerClass:[MarketCell class] forCellReuseIdentifier:@"MarketCell"];
 
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self.view addSubview:_tableView];
+    [self createData];
+}
+-(void)createData{
+
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 80;
@@ -39,8 +41,21 @@
     return 10;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    MarketCell * cell = [[[NSBundle mainBundle] loadNibNamed:@"MarketCell" owner:self options:nil] firstObject];
+    
     MarketModel * model = [[MarketModel alloc] init];
+    
+    
+    MarketCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    //解决xib复用数据混乱问题
+    if (nil == cell) {
+        cell= (MarketCell *)[[[NSBundle  mainBundle]  loadNibNamed:@"MarketCell" owner:self options:nil]  lastObject];
+    }else{
+        //删除cell的所有子视图
+        while ([cell.contentView.subviews lastObject] != nil)
+        {
+            [(UIView*)[cell.contentView.subviews lastObject] removeFromSuperview];
+        }
+    }
     [cell setCellModel:model];
     if (indexPath.row%2 ==0) {
         cell.backgroundColor = [UIColor colorWithHex:@"#1b1e3d"];
@@ -48,8 +63,14 @@
         cell.backgroundColor = RGB(21, 25, 53);
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+    
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    MarketModel * market = [[MarketModel alloc] init];
+//    NSDictionary * dic = [NSDictionary dictionaryWithObject:market.name forKey:@"marketName"];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"marketDetail" object:nil userInfo:dic];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"marketDetail" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {

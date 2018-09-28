@@ -1,8 +1,8 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/FMDB" "${PODS_ROOT}/Headers/Public/GYDataCenter" "${PODS_ROOT}/Headers/Public/RDVTabBarController" "${PODS_ROOT}/Headers/Public/iOS-Echarts"
-LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FMDB" "${PODS_CONFIGURATION_BUILD_DIR}/GYDataCenter" "${PODS_CONFIGURATION_BUILD_DIR}/RDVTabBarController" "${PODS_CONFIGURATION_BUILD_DIR}/iOS-Echarts"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/FMDB" -isystem "${PODS_ROOT}/Headers/Public/GYDataCenter" -isystem "${PODS_ROOT}/Headers/Public/RDVTabBarController" -isystem "${PODS_ROOT}/Headers/Public/iOS-Echarts"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"FMDB" -l"GYDataCenter" -l"RDVTabBarController" -l"iOS-Echarts" -l"sqlite3" -framework "CoreGraphics" -framework "Foundation" -framework "UIKit"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/FMDB" "${PODS_ROOT}/Headers/Public/GYDataCenter" "${PODS_ROOT}/Headers/Public/RDVTabBarController" "${PODS_ROOT}/Headers/Public/iOS-Echarts"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking" "${PODS_CONFIGURATION_BUILD_DIR}/FMDB" "${PODS_CONFIGURATION_BUILD_DIR}/GYDataCenter" "${PODS_CONFIGURATION_BUILD_DIR}/RDVTabBarController" "${PODS_CONFIGURATION_BUILD_DIR}/iOS-Echarts"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AFNetworking" -isystem "${PODS_ROOT}/Headers/Public/FMDB" -isystem "${PODS_ROOT}/Headers/Public/GYDataCenter" -isystem "${PODS_ROOT}/Headers/Public/RDVTabBarController" -isystem "${PODS_ROOT}/Headers/Public/iOS-Echarts"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"AFNetworking" -l"FMDB" -l"GYDataCenter" -l"RDVTabBarController" -l"iOS-Echarts" -l"sqlite3" -framework "CoreGraphics" -framework "Foundation" -framework "MobileCoreServices" -framework "Security" -framework "SystemConfiguration" -framework "UIKit"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
