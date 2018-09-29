@@ -24,6 +24,10 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self setupViewControllers];
     [self.window setRootViewController:self.viewController];
+    
+    //改变状态栏字体颜色
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+
 
     [self.window makeKeyAndVisible];
     

@@ -25,6 +25,7 @@
 		BB89B56F214B8BC900B00E62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB89B56E214B8BC900B00E62 /* Assets.xcassets */; };
 		BB89B572214B8BC900B00E62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB89B570214B8BC900B00E62 /* LaunchScreen.storyboard */; };
 		BB89B575214B8BC900B00E62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB89B574214B8BC900B00E62 /* main.m */; };
+		BB8A00EB215F5D5100D7035A /* CLCustomSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A00EA215F5D5100D7035A /* CLCustomSwitch.m */; };
 		BB8F2B0C215E0F13009518ED /* NetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8F2B0B215E0F13009518ED /* NetWorking.m */; };
 		BB8F2B62215E22D7009518ED /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB8F2B0E215E22D7009518ED /* Info.plist */; };
 		BB8F2B63215E22D7009518ED /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8F2B10215E22D7009518ED /* MASCompositeConstraint.m */; };
@@ -106,6 +107,8 @@
 		BB89B571214B8BC900B00E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB89B573214B8BC900B00E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB89B574214B8BC900B00E62 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BB8A00E9215F5D5100D7035A /* CLCustomSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLCustomSwitch.h; sourceTree = "<group>"; };
+		BB8A00EA215F5D5100D7035A /* CLCustomSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLCustomSwitch.m; sourceTree = "<group>"; };
 		BB8F2B0A215E0F13009518ED /* NetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorking.h; sourceTree = "<group>"; };
 		BB8F2B0B215E0F13009518ED /* NetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorking.m; sourceTree = "<group>"; };
 		BB8F2B0E215E22D7009518ED /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -314,6 +317,15 @@
 				BBDAD9E9214BA54E0058A57F /* PrefixHeader.pch */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		BB8A00E8215F5D5100D7035A /* CLCustomSwitch(自定义开关) */ = {
+			isa = PBXGroup;
+			children = (
+				BB8A00E9215F5D5100D7035A /* CLCustomSwitch.h */,
+				BB8A00EA215F5D5100D7035A /* CLCustomSwitch.m */,
+			);
+			path = "CLCustomSwitch(自定义开关)";
 			sourceTree = "<group>";
 		};
 		BB8F2B09215E0F13009518ED /* NetWorking */ = {
@@ -724,6 +736,7 @@
 		BBDAD9EA214BA6460058A57F /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				BB8A00E8215F5D5100D7035A /* CLCustomSwitch(自定义开关) */,
 				BB8F2B28215E22D7009518ED /* BTC_K线图 */,
 				BB8F2B0D215E22D7009518ED /* Masonry */,
 				BB8F2B09215E0F13009518ED /* NetWorking */,
@@ -865,6 +878,7 @@
 				BB8F2B6C215E22D7009518ED /* ViewController+MASAdditions.m in Sources */,
 				BB8F2B6B215E22D7009518ED /* View+MASAdditions.m in Sources */,
 				BB8F2B6F215E22D7009518ED /* CATextLayer+DateTextLayer.m in Sources */,
+				BB8A00EB215F5D5100D7035A /* CLCustomSwitch.m in Sources */,
 				BBDAD9E8214BA4620058A57F /* ZBTabBarController.m in Sources */,
 				BB89B56A214B8BC900B00E62 /* ViewController.m in Sources */,
 				BB8F2B75215E22D7009518ED /* Y_KLineMAView.m in Sources */,

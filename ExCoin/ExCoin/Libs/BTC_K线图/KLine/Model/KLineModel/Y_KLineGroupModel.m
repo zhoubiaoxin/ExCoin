@@ -11,7 +11,7 @@
 @implementation Y_KLineGroupModel
 + (instancetype) objectWithArray:(NSArray *)arr {
     
-    NSAssert([arr isKindOfClass:[NSArray class]], @"arr不是一个数组");
+//    NSAssert([arr isKindOfClass:[NSArray class]], @"arr不是一个数组");
     
     Y_KLineGroupModel *groupModel = [Y_KLineGroupModel new];
     NSMutableArray *mutableArr = @[].mutableCopy;
@@ -46,7 +46,12 @@
     groupModel.models = mutableArr;
     
     //初始化第一个Model的数据
-    Y_KLineModel *firstModel = mutableArr[0];
+    Y_KLineModel *firstModel;
+    if ([arr isKindOfClass:[NSArray class]]) {
+        firstModel = mutableArr[0];
+    }else{
+        NSLog(@"123");
+    }
     [firstModel initFirstModel];
     
     //初始化其他Model的数据

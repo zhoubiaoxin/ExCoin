@@ -70,6 +70,7 @@
     btn.selected = YES;//sender.selected = !sender.selected;
     view.hidden = NO;
 }
+
 -(id) stockDatasWithIndex:(NSInteger)index
 {
     NSString *type;
@@ -120,7 +121,7 @@
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"type"] = self.type;
     param[@"market"] = @"btc_usdt";
-    param[@"size"] = @"1000";
+    param[@"size"] = @"200";
     [NetWorking requestWithApi:@"http://api.bitkk.com/data/v1/kline" param:param thenSuccess:^(NSDictionary *responseObject) {
         //NSLog(@"===:%@",responseObject);
         Y_KLineGroupModel *groupModel = [Y_KLineGroupModel objectWithArray:responseObject[@"data"]];
