@@ -58,38 +58,17 @@
 }
 - (IBAction)changeTime:(id)sender {
     UIButton * btn = (UIButton*)sender;
-    int index = (int)btn.tag;
-    switch (index) {
-        case 100:
-        {
-            self.type = @"1min";
-        }
-            break;
-        case 101:
-        {
-            self.type = @"15min";
-        }
-            break;
-        case 102:
-        {
-            self.type = @"1hour";
-        }
-            break;
-        case 103:
-        {
-            self.type = @"1day";
-        }
-            break;
-        case 104:
-        {
-            self.type = @"1week";
-        }
-            break;
-        default:
-            break;
+    self.indexNum = (int)btn.tag-100;
+    UIView *view = (UIView*)[self.view viewWithTag:btn.tag+10];
+    [self stockDatasWithIndex:self.indexNum];
+    for (int i=100;i<105;i++) {//num为总共设置单选效果按钮的数目
+        UIButton *btn1 = (UIButton*)[self.view viewWithTag:i];//view为这些btn的父视图
+        btn1.selected = NO;
+        UIView *view1 = (UIView*)[self.view viewWithTag:i+10];
+        view1.hidden = YES;
     }
-
-    [self reloadData];
+    btn.selected = YES;//sender.selected = !sender.selected;
+    view.hidden = NO;
 }
 -(id) stockDatasWithIndex:(NSInteger)index
 {
@@ -137,6 +116,7 @@
 }
 - (void)reloadData
 {
+    [self.modelsDict removeAllObjects];
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"type"] = self.type;
     param[@"market"] = @"btc_usdt";
@@ -155,7 +135,7 @@
 - (Y_StockChartView *)stockChartView
 {
     if(!_stockChartView) {
-        _stockChartView = [[Y_StockChartView alloc] initWithFrame:CGRectMake(15, 135, ScreenW-30, ScreenH-180)];
+        _stockChartView = [[Y_StockChartView alloc] initWithFrame:CGRectMake(15, 200, ScreenW-30, ScreenH-210)];
         _stockChartView.itemModels = @[
                                        [Y_StockChartViewItemModel itemModelWithTitle:@"1分" type:Y_StockChartcenterViewTypeKline],
                                        [Y_StockChartViewItemModel itemModelWithTitle:@"15分" type:Y_StockChartcenterViewTypeKline],

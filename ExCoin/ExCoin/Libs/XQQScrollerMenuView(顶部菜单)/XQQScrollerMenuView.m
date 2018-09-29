@@ -32,6 +32,7 @@
         self.showsVerticalScrollIndicator = NO;
         self.bounces = NO;
         self.delegate = self;
+        self.backgroundColor = RGB(28, 35, 64);
     }
     return self;
 }
@@ -131,7 +132,7 @@
     UIViewController * controller = _controllers[index];
     UIView * controllView = controller.view;
     controllView.tag = index + 10086;
-    NSLog(@"添加了的View是:%@",controllView);
+//    NSLog(@"添加了的View是:%@",controllView);
     CGRect viewFrame = controllView.frame;
     viewFrame.origin.y = 0;
     viewFrame.origin.x = index * iphoneWidth;
