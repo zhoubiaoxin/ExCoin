@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *numberText;
 @property (weak, nonatomic) IBOutlet UILabel *bili;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *numShowLab;
 
 @property (strong, nonatomic) CLCustomSwitch *priceSwitch;
 @property (strong, nonatomic) UISlider *slider;
@@ -38,7 +39,7 @@
     // 开关滑块
     self.priceSwitch.switchImageView.image = [UIImage imageNamed:@"icon_switchSe"];
     self.priceSwitch.delegate = self;
-    self.priceSwitch.on = YES; // 初始状态为开
+    self.priceSwitch.on = NO ; // 初始状态为开
     [self.view addSubview:self.priceSwitch];
     
     [self.numberText setValue:[UIColor colorWithHex:@"#646c8c"] forKeyPath:@"_placeholderLabel.textColor"];
@@ -69,6 +70,7 @@
 -(void)sliderValueChanged:(UISlider*)sender{
     self.bili.text = [NSString stringWithFormat:@"%d%s",(int)sender.value,"%"];
 }
+
 - (IBAction)changeState:(id)sender {
     self.greenBgH.constant = 0;
     self.redBgH.constant = 0;

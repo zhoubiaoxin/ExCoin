@@ -489,6 +489,7 @@
                         <outlet property="greebBtn" destination="ODD-AX-k1q" id="DiI-1Z-nUm"/>
                         <outlet property="greenBgH" destination="wlJ-nv-8n1" id="ufC-4b-TIc"/>
                         <outlet property="greenLine" destination="tHc-jX-Lbe" id="usP-t1-8By"/>
+                        <outlet property="numShowLab" destination="xZf-Aa-bNe" id="MH3-hZ-d1j"/>
                         <outlet property="numberText" destination="zly-Fd-wsK" id="BJq-NX-bCq"/>
                         <outlet property="redBgH" destination="I5y-tv-30N" id="ckw-2M-cim"/>
                         <outlet property="redBtn" destination="WZE-fI-hFf" id="5Nw-ds-qlC"/>
