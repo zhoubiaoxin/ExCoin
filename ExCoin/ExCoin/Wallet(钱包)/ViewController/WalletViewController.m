@@ -7,8 +7,10 @@
 //
 
 #import "WalletViewController.h"
+#import "WalletCell.h"
 
-@interface WalletViewController ()
+@interface WalletViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -17,14 +19,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationController.navigationBarHidden = YES;
     self.view.backgroundColor = RGB(28, 35, 64);
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.tableFooterView = [UIView new];
+    self.tableView.backgroundColor = RGB(28, 35, 64);
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
+}
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //    SuperviseList * model;
+    //    if (indexPath.row<_dateArr.count) {
+    //        model = _dateArr[indexPath.row];
+    //    }
+    WalletCell *cell = [tableView dequeueReusableCellWithIdentifier: @"WalletCell" forIndexPath:indexPath];
+    //    [cell setupCellWithSupervise:model];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
 /*
 #pragma mark - Navigation
 
@@ -34,5 +61,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

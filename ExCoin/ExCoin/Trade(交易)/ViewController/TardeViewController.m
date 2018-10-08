@@ -8,7 +8,9 @@
 
 #import "TardeViewController.h"
 #import "CLCustomSwitch.h"
-@interface TardeViewController ()<CLCustomSwitchDelegate,UITextFieldDelegate>
+#import "TardeViewCell.h"
+
+@interface TardeViewController ()<CLCustomSwitchDelegate,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *greenBgH;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *redBgH;
 @property (weak, nonatomic) IBOutlet UIView *greenLine;
@@ -17,11 +19,20 @@
 @property (weak, nonatomic) IBOutlet UIButton *redBtn;
 @property (weak, nonatomic) IBOutlet UITextField *numberText;
 @property (weak, nonatomic) IBOutlet UILabel *bili;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *numShowLab;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewWidth;
+@property (weak, nonatomic) IBOutlet UIView *leftView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *frameCenter;
+@property (weak, nonatomic) IBOutlet UISlider *silder;
 
 @property (strong, nonatomic) CLCustomSwitch *priceSwitch;
-@property (strong, nonatomic) UISlider *slider;
+@property (strong, nonatomic) UIImageView *image1;
+@property (strong, nonatomic) UIImageView *image2;
+@property (strong, nonatomic) UIImageView *image3;
+@property (strong, nonatomic) UIImageView *image4;
+@property (strong, nonatomic) UIImageView *image5;
 @end
 
 @implementation TardeViewController
@@ -45,29 +56,51 @@
     [self.numberText setValue:[UIColor colorWithHex:@"#646c8c"] forKeyPath:@"_placeholderLabel.textColor"];
     self.numberText.delegate = self;
     
-    // 初始化
-    self.slider = [[UISlider alloc] initWithFrame:CGRectMake(ScreenW/2.0-30, 325, ScreenW/2.0+15, 20)];
-    // 添加到俯视图
-    [self.view addSubview:self.slider];
+//    // 初始化
+    self.silder.frame = CGRectMake(ScreenW/2.0-30, 310, ScreenW/2.0+15, 10);
+//    // 添加到俯视图
+//    [self.view addSubview:self.slider];
     // 设置最小值
-    self.slider.minimumValue = 0;
+    self.silder.minimumValue = 0;
     // 设置最大值
-    self.slider.maximumValue = 100;
+    self.silder.maximumValue = 100;
     // 设置初始值
-    self.slider.value = 0;
+    self.silder.value = 0;
     // 设置可连续变化
-    self.slider.continuous = YES;
+    self.silder.continuous = YES;
+    self.frameCenter.constant = -5;
     
     /// 也可设置为图片
-    [self.slider setMinimumTrackImage:[UIImage imageNamed:@"icon_min"] forState:UIControlStateNormal];
-    [self.slider setMaximumTrackImage:[UIImage imageNamed:@"icon_max"] forState:UIControlStateNormal];
+    [self.silder setMinimumTrackImage:[UIImage imageNamed:@"icon_min"] forState:UIControlStateNormal];
+    [self.silder setMaximumTrackImage:[UIImage imageNamed:@"icon_max"] forState:UIControlStateNormal];
     
     //设置了滑轮的颜色，如果设置了滑轮的样式图片就不会显示
-    [self.slider setThumbImage:[UIImage imageNamed:@"icon_schedule"] forState:UIControlStateNormal];
+    [self.silder setThumbImage:[UIImage imageNamed:@"icon_schedule"] forState:UIControlStateNormal];
     // 针对值变化添加响应方法
-    [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.silder addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.tableFooterView = [UIView new];
+    self.tableView.backgroundColor = RGB(28, 35, 64);
+    self.tableView.tag = 1000;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self.view bringSubviewToFront:self.leftView];
+    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenBtn)];
+    [self.leftView addGestureRecognizer:tapGesture];
+}
+
+-(void)hiddenBtn{
+    [UIView animateWithDuration:0.5 animations:^{
+        self.viewWidth.constant = 0;
+        self.tableViewWidth.constant = 0;
+        [self.view layoutIfNeeded];
+    }];
 }
 -(void)sliderValueChanged:(UISlider*)sender{
+
+    self.frameCenter.constant = (ScreenW/2.0-15)*sender.value/100-5;
     self.bili.text = [NSString stringWithFormat:@"%d%s",(int)sender.value,"%"];
 }
 
@@ -82,18 +115,16 @@
     UIButton * btn = (UIButton*)sender;
     btn.selected = YES;
     if (btn.tag == 200) {
-        [UIView animateWithDuration:3 animations:^{
+        [UIView animateWithDuration:0.5 animations:^{
             self.greenBgH.constant = 42.5;
-        } completion:^(BOOL finished) {
-            self.greenBgH.constant = 42.5;
+            [self.view layoutIfNeeded];
         }];
         self.greenLine.hidden = NO;
     }else{
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:0.4];
-        [UIView setAnimationDelegate:self];
-        self.redBgH.constant = 42.5;
-        [UIView commitAnimations];
+        [UIView animateWithDuration:0.5 animations:^{
+            self.redBgH.constant = 42.5;
+            [self.view layoutIfNeeded];
+        }];
         self.redLine.hidden = NO;
     }
 }
@@ -115,6 +146,28 @@
 {
     NSLog(@"关闭");
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 30;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (tableView.tag == 1000) {
+        return 10;
+    }
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    SuperviseList * model;
+//    if (indexPath.row<_dateArr.count) {
+//        model = _dateArr[indexPath.row];
+//    }
+    TardeViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"TardeViewCell" forIndexPath:indexPath];
+//    [cell setupCellWithSupervise:model];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
 
 /*
 #pragma mark - Navigation
@@ -125,5 +178,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)leftMeunBtn:(id)sender {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.tableViewWidth.constant = 265;
+        self.viewWidth.constant = ScreenW;
+        [self.view layoutIfNeeded];
+    }];
+}
 
 @end

@@ -25,6 +25,7 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.backgroundColor = [UIColor colorWithHex:@"#1b1e3d"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     

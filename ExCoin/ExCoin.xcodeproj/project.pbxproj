@@ -58,6 +58,11 @@
 		BB8F2B7E215E22D7009518ED /* Y_KLineVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8F2B5D215E22D7009518ED /* Y_KLineVolumeView.m */; };
 		BB8F2B7F215E22D7009518ED /* Y_KLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8F2B5F215E22D7009518ED /* Y_KLineView.m */; };
 		BB8F2B80215E22D7009518ED /* Y_StockChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8F2B61215E22D7009518ED /* Y_StockChartView.m */; };
+		BBB6AAFC216AE6B000C02D6A /* TardeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB6AAFB216AE6B000C02D6A /* TardeViewCell.m */; };
+		BBB6AB00216AF80900C02D6A /* WalletCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB6AAFF216AF80900C02D6A /* WalletCell.m */; };
+		BBB6AB08216B280600C02D6A /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB6AB03216B280600C02D6A /* RECommonFunctions.m */; };
+		BBB6AB09216B280600C02D6A /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB6AB05216B280600C02D6A /* RESideMenu.m */; };
+		BBB6AB0A216B280600C02D6A /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB6AB07216B280600C02D6A /* UIViewController+RESideMenu.m */; };
 		BBDAD9D5214BA36D0058A57F /* MarketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDAD9D4214BA36D0058A57F /* MarketViewController.m */; };
 		BBDAD9D8214BA3990058A57F /* TardeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDAD9D7214BA3990058A57F /* TardeViewController.m */; };
 		BBDAD9DB214BA3A90058A57F /* WalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDAD9DA214BA3A90058A57F /* WalletViewController.m */; };
@@ -178,6 +183,16 @@
 		BB8F2B5F215E22D7009518ED /* Y_KLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Y_KLineView.m; sourceTree = "<group>"; };
 		BB8F2B60215E22D7009518ED /* Y_StockChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Y_StockChartView.h; sourceTree = "<group>"; };
 		BB8F2B61215E22D7009518ED /* Y_StockChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Y_StockChartView.m; sourceTree = "<group>"; };
+		BBB6AAFA216AE6B000C02D6A /* TardeViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TardeViewCell.h; sourceTree = "<group>"; };
+		BBB6AAFB216AE6B000C02D6A /* TardeViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TardeViewCell.m; sourceTree = "<group>"; };
+		BBB6AAFE216AF80900C02D6A /* WalletCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletCell.h; sourceTree = "<group>"; };
+		BBB6AAFF216AF80900C02D6A /* WalletCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletCell.m; sourceTree = "<group>"; };
+		BBB6AB02216B280600C02D6A /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		BBB6AB03216B280600C02D6A /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		BBB6AB04216B280600C02D6A /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenu.h; sourceTree = "<group>"; };
+		BBB6AB05216B280600C02D6A /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenu.m; sourceTree = "<group>"; };
+		BBB6AB06216B280600C02D6A /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
+		BBB6AB07216B280600C02D6A /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
 		BBDAD9D3214BA36D0058A57F /* MarketViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarketViewController.h; sourceTree = "<group>"; };
 		BBDAD9D4214BA36D0058A57F /* MarketViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketViewController.m; sourceTree = "<group>"; };
 		BBDAD9D6214BA3990058A57F /* TardeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TardeViewController.h; sourceTree = "<group>"; };
@@ -546,6 +561,19 @@
 			path = VolumeView;
 			sourceTree = "<group>";
 		};
+		BBB6AB01216B280600C02D6A /* RESideMenu(侧边栏) */ = {
+			isa = PBXGroup;
+			children = (
+				BBB6AB02216B280600C02D6A /* RECommonFunctions.h */,
+				BBB6AB03216B280600C02D6A /* RECommonFunctions.m */,
+				BBB6AB04216B280600C02D6A /* RESideMenu.h */,
+				BBB6AB05216B280600C02D6A /* RESideMenu.m */,
+				BBB6AB06216B280600C02D6A /* UIViewController+RESideMenu.h */,
+				BBB6AB07216B280600C02D6A /* UIViewController+RESideMenu.m */,
+			);
+			path = "RESideMenu(侧边栏)";
+			sourceTree = "<group>";
+		};
 		BBDAD9BF214B9E190058A57F /* Market(行情) */ = {
 			isa = PBXGroup;
 			children = (
@@ -656,6 +684,8 @@
 		BBDAD9CA214B9ECB0058A57F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BBB6AAFA216AE6B000C02D6A /* TardeViewCell.h */,
+				BBB6AAFB216AE6B000C02D6A /* TardeViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -686,6 +716,8 @@
 		BBDAD9CE214B9ED60058A57F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BBB6AAFE216AF80900C02D6A /* WalletCell.h */,
+				BBB6AAFF216AF80900C02D6A /* WalletCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -736,6 +768,7 @@
 		BBDAD9EA214BA6460058A57F /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				BBB6AB01216B280600C02D6A /* RESideMenu(侧边栏) */,
 				BB8A00E8215F5D5100D7035A /* CLCustomSwitch(自定义开关) */,
 				BB8F2B28215E22D7009518ED /* BTC_K线图 */,
 				BB8F2B0D215E22D7009518ED /* Masonry */,
@@ -897,14 +930,18 @@
 				BBDAD9DE214BA3B90058A57F /* AccountViewController.m in Sources */,
 				BB8F2B68215E22D7009518ED /* MASViewConstraint.m in Sources */,
 				BB89B575214B8BC900B00E62 /* main.m in Sources */,
+				BBB6AB00216AF80900C02D6A /* WalletCell.m in Sources */,
 				BBDAD9DB214BA3A90058A57F /* WalletViewController.m in Sources */,
+				BBB6AB0A216B280600C02D6A /* UIViewController+RESideMenu.m in Sources */,
 				BB8F2B7B215E22D7009518ED /* Y_StockChartRightYView.m in Sources */,
 				BBDAD9E6214BA4620058A57F /* ZBBaseNavVC.m in Sources */,
 				BB8F2B67215E22D7009518ED /* MASViewAttribute.m in Sources */,
 				BB8F2B0C215E0F13009518ED /* NetWorking.m in Sources */,
+				BBB6AB09216B280600C02D6A /* RESideMenu.m in Sources */,
 				BB7D14162150D32B00E7FA5F /* MarketListViewController4.m in Sources */,
 				BB7D14032150951700E7FA5F /* MarketListViewController1.m in Sources */,
 				BB8F2B7D215E22D7009518ED /* Y_VolumeMAView.m in Sources */,
+				BBB6AAFC216AE6B000C02D6A /* TardeViewCell.m in Sources */,
 				BB8F2B79215E22D7009518ED /* Y_KLinePositionModel.m in Sources */,
 				BB89B567214B8BC900B00E62 /* AppDelegate.m in Sources */,
 				BB88CE342159D10500ED12C7 /* MarketDetailViewController.m in Sources */,
@@ -925,6 +962,7 @@
 				BB7D140A215095CE00E7FA5F /* XQQScrollerMenuView.m in Sources */,
 				BB8F2B80215E22D7009518ED /* Y_StockChartView.m in Sources */,
 				BB8F2B76215E22D7009518ED /* Y_KLineMainView.m in Sources */,
+				BBB6AB08216B280600C02D6A /* RECommonFunctions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
