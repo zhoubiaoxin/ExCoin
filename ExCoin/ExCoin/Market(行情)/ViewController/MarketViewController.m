@@ -14,7 +14,9 @@
 #import "MarketListViewController3.h"
 #import "MarketListViewController4.h"
 #import "MarketListViewController5.h"
+#import "MarketListViewController6.h"
 #import "MarketDetailViewController.h"
+#import "MarketModel.h"
 
 
 @interface MarketViewController ()<UIScrollViewDelegate,scrollMenuDelegate,UITextFieldDelegate>
@@ -90,6 +92,31 @@
     
     self.selectNum = 1;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(marketDetail) name:@"marketDetail" object:nil];
+    [self createData];
+}
+-(void)createData{
+    [NetWorking requestWithApi:@"https://api.coinex.com/v1/market/list" param:nil thenSuccess:^(NSDictionary *responseObject) {
+        //NSLog(@"===:%@",responseObject);
+        [self createAll:responseObject[@"data"]];
+    } fail:^{
+        
+    }];
+    
+   
+}
+-(void)createAll:(NSArray *)arr{
+    [NetWorking requestWithApi:@"https://api.coinex.com/v1/market/ticker/all" param:nil thenSuccess:^(NSDictionary *responseObject) {
+        //NSLog(@"===:%@",responseObject);
+        NSDictionary * dic = responseObject[@"data"];
+        NSDictionary * dict = dic[@"ticker"];
+        for (NSString *str in arr) {
+            NSDictionary * dicList = dict[str];
+            MarketModel * markertModel = [[MarketModel alloc] initWithtickername:str buy:dicList[@"buy"] buy_amount:dicList[@"buy_amount"] open:dicList[@"open"] high:dicList[@"high"] last:dicList[@"last"] low:dicList[@"low"] sell:dicList[@"sell"] sell_amount:dicList[@"sell_amount"] vol:dicList[@"vol"]];
+            [markertModel save];
+        }
+    } fail:^{
+        
+    }];
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self.view endEditing:YES];
