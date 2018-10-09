@@ -532,15 +532,15 @@
 
 - (void) initWithArray:(NSArray *)arr;
 {
-    NSAssert(arr.count == 6, @"数组长度不足");
+//    NSAssert(arr.count == 6, @"数组长度不足");
 
     if (self)
     {
         _Date = arr[0];
         _Open = @([arr[1] doubleValue]);
-        _High = @([arr[2] doubleValue]);
-        _Low = @([arr[3] doubleValue]);  
-        _Close = @([arr[4] doubleValue]);
+        _Close = @([arr[2] doubleValue]);
+        _High = @([arr[3] doubleValue]);
+        _Low = @([arr[4] doubleValue]);
 
         _Volume = [arr[5] doubleValue];
         self.SumOfLastClose = @(_Close.doubleValue + self.PreviousKlineModel.SumOfLastClose.doubleValue);

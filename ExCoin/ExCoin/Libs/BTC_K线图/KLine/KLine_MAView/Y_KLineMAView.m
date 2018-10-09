@@ -162,7 +162,7 @@
 }
 -(void)maProfileWithModel:(Y_KLineModel *)model
 {
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:model.Date.doubleValue/1000];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:model.Date.doubleValue];
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     formatter.dateFormat = @"yyyy-MM-dd HH:mm";
     NSString *dateStr = [formatter stringFromDate:date];

@@ -59,9 +59,9 @@
     }
     [cell setCellModel:model];
     if (indexPath.row%2 ==0) {
-        cell.backgroundColor = [UIColor colorWithHex:@"#1b1e3d"];
+        cell.backgroundColor = [UIColor colorWithHex:@"#151935"];
     }else{
-        cell.backgroundColor = RGB(21, 25, 53);
+        cell.backgroundColor = [UIColor colorWithHex:@"#1b1f3d"];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     

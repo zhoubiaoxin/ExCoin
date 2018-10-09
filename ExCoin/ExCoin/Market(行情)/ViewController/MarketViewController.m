@@ -56,8 +56,8 @@
 }
 - (void)createUI{
     self.navigationItem.title = @"滚动菜单";
-    NSArray * titleArr = @[@"自选",@"BCH",@"BTC",@"ETH",@"USDT"];
-    NSArray * controllerNameArr = @[@"MarketListViewController1",@"MarketListViewController2",@"MarketListViewController3",@"MarketListViewController4",@"MarketListViewController5"];
+    NSArray * titleArr = @[@"自选",@"BCH",@"BTC",@"ETH",@"CTE",@"USDT"];
+    NSArray * controllerNameArr = @[@"MarketListViewController1",@"MarketListViewController2",@"MarketListViewController3",@"MarketListViewController4",@"MarketListViewController5",@"MarketListViewController6"];
     _menuView  = [[XQQScrollerMenuView alloc]initWithFrame:CGRectMake(15, 84, ScreenW-30, 44)];
     _menuView.titleArr = titleArr;
     _menuView.scrollDelegate = self;

@@ -308,9 +308,9 @@
         
         CGPoint point = [positions[idx] CGPointValue];
         //日期
-        NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.needDrawKLineModels[idx].Date.doubleValue/1000];
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.needDrawKLineModels[idx].Date.doubleValue];
         NSDateFormatter *formatter = [NSDateFormatter new];
-        formatter.dateFormat = @"HH:mm:ss";
+        formatter.dateFormat = @"yy-MM-dd";
         NSString *dateStr = [formatter stringFromDate:date];
         
         CGPoint drawDatePoint = CGPointMake(point.x - 0.5, Y_StockChartKLineMainViewMaxY);

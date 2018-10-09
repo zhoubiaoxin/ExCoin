@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *frameCenter;
 @property (weak, nonatomic) IBOutlet UISlider *silder;
+@property (weak, nonatomic) IBOutlet UIView *tableViewHeadView;
 
 @property (strong, nonatomic) CLCustomSwitch *priceSwitch;
 @property (strong, nonatomic) UIImageView *image1;
@@ -44,20 +45,20 @@
     self.navigationController.navigationBarHidden = YES;
     self.redBgH.constant = 0;
     
-    self.priceSwitch = [[CLCustomSwitch alloc] initWithFrame:CGRectMake(ScreenW-115, 135, 100, 40)];
+    self.priceSwitch = [[CLCustomSwitch alloc] initWithFrame:CGRectMake(ScreenW-115, 61, 100, 40)];
     // 开关背景
     self.priceSwitch.bgImageView.image = [UIImage imageNamed:@"icon_switchBg"];
     // 开关滑块
     self.priceSwitch.switchImageView.image = [UIImage imageNamed:@"icon_switchSe"];
     self.priceSwitch.delegate = self;
     self.priceSwitch.on = NO ; // 初始状态为开
-    [self.view addSubview:self.priceSwitch];
+    [self.tableViewHeadView addSubview:self.priceSwitch];
     
     [self.numberText setValue:[UIColor colorWithHex:@"#646c8c"] forKeyPath:@"_placeholderLabel.textColor"];
     self.numberText.delegate = self;
     
 //    // 初始化
-    self.silder.frame = CGRectMake(ScreenW/2.0-30, 310, ScreenW/2.0+15, 10);
+    self.silder.frame = CGRectMake(ScreenW/2.0+15, 310, ScreenW/2.0+15, 10);
 //    // 添加到俯视图
 //    [self.view addSubview:self.slider];
     // 设置最小值
@@ -99,7 +100,6 @@
     }];
 }
 -(void)sliderValueChanged:(UISlider*)sender{
-
     self.frameCenter.constant = (ScreenW/2.0-15)*sender.value/100-5;
     self.bili.text = [NSString stringWithFormat:@"%d%s",(int)sender.value,"%"];
 }

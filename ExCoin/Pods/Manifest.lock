@@ -24,8 +24,8 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.2.1)
-  - FMDB (= 2.6.2)
-  - GYDataCenter
+  - FMDB (~> 2.6.2)
+  - GYDataCenter (~> 0.1.1)
   - iOS-Echarts
   - RDVTabBarController (~> 1.1.9)
 
@@ -44,6 +44,6 @@ SPEC CHECKSUMS:
   iOS-Echarts: dbc7423d861e5eedee78906a39d205b5c4da9a13
   RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
 
-PODFILE CHECKSUM: 1caaa32166d3f5b8a94a5cde63f14fa6154683e6
+PODFILE CHECKSUM: 76475ea5d89399b93d3be94030300c6e38fa30b8
 
 COCOAPODS: 1.5.3

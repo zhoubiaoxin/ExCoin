@@ -120,9 +120,9 @@
     [self.modelsDict removeAllObjects];
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"type"] = self.type;
-    param[@"market"] = @"btc_usdt";
-    param[@"size"] = @"200";
-    [NetWorking requestWithApi:@"http://api.bitkk.com/data/v1/kline" param:param thenSuccess:^(NSDictionary *responseObject) {
+    param[@"market"] = @"btcbch";
+    param[@"limit"] = @"100";
+    [NetWorking requestWithApi:@"https://api.coinex.com/v1/market/kline" param:param thenSuccess:^(NSDictionary *responseObject) {
         //NSLog(@"===:%@",responseObject);
         Y_KLineGroupModel *groupModel = [Y_KLineGroupModel objectWithArray:responseObject[@"data"]];
         self.groupModel = groupModel;
