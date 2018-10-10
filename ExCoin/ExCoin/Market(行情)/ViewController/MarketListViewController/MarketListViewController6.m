@@ -26,17 +26,33 @@
     _tableView.frame = CGRectMake(0, 0, ScreenW, ScreenH - 71 -44-49);
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _tableView.backgroundColor = [UIColor colorWithHex:@"#1b1e3d"];
+    _tableView.backgroundColor = [UIColor colorWithHex:@"#151935"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self.view addSubview:_tableView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createData) name:@"refresh" object:nil];
     [self createData];
 }
 -(void)createData{
-    _dataArr = [MarketModel objectsWhere:@"WHERE tickername like '%USDT'" arguments:nil];
+    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"paixu"];
+    NSString * str1 = [[NSUserDefaults standardUserDefaults] objectForKey:@"paixustate"];
+    NSString * str2;
+    if (str.length !=0&&str1.length !=0) {
+        if ([str1 isEqualToString:@"up"]) {
+            str2 = [NSString stringWithFormat:@"ORDER BY %@ ACS",str];
+        }else{
+            str2 = [NSString stringWithFormat:@"ORDER BY %@ DESC",str];
+        }
+    }else{
+        str2 = @"ORDER BY vol DESC";
+    }
+    NSString * str3 = @"WHERE tickername like '%USDT' and store = '0'";
+    _dataArr = [MarketModel objectsWhere:[NSString stringWithFormat:@"%@%@",str3,str2] arguments:nil];
+    [self.tableView reloadData];
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 80;
 }
@@ -59,20 +75,33 @@
         }
     }
     [cell setCellModel:model];
+    cell.contentView.backgroundColor = [UIColor clearColor];
     if (indexPath.row%2 ==0) {
         cell.backgroundColor = [UIColor colorWithHex:@"#151935"];
     }else{
-        cell.backgroundColor = [UIColor colorWithHex:@"#1b1f3d"];
+        cell.backgroundColor = [UIColor colorWithHex:@"#1b1e3d"];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+    cell.storeBtn.tag = 100+indexPath.row;
+    [cell.storeBtn addTarget:self action:@selector(storeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
+-(void)storeBtnClick:(UIButton*)btn{
+    MarketModel * model = _dataArr[btn.tag-100];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    if ([model.store isEqualToString:@"0"]) {
+        param[@"store"] = @"1";
+    }else{
+        param[@"store"] = @"0";
+    }
+    [MarketModel updateObjectsSet:param Where:[NSString stringWithFormat:@"WHERE tickername = '%@'",model.tickername] arguments:nil];
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"refresh" object:nil];
+    [self createData];
+}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //    MarketModel * market = [[MarketModel alloc] init];
-    //    NSDictionary * dic = [NSDictionary dictionaryWithObject:market.name forKey:@"marketName"];
-    //    [[NSNotificationCenter defaultCenter] postNotificationName:@"marketDetail" object:nil userInfo:dic];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"marketDetail" object:nil];
+    MarketModel * model = _dataArr[indexPath.row];
+    NSDictionary *dataDic = [NSDictionary dictionaryWithObject:model.tickername forKey:@"info"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"marketDetail" object:dataDic];
 }
 
 - (void)didReceiveMemoryWarning {

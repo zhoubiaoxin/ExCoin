@@ -32,7 +32,7 @@
         self.showsVerticalScrollIndicator = NO;
         self.bounces = NO;
         self.delegate = self;
-        self.backgroundColor = RGB(28, 35, 64);
+        self.backgroundColor = [UIColor colorWithHex:@"#151935"];
     }
     return self;
 }

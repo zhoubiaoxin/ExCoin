@@ -10,6 +10,7 @@
 
 @interface MarketModel : GYModelObject
 @property (strong, nonatomic) NSString *tickername;
+@property (strong, nonatomic) NSString *date;
 @property (strong, nonatomic) NSString *buy;
 @property (strong, nonatomic) NSString *buy_amount;
 @property (strong, nonatomic) NSString *open;
@@ -19,7 +20,11 @@
 @property (strong, nonatomic) NSString *sell;
 @property (strong, nonatomic) NSString *sell_amount;
 @property (strong, nonatomic) NSString *vol;
+@property (strong, nonatomic) NSString *store;
+@property (strong, nonatomic) NSString *zhangfu;
+
 - (instancetype)initWithtickername:(NSString *)tickername
+                               date:(NSString *)date
                                buy:(NSString *)buy
                         buy_amount:(NSString *)buy_amount
                               open:(NSString *)open
@@ -28,5 +33,8 @@
                                low:(NSString *)low
                               sell:(NSString *)sell
                        sell_amount:(NSString *)sell_amount
-                               vol:(NSString *)vol;
+                               vol:(NSString *)vol
+                             store:(NSString *)store
+                           zhangfu:(NSString *)zhangfu;
+
 @end

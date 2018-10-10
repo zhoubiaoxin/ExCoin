@@ -52,13 +52,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = RGB(28, 35, 64);
+    self.view.backgroundColor = [UIColor colorWithHex:@"#151935"];
     self.navigationController.navigationBarHidden = YES;
     [self createUI];
 }
 - (void)createUI{
     self.navigationItem.title = @"滚动菜单";
-    NSArray * titleArr = @[@"自选",@"BCH",@"BTC",@"ETH",@"CTE",@"USDT"];
+    NSArray * titleArr = @[@"自选",@"BCH",@"BTC",@"ETH",@"CET",@"USDT"];
     NSArray * controllerNameArr = @[@"MarketListViewController1",@"MarketListViewController2",@"MarketListViewController3",@"MarketListViewController4",@"MarketListViewController5",@"MarketListViewController6"];
     _menuView  = [[XQQScrollerMenuView alloc]initWithFrame:CGRectMake(15, 84, ScreenW-30, 44)];
     _menuView.titleArr = titleArr;
@@ -70,62 +70,93 @@
     self.searchText.delegate = self;
     
     //控制器的滚动视图
-    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_menuView.frame), ScreenW, ScreenH - CGRectGetMaxY(_menuView.frame))];
+    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_menuView.frame), ScreenW, ScreenH - CGRectGetMaxY(_menuView.frame)-1)];
     _scrollView.pagingEnabled = YES;
-    //_scrollView.backgroundColor = [UIColor clearColor];
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.delegate = self;
     [self.view addSubview:_scrollView];
     
-    
     //添加controllers
-    NSArray * chelidControlls = [_menuView addChildrenControllersWithArr:controllerNameArr AndSuperController:self];
+//    NSArray * chelidControlls = [_menuView addChildrenControllersWithArr:controllerNameArr AndSuperController:self];
+    [_menuView addChildrenControllersWithArr:controllerNameArr AndSuperController:self];
     //给底部的滚动视图添加View  这个方法 会一次性把所有的控制器都初始化了
-    [_menuView addSubViewToScrollView:_scrollView controllerArr:chelidControlls];
-    
+//    [_menuView addSubViewToScrollView:_scrollView controllerArr:chelidControlls];
     /**根据下标添加控制器的View    刚开始为第一项*/
     [_menuView addSubViewToScrollViewWithIndex:0 superView:_scrollView];
+    [_menuView changeBtnStatesWithBtnIndex:1];
+    [self scrollMenuDidPressBtn:[[XQQScrollBtn alloc] init] index:1];
     
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenBtn)];
     [self.meunbg addGestureRecognizer:tapGesture];
     
     self.selectNum = 1;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(marketDetail) name:@"marketDetail" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:@"marketDetail" object:nil];
     [self createData];
+    
 }
+-(void)receiveNotification:(NSNotification *)infoNotification {
+    NSDictionary *dic = [infoNotification object];
+    NSString *str = [dic objectForKey:@"info"];
+    [self marketDetail:str];
+}
+
 -(void)createData{
+    [MarketModel deleteObjectsWhere:@"WHERE store = '1' and store = '0'" arguments:nil];
     [NetWorking requestWithApi:@"https://api.coinex.com/v1/market/list" param:nil thenSuccess:^(NSDictionary *responseObject) {
         //NSLog(@"===:%@",responseObject);
         [self createAll:responseObject[@"data"]];
     } fail:^{
         
     }];
-    
-   
 }
+
 -(void)createAll:(NSArray *)arr{
     [NetWorking requestWithApi:@"https://api.coinex.com/v1/market/ticker/all" param:nil thenSuccess:^(NSDictionary *responseObject) {
         //NSLog(@"===:%@",responseObject);
         NSDictionary * dic = responseObject[@"data"];
         NSDictionary * dict = dic[@"ticker"];
-        for (NSString *str in arr) {
+        for (int i = 0; i<arr.count; i++) {
+            NSString *str = arr[i];
             NSDictionary * dicList = dict[str];
-            MarketModel * markertModel = [[MarketModel alloc] initWithtickername:str buy:dicList[@"buy"] buy_amount:dicList[@"buy_amount"] open:dicList[@"open"] high:dicList[@"high"] last:dicList[@"last"] low:dicList[@"low"] sell:dicList[@"sell"] sell_amount:dicList[@"sell_amount"] vol:dicList[@"vol"]];
-            [markertModel save];
+            NSArray * arr = [MarketModel objectsWhere:[NSString stringWithFormat:@"WHERE tickername = '%@'",str] arguments:nil];
+            NSString * str1 = [NSString stringWithFormat:@"%.2f",([dicList[@"last"] floatValue]-[dicList[@"open"] floatValue])/[dicList[@"open"] floatValue]];
+            if (arr.count>0) {
+                NSMutableDictionary *param = [NSMutableDictionary dictionary];
+                param[@"date"] = dic[@"date"];
+                param[@"buy"] = dicList[@"buy"];
+                param[@"buy_amount"] = dicList[@"buy_amount"];
+                param[@"open"] = dicList[@"open"];
+                param[@"high"] = dicList[@"high"];
+                param[@"last"] = dicList[@"last"];
+                param[@"low"] = dicList[@"low"];
+                param[@"sell"] = dicList[@"sell"];
+                param[@"sell_amount"] = dicList[@"sell_amount"];
+                param[@"vol"] = dicList[@"vol"];
+                param[@"zhangfu"] = str1;
+                [MarketModel updateObjectsSet:param Where:[NSString stringWithFormat:@"WHERE tickername = '%@'",str] arguments:nil];
+            }else{
+                MarketModel * markertModel = [[MarketModel alloc] initWithtickername:str date:dic[@"date"] buy:dicList[@"buy"] buy_amount:dicList[@"buy_amount"] open:dicList[@"open"] high:dicList[@"high"] last:dicList[@"last"] low:dicList[@"low"] sell:dicList[@"sell"] sell_amount:dicList[@"sell_amount"] vol:dicList[@"vol"] store:@"0" zhangfu:str1];
+                [markertModel save];
+            }
+            if (i == arr.count-1) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"refresh" object:nil];
+            }
         }
     } fail:^{
         
     }];
 }
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self.view endEditing:YES];
     [self.searchText resignFirstResponder];
     return YES;
 }
--(void)marketDetail{
+-(void)marketDetail:(NSString*)str{
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Market" bundle:nil];
     MarketDetailViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"MarketDetailViewController"];
+    vc.name = str;
     vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -141,7 +172,6 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     //计算偏移量
     NSInteger x = scrollView.contentOffset.x / ScreenW;
-    
     //一个一个添加控制器的View 只有切换到这个页面才添加这个控制器的View
     [_menuView addSubViewToScrollViewWithIndex:x superView:_scrollView];
     //上方按钮的偏移量
@@ -185,20 +215,30 @@
     self.selectNum = (int)btn.tag - 100;
     if (btn.tag == 100||btn.tag == 101) {
         [self.menuBtn setTitle:@"成交额" forState:UIControlStateNormal];
+        [[NSUserDefaults standardUserDefaults] setObject:@"vol" forKey:@"paixu"];
     }else if (btn.tag == 102||btn.tag == 103){
         [self.menuBtn setTitle:@"涨幅" forState:UIControlStateNormal];
+        [[NSUserDefaults standardUserDefaults] setObject:@"zhangfu" forKey:@"paixu"];
     }else if (btn.tag == 104||btn.tag == 105){
         [self.menuBtn setTitle:@"价格" forState:UIControlStateNormal];
+        [[NSUserDefaults standardUserDefaults] setObject:@"last" forKey:@"paixu"];
     }else if (btn.tag == 106||btn.tag == 107){
         [self.menuBtn setTitle:@"币种" forState:UIControlStateNormal];
+        [[NSUserDefaults standardUserDefaults] setObject:@"tickername" forKey:@"paixu"];
     }
     if (btn.tag%2 == 0) {
         self.menuUp.image = [UIImage imageNamed:@"icon_up_se"];
         self.menuDown.image = [UIImage imageNamed:@"icon_down_un"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"down" forKey:@"paixustate"];
     }else{
         self.menuUp.image = [UIImage imageNamed:@"icon_up_un"];
         self.menuDown.image = [UIImage imageNamed:@"icon_down_se"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"up" forKey:@"paixustate"];
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"refresh" object:nil];
     self.meunbg.hidden = YES;
+}
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end

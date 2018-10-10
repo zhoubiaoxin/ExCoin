@@ -10,6 +10,7 @@
 #import "Y_StockChartView.h"
 #import "Y_KLineGroupModel.h"
 #import "Masonry.h"
+#import "MarketModel.h"
 
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -24,6 +25,14 @@
 @property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, assign) int indexNum;
+@property (weak, nonatomic) IBOutlet UILabel *nameLab;
+@property (weak, nonatomic) IBOutlet UILabel *sybLab;
+@property (weak, nonatomic) IBOutlet UILabel *highLab;
+@property (weak, nonatomic) IBOutlet UILabel *lowLab;
+@property (weak, nonatomic) IBOutlet UILabel *volLab;
+@property (weak, nonatomic) IBOutlet UILabel *volSybLab;
+@property (weak, nonatomic) IBOutlet UILabel *fuduLab;
+@property (weak, nonatomic) IBOutlet UILabel *priceLab;
 
 @end
 
@@ -32,18 +41,58 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
-    self.type = @"1min";
+    self.type = @"15min";
     self.currentIndex = -1;
     [self reloadData];
-    self.indexNum=0;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = RGB(28, 35, 64);
+    [self createData];
 }
-
+-(void)createData{
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"market"] = self.name;
+    NSArray * arr = [MarketModel objectsWhere:[NSString stringWithFormat:@"WHERE tickername = '%@'",self.name] arguments:nil];
+    if (arr.count != 0) {
+        MarketModel * model = arr[0];
+        NSString *last3 = [self.name substringFromIndex:self.name.length-3];
+        if ([last3 isEqualToString:@"SDT"]) {
+            self.sybLab.text = @"/USDT";
+            NSString *first = [self.name substringToIndex:self.name.length-4];
+            self.nameLab.text = first;
+            self.volSybLab.text = first;
+        }else{
+            self.sybLab.text = [NSString stringWithFormat:@"/%@",last3];
+            NSString *first = [self.name substringToIndex:self.name.length-3];
+            self.nameLab.text = first;
+            self.volSybLab.text = first;
+        }
+        
+        self.highLab.text = model.high;
+        self.lowLab.text = model.low;
+        
+        if ([model.sell_amount intValue]>=10000) {
+            self.volLab.text = [NSString stringWithFormat:@"%.2f万",[model.sell_amount floatValue]/10000];
+        }else{
+            self.volLab.text = [NSString stringWithFormat:@"%.2f",[model.sell_amount floatValue]];
+        }
+        
+        self.priceLab.text = [NSString stringWithFormat:@"%.8f",[model.last floatValue]];
+        if ([model.last floatValue]>[model.open floatValue]) {
+            self.priceLab.textColor = [UIColor colorWithHex:@"#0ab9bd"];
+            self.fuduLab.textColor = [UIColor colorWithHex:@"#0ab9bd"];
+            self.fuduLab.text = [NSString stringWithFormat:@"+%.2f%@",([model.last floatValue]-[model.open floatValue])/[model.open floatValue],@"%"];
+        }else{
+            self.priceLab.textColor = [UIColor colorWithHex:@"#f13d68"];
+            self.fuduLab.text = [NSString stringWithFormat:@"%.2f%@",([model.last floatValue]-[model.open floatValue])/[model.open floatValue],@"%"];
+            self.fuduLab.textColor = [UIColor colorWithHex:@"#f13d68"];
+        }
+        
+    }
+}
 - (NSMutableDictionary<NSString *,Y_KLineGroupModel *> *)modelsDict
 {
     if (!_modelsDict) {
@@ -120,8 +169,8 @@
     [self.modelsDict removeAllObjects];
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"type"] = self.type;
-    param[@"market"] = @"btcbch";
-    param[@"limit"] = @"100";
+    param[@"market"] = self.name;
+    param[@"limit"] = @"300";
     [NetWorking requestWithApi:@"https://api.coinex.com/v1/market/kline" param:param thenSuccess:^(NSDictionary *responseObject) {
         //NSLog(@"===:%@",responseObject);
         Y_KLineGroupModel *groupModel = [Y_KLineGroupModel objectWithArray:responseObject[@"data"]];
@@ -144,7 +193,8 @@
                                        [Y_StockChartViewItemModel itemModelWithTitle:@"日线" type:Y_StockChartcenterViewTypeKline],
                                        [Y_StockChartViewItemModel itemModelWithTitle:@"周线" type:Y_StockChartcenterViewTypeKline],
                                        ];
-        self.stockChartView.backgroundColor = RGB(28, 35, 64);        _stockChartView.dataSource = self;
+        self.stockChartView.backgroundColor = RGB(28, 35, 64);
+        _stockChartView.dataSource = self;
         [self.view addSubview:_stockChartView];
     }
     return _stockChartView;

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MarketDetailViewController : UIViewController
+@property(nonatomic,strong)NSString * name;
 
 @end

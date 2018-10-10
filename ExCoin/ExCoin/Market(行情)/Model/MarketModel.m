@@ -9,11 +9,12 @@
 #import "MarketModel.h"
 
 @implementation MarketModel
--(instancetype)initWithtickername:(NSString *)tickername buy:(NSString *)buy buy_amount:(NSString *)buy_amount open:(NSString *)open high:(NSString *)high last:(NSString *)last low:(NSString *)low sell:(NSString *)sell sell_amount:(NSString *)sell_amount vol:(NSString *)vol{
+-(instancetype)initWithtickername:(NSString *)tickername date:(NSString*)date buy:(NSString *)buy buy_amount:(NSString *)buy_amount open:(NSString *)open high:(NSString *)high last:(NSString *)last low:(NSString *)low sell:(NSString *)sell sell_amount:(NSString *)sell_amount vol:(NSString *)vol store:(NSString *)store zhangfu:(NSString *)zhangfu{
     self = [super init];
     if (!self) return nil;
     
     self.tickername = [tickername copy];
+    self.date = [date copy];
     self.buy = [buy copy];
     self.buy_amount = [buy_amount copy];
     self.open = [open copy];
@@ -23,7 +24,9 @@
     self.sell = [sell copy];
     self.sell_amount = [sell_amount copy];
     self.vol = [vol copy];
-
+    self.store = [store copy];
+    self.zhangfu = [zhangfu copy];
+    
     return self;
 }
 + (NSString *)dbName {
@@ -42,6 +45,7 @@
     dispatch_once(&onceToken, ^{
         properties = @[
                        @"tickername",
+                       @"date",
                        @"buy",
                        @"buy_amount",
                        @"open",
@@ -51,8 +55,11 @@
                        @"sell",
                        @"sell_amount",
                        @"vol",
+                       @"store",
+                       @"zhangfu"
                        ];
     });
     return properties;
 }
+
 @end

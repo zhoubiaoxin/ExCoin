@@ -19,15 +19,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="404" height="82.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_unstore" translatesAutoresizingMaskIntoConstraints="NO" id="g4P-TK-mDa">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bh8-L9-PS8">
                         <rect key="frame" x="15" y="22.5" width="20" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="20" id="Df8-5x-VxV"/>
-                            <constraint firstAttribute="height" constant="18" id="rbS-jl-Qkc"/>
+                            <constraint firstAttribute="width" constant="20" id="S7D-hk-4R9"/>
+                            <constraint firstAttribute="height" constant="18" id="SE2-eY-R1I"/>
                         </constraints>
-                    </imageView>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CET" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0x-kf-R53">
-                        <rect key="frame" x="43" y="19" width="38" height="22"/>
+                        <rect key="frame" x="43" y="20.5" width="38" height="22"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="5HH-t7-JeF"/>
                         </constraints>
@@ -36,7 +36,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/UST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kZ-jZ-dcW">
-                        <rect key="frame" x="80.5" y="27" width="26.5" height="13.5"/>
+                        <rect key="frame" x="80.5" y="28.5" width="26.5" height="13.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.39215686274509803" green="0.42352941176470588" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.03895533" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIY-Mh-U3D">
-                        <rect key="frame" x="287.5" y="19" width="101.5" height="21"/>
+                        <rect key="frame" x="287.5" y="20.5" width="101.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" red="0.039215686274509803" green="0.85098039215686272" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -89,11 +89,11 @@
                         </state>
                     </button>
                     <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uax-hh-w60" customClass="PYZoomEchartsView">
-                        <rect key="frame" x="173" y="5" width="80" height="72.5"/>
+                        <rect key="frame" x="172" y="15" width="60" height="52.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="80" id="BZN-Ce-C2A"/>
+                            <constraint firstAttribute="width" constant="60" id="JrM-VA-hM5"/>
                         </constraints>
                     </webView>
                 </subviews>
@@ -102,35 +102,41 @@
                     <constraint firstItem="9kZ-jZ-dcW" firstAttribute="leading" secondItem="d0x-kf-R53" secondAttribute="trailing" id="3cr-2t-Z4f"/>
                     <constraint firstAttribute="trailing" secondItem="mIY-Mh-U3D" secondAttribute="trailing" constant="15" id="46o-s8-UBV"/>
                     <constraint firstItem="FU1-ly-C9W" firstAttribute="leading" secondItem="ywp-lf-vCQ" secondAttribute="trailing" constant="5" id="55X-Vb-Jbb"/>
-                    <constraint firstAttribute="bottom" secondItem="Uax-hh-w60" secondAttribute="bottom" constant="5" id="6Ql-Xp-hP9"/>
+                    <constraint firstAttribute="bottom" secondItem="Uax-hh-w60" secondAttribute="bottom" constant="15" id="6Ql-Xp-hP9"/>
+                    <constraint firstItem="d0x-kf-R53" firstAttribute="leading" secondItem="bh8-L9-PS8" secondAttribute="trailing" constant="8" id="7Vo-uC-kSc"/>
+                    <constraint firstItem="bh8-L9-PS8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="7eq-2z-L0U"/>
                     <constraint firstItem="rbP-aP-RHg" firstAttribute="bottom" secondItem="BtC-Mo-TeB" secondAttribute="bottom" id="93S-dw-98c"/>
-                    <constraint firstItem="g4P-TK-mDa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="BWC-ZZ-RxE"/>
-                    <constraint firstItem="d0x-kf-R53" firstAttribute="bottom" secondItem="g4P-TK-mDa" secondAttribute="bottom" id="DJl-qH-V2N"/>
                     <constraint firstItem="mIY-Mh-U3D" firstAttribute="bottom" secondItem="9kZ-jZ-dcW" secondAttribute="bottom" id="JhG-py-kVa"/>
                     <constraint firstItem="9kZ-jZ-dcW" firstAttribute="bottom" secondItem="d0x-kf-R53" secondAttribute="bottom" id="JzK-WJ-5E4"/>
-                    <constraint firstItem="w5b-Yk-9SV" firstAttribute="leading" secondItem="Uax-hh-w60" secondAttribute="trailing" constant="20" id="OFh-ay-ryJ"/>
+                    <constraint firstItem="d0x-kf-R53" firstAttribute="centerY" secondItem="bh8-L9-PS8" secondAttribute="centerY" id="OJI-qT-cvW"/>
                     <constraint firstItem="ywp-lf-vCQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="13" id="Xq0-cb-iiT"/>
                     <constraint firstAttribute="trailing" secondItem="BtC-Mo-TeB" secondAttribute="trailing" constant="15" id="YOC-My-OOh"/>
                     <constraint firstItem="w5b-Yk-9SV" firstAttribute="centerY" secondItem="rbP-aP-RHg" secondAttribute="centerY" id="cCv-ps-UR0"/>
-                    <constraint firstItem="g4P-TK-mDa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-10" id="dpJ-cZ-ueO"/>
+                    <constraint firstItem="Uax-hh-w60" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="fIY-46-UaK"/>
                     <constraint firstItem="FU1-ly-C9W" firstAttribute="bottom" secondItem="ywp-lf-vCQ" secondAttribute="bottom" id="fOV-J0-835"/>
                     <constraint firstItem="BtC-Mo-TeB" firstAttribute="bottom" secondItem="FU1-ly-C9W" secondAttribute="bottom" id="iF5-ju-h9K"/>
                     <constraint firstItem="rbP-aP-RHg" firstAttribute="leading" secondItem="w5b-Yk-9SV" secondAttribute="trailing" constant="3" id="jjJ-L1-Uvl"/>
                     <constraint firstItem="ywp-lf-vCQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="p6F-WA-xwZ"/>
                     <constraint firstItem="BtC-Mo-TeB" firstAttribute="leading" secondItem="rbP-aP-RHg" secondAttribute="trailing" id="ref-qe-aX5"/>
-                    <constraint firstItem="Uax-hh-w60" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="xdF-pE-M0n"/>
-                    <constraint firstItem="d0x-kf-R53" firstAttribute="leading" secondItem="g4P-TK-mDa" secondAttribute="trailing" constant="8" id="yBY-vA-tEW"/>
+                    <constraint firstItem="bh8-L9-PS8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-10" id="xGP-2y-OWr"/>
+                    <constraint firstItem="Uax-hh-w60" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="xdF-pE-M0n"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
-                <outlet property="kchartView" destination="Uax-hh-w60" id="2PP-9R-vYO"/>
+                <outlet property="cnyLab" destination="rbP-aP-RHg" id="VxY-TA-s1f"/>
+                <outlet property="kchartView" destination="Uax-hh-w60" id="Mqx-5X-V3a"/>
+                <outlet property="nameLab" destination="d0x-kf-R53" id="voc-Ba-yYe"/>
+                <outlet property="numLab" destination="mIY-Mh-U3D" id="NXO-8V-JGe"/>
+                <outlet property="scaleLab" destination="w5b-Yk-9SV" id="BPZ-0z-qob"/>
+                <outlet property="storeBtn" destination="bh8-L9-PS8" id="rcZ-v6-6jk"/>
+                <outlet property="symbolLab" destination="9kZ-jZ-dcW" id="FsC-eO-vwM"/>
+                <outlet property="volLab" destination="FU1-ly-C9W" id="2rm-eT-abJ"/>
             </connections>
             <point key="canvasLocation" x="67" y="71.5"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="icon_downBg" width="50" height="17"/>
-        <image name="icon_unstore" width="17" height="15"/>
     </resources>
 </document>

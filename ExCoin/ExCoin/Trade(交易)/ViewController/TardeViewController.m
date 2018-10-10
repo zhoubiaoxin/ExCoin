@@ -41,7 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = RGB(28, 35, 64);
+    self.view.backgroundColor = [UIColor colorWithHex:@"#151935"];
     self.navigationController.navigationBarHidden = YES;
     self.redBgH.constant = 0;
     
