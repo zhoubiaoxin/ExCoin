@@ -74,20 +74,20 @@
         self.highLab.text = model.high;
         self.lowLab.text = model.low;
         
-        if ([model.sell_amount intValue]>=10000) {
-            self.volLab.text = [NSString stringWithFormat:@"%.2f万",[model.sell_amount floatValue]/10000];
+        if (model.allStr>=10000) {
+            self.volLab.text = [NSString stringWithFormat:@"%.2f万",model.allStr/10000];
         }else{
-            self.volLab.text = [NSString stringWithFormat:@"%.2f",[model.sell_amount floatValue]];
+            self.volLab.text = [NSString stringWithFormat:@"%.2f",model.allStr];
         }
         
         self.priceLab.text = [NSString stringWithFormat:@"%.8f",[model.last floatValue]];
         if ([model.last floatValue]>[model.open floatValue]) {
             self.priceLab.textColor = [UIColor colorWithHex:@"#0ab9bd"];
             self.fuduLab.textColor = [UIColor colorWithHex:@"#0ab9bd"];
-            self.fuduLab.text = [NSString stringWithFormat:@"+%.2f%@",([model.last floatValue]-[model.open floatValue])/[model.open floatValue],@"%"];
+            self.fuduLab.text = [NSString stringWithFormat:@"%.2f%@",[model.zhangfu floatValue]*100-100,@"%"];
         }else{
             self.priceLab.textColor = [UIColor colorWithHex:@"#f13d68"];
-            self.fuduLab.text = [NSString stringWithFormat:@"%.2f%@",([model.last floatValue]-[model.open floatValue])/[model.open floatValue],@"%"];
+            self.fuduLab.text = [NSString stringWithFormat:@"%.2f%@",[model.zhangfu floatValue]*100-100,@"%"];
             self.fuduLab.textColor = [UIColor colorWithHex:@"#f13d68"];
         }
         

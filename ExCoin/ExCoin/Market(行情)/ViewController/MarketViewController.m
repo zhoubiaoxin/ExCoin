@@ -39,7 +39,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btn6;
 @property (weak, nonatomic) IBOutlet UIButton *btn7;
 @property (weak, nonatomic) IBOutlet UIButton *btn8;
-
+@property(nonatomic, strong)  NSArray * controllerNameArr;
 @end
 
 @implementation MarketViewController
@@ -55,11 +55,35 @@
     self.view.backgroundColor = [UIColor colorWithHex:@"#151935"];
     self.navigationController.navigationBarHidden = YES;
     [self createUI];
+    
+    
+    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"paixu"];
+    NSString * str1 = [[NSUserDefaults standardUserDefaults] objectForKey:@"paixustate"];
+    if (str.length != 0) {
+        if ([str isEqualToString:@"allStr"]) {
+            [self.menuBtn setTitle:@"成交额" forState:UIControlStateNormal];
+        }else if([str isEqualToString:@"zhangfu"]){
+            [self.menuBtn setTitle:@"涨幅" forState:UIControlStateNormal];
+        }else if([str isEqualToString:@"last"]){
+            [self.menuBtn setTitle:@"价格" forState:UIControlStateNormal];
+        }else if([str isEqualToString:@"tickername"]){
+            [self.menuBtn setTitle:@"币种" forState:UIControlStateNormal];
+        }
+    }
+    if(str1.length != 0){
+        if([str1 isEqualToString:@"up"]){
+            self.menuUp.image = [UIImage imageNamed:@"icon_up_un"];
+            self.menuDown.image = [UIImage imageNamed:@"icon_down_se"];
+        }else{
+            self.menuUp.image = [UIImage imageNamed:@"icon_up_se"];
+            self.menuDown.image = [UIImage imageNamed:@"icon_down_un"];
+        }
+    }
 }
 - (void)createUI{
     self.navigationItem.title = @"滚动菜单";
     NSArray * titleArr = @[@"自选",@"BCH",@"BTC",@"ETH",@"CET",@"USDT"];
-    NSArray * controllerNameArr = @[@"MarketListViewController1",@"MarketListViewController2",@"MarketListViewController3",@"MarketListViewController4",@"MarketListViewController5",@"MarketListViewController6"];
+    self.controllerNameArr = @[@"MarketListViewController1",@"MarketListViewController2",@"MarketListViewController3",@"MarketListViewController4",@"MarketListViewController5",@"MarketListViewController6"];
     _menuView  = [[XQQScrollerMenuView alloc]initWithFrame:CGRectMake(15, 84, ScreenW-30, 44)];
     _menuView.titleArr = titleArr;
     _menuView.scrollDelegate = self;
@@ -79,7 +103,7 @@
     
     //添加controllers
 //    NSArray * chelidControlls = [_menuView addChildrenControllersWithArr:controllerNameArr AndSuperController:self];
-    [_menuView addChildrenControllersWithArr:controllerNameArr AndSuperController:self];
+    [_menuView addChildrenControllersWithArr:self.controllerNameArr AndSuperController:self];
     //给底部的滚动视图添加View  这个方法 会一次性把所有的控制器都初始化了
 //    [_menuView addSubViewToScrollView:_scrollView controllerArr:chelidControlls];
     /**根据下标添加控制器的View    刚开始为第一项*/
@@ -91,6 +115,10 @@
     [self.meunbg addGestureRecognizer:tapGesture];
     
     self.selectNum = 1;
+    NSString * selectNumStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"selectNum"];
+    if(selectNumStr.length != 0){
+        self.selectNum = [selectNumStr intValue];
+    }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:@"marketDetail" object:nil];
     [self createData];
     
@@ -119,27 +147,40 @@
         for (int i = 0; i<arr.count; i++) {
             NSString *str = arr[i];
             NSDictionary * dicList = dict[str];
-            NSArray * arr = [MarketModel objectsWhere:[NSString stringWithFormat:@"WHERE tickername = '%@'",str] arguments:nil];
-            NSString * str1 = [NSString stringWithFormat:@"%.2f",([dicList[@"last"] floatValue]-[dicList[@"open"] floatValue])/[dicList[@"open"] floatValue]];
-            if (arr.count>0) {
+            NSArray * arr1 = [MarketModel objectsWhere:[NSString stringWithFormat:@"WHERE tickername = '%@'",str] arguments:nil];
+            NSString * str1 = [NSString stringWithFormat:@"%.4f",([dicList[@"last"] floatValue]-[dicList[@"open"] floatValue])/[dicList[@"open"] floatValue]+1];
+            
+            NSString * buyStr= [NSString stringWithFormat:@"%.8f",[dicList[@"buy"] floatValue]];
+            NSString * buy_amountStr= [NSString stringWithFormat:@"%.1f",[dicList[@"buy_amount"] floatValue]];
+            NSString * openStr= [NSString stringWithFormat:@"%.8f",[dicList[@"open"] floatValue]];
+            NSString * highStr= [NSString stringWithFormat:@"%.8f",[dicList[@"high"] floatValue]];
+            NSString * lastStr= [NSString stringWithFormat:@"%.8f",[dicList[@"last"] floatValue]];
+            NSString * lowStr= [NSString stringWithFormat:@"%.8f",[dicList[@"low"] floatValue]];
+            NSString * sellStr= [NSString stringWithFormat:@"%.8f",[dicList[@"sell"] floatValue]];
+            NSString * sell_amountStr= [NSString stringWithFormat:@"%.1f",[dicList[@"sell_amount"] floatValue]];
+            NSString * volStr= [NSString stringWithFormat:@"%.1f",[dicList[@"vol"] floatValue]];
+            float allStr = [dicList[@"last"] doubleValue]*[dicList[@"vol"] doubleValue];
+//            NSLog(@"%f",allStr);
+            if (arr1.count>0) {
                 NSMutableDictionary *param = [NSMutableDictionary dictionary];
                 param[@"date"] = dic[@"date"];
-                param[@"buy"] = dicList[@"buy"];
-                param[@"buy_amount"] = dicList[@"buy_amount"];
-                param[@"open"] = dicList[@"open"];
-                param[@"high"] = dicList[@"high"];
-                param[@"last"] = dicList[@"last"];
-                param[@"low"] = dicList[@"low"];
-                param[@"sell"] = dicList[@"sell"];
-                param[@"sell_amount"] = dicList[@"sell_amount"];
-                param[@"vol"] = dicList[@"vol"];
+                param[@"buy"] = buyStr;
+                param[@"buy_amount"] = buy_amountStr;
+                param[@"open"] = openStr;
+                param[@"high"] = highStr;
+                param[@"last"] = lastStr;
+                param[@"low"] = lowStr;
+                param[@"sell"] = sellStr;
+                param[@"sell_amount"] = sell_amountStr;
+                param[@"vol"] = volStr;
                 param[@"zhangfu"] = str1;
+                param[@"allStr"] = [NSString stringWithFormat:@"%.2f",allStr];
                 [MarketModel updateObjectsSet:param Where:[NSString stringWithFormat:@"WHERE tickername = '%@'",str] arguments:nil];
             }else{
-                MarketModel * markertModel = [[MarketModel alloc] initWithtickername:str date:dic[@"date"] buy:dicList[@"buy"] buy_amount:dicList[@"buy_amount"] open:dicList[@"open"] high:dicList[@"high"] last:dicList[@"last"] low:dicList[@"low"] sell:dicList[@"sell"] sell_amount:dicList[@"sell_amount"] vol:dicList[@"vol"] store:@"0" zhangfu:str1];
+                MarketModel * markertModel = [[MarketModel alloc] initWithtickername:str date:dic[@"date"] buy:buyStr buy_amount:buy_amountStr open:openStr high:highStr last:lastStr low:lowStr sell:sellStr sell_amount:sell_amountStr vol:volStr store:@"0" zhangfu:str1 allStr:allStr];
                 [markertModel save];
             }
-            if (i == arr.count-1) {
+            if (i == (arr.count-1)) {
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"refresh" object:nil];
             }
         }
@@ -151,6 +192,8 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self.view endEditing:YES];
     [self.searchText resignFirstResponder];
+    [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"sousu"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"refresh" object:nil];
     return YES;
 }
 -(void)marketDetail:(NSString*)str{
@@ -196,6 +239,7 @@
             btn.selected = NO;
         }
     }
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d",self.selectNum] forKey:@"selectNum"];
 }
 -(void)hiddenBtn{
     self.meunbg.hidden = YES;
@@ -215,7 +259,7 @@
     self.selectNum = (int)btn.tag - 100;
     if (btn.tag == 100||btn.tag == 101) {
         [self.menuBtn setTitle:@"成交额" forState:UIControlStateNormal];
-        [[NSUserDefaults standardUserDefaults] setObject:@"vol" forKey:@"paixu"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"allStr" forKey:@"paixu"];
     }else if (btn.tag == 102||btn.tag == 103){
         [self.menuBtn setTitle:@"涨幅" forState:UIControlStateNormal];
         [[NSUserDefaults standardUserDefaults] setObject:@"zhangfu" forKey:@"paixu"];

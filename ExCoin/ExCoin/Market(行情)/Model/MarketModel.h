@@ -22,6 +22,8 @@
 @property (strong, nonatomic) NSString *vol;
 @property (strong, nonatomic) NSString *store;
 @property (strong, nonatomic) NSString *zhangfu;
+@property (assign, nonatomic) float allStr;
+
 
 - (instancetype)initWithtickername:(NSString *)tickername
                                date:(NSString *)date
@@ -35,6 +37,7 @@
                        sell_amount:(NSString *)sell_amount
                                vol:(NSString *)vol
                              store:(NSString *)store
-                           zhangfu:(NSString *)zhangfu;
+                           zhangfu:(NSString *)zhangfu
+                            allStr:(float)allStr ;
 
 @end

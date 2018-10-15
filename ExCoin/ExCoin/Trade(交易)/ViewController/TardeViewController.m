@@ -83,13 +83,14 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [UIView new];
-    self.tableView.backgroundColor = RGB(28, 35, 64);
     self.tableView.tag = 1000;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.view bringSubviewToFront:self.leftView];
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenBtn)];
     [self.leftView addGestureRecognizer:tapGesture];
+    
+    
 }
 
 -(void)hiddenBtn{

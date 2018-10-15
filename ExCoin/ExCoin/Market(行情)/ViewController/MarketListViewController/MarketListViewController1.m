@@ -13,6 +13,7 @@
 @interface MarketListViewController1 ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)NSArray * dataArr;
+@property(nonatomic,assign)BOOL hasPaixu;
 @end
 
 @implementation MarketListViewController1
@@ -41,19 +42,30 @@
 -(void)createData{
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"paixu"];
     NSString * str1 = [[NSUserDefaults standardUserDefaults] objectForKey:@"paixustate"];
-    NSString * str2;
+    NSString * str2 = @"";
     if (str.length !=0&&str1.length !=0) {
         if ([str1 isEqualToString:@"up"]) {
-            str2 = [NSString stringWithFormat:@"ORDER BY %@ ACS",str];
+            self.hasPaixu = YES;
         }else{
-            str2 = [NSString stringWithFormat:@"ORDER BY %@ DESC",str];
+            self.hasPaixu = NO;
         }
+        str2 = [NSString stringWithFormat:@" ORDER BY %@ DESC",str];
     }else{
-        str2 = @"ORDER BY vol DESC";
+        self.hasPaixu = YES;
+        str2 = @" ORDER BY allstr DESC";
     }
     NSString * str3 = @"WHERE store = '1'";
-    _dataArr = [MarketModel objectsWhere:[NSString stringWithFormat:@"%@,%@",str3,str2] arguments:nil];
-    [self.tableView reloadData];
+    NSString * str4 = [[NSUserDefaults standardUserDefaults] objectForKey:@"sousu"];
+    NSString * str5 = @"";
+    if (str4.length !=0){
+        str5 = [NSString stringWithFormat:@" AND tickername like '%@%@'",[str4 uppercaseString],@"%"];
+    }
+    
+    NSArray * arr = [MarketModel objectsWhere:[NSString stringWithFormat:@"%@%@%@",str3,str5,str2] arguments:nil];
+    _dataArr = arr;
+    if(arr.count>0){
+        [self.tableView reloadData];
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 80;
@@ -62,8 +74,12 @@
     return _dataArr.count;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    MarketModel * model = _dataArr[indexPath.row];
-    
+    MarketModel * model;
+    if (self.hasPaixu) {
+        model = _dataArr[indexPath.row];
+    }else{
+        model = _dataArr[_dataArr.count-1- indexPath.row];
+    }
     MarketCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     //解决xib复用数据混乱问题
     if (nil == cell) {
@@ -88,7 +104,12 @@
     return cell;
 }
 -(void)storeBtnClick:(UIButton*)btn{
-    MarketModel * model = _dataArr[btn.tag-100];
+    MarketModel * model;
+    if (self.hasPaixu) {
+        model = _dataArr[btn.tag-100];
+    }else{
+        model = _dataArr[_dataArr.count-1- btn.tag+100];
+    }
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     if ([model.store isEqualToString:@"0"]) {
         param[@"store"] = @"1";
@@ -100,7 +121,12 @@
     [self createData];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    MarketModel * model = _dataArr[indexPath.row];
+    MarketModel * model;
+    if (self.hasPaixu) {
+        model = _dataArr[indexPath.row];
+    }else{
+        model = _dataArr[_dataArr.count-1- indexPath.row];
+    }
     NSDictionary *dataDic = [NSDictionary dictionaryWithObject:model.tickername forKey:@"info"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"marketDetail" object:dataDic];
 }

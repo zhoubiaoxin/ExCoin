@@ -46,9 +46,9 @@
         // 计算文字尺寸  (可用于文字数量过多)
 //        CGSize btnSize = [self sizeWithText:titleArr[i] font:[UIFont systemFontOfSize:17] maxSize:CGSizeMake(MAXFLOAT, self.frame.size.height * .9)];
         // 计算内容的宽度
-        CGFloat btnW = ScreenW/6.0-6;
+        CGFloat btnW = ScreenW/6.0;
         //创建按钮
-         CGFloat scrollBtnX = i * btnW;
+        CGFloat scrollBtnX = i * btnW;
         XQQScrollBtn * button = [[XQQScrollBtn alloc]initWithFrame:CGRectMake(scrollBtnX, scrollBtnY, btnW, scrollBtnH)];
         button.delegate = self;
         [button setTitle:titleArr[i]];

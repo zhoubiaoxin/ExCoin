@@ -30,20 +30,21 @@
         self.nameLab.text = first;
     }
     
-    if ([model.sell_amount intValue]>=10000) {
-        self.volLab.text = [NSString stringWithFormat:@"%.2f万",[model.sell_amount floatValue]/10000];
+    if (model.allStr>=10000) {
+        self.volLab.text = [NSString stringWithFormat:@"%.2f万",model.allStr/10000];
     }else{
-        self.volLab.text = [NSString stringWithFormat:@"%.2f",[model.sell_amount floatValue]];
+        self.volLab.text = [NSString stringWithFormat:@"%.2f",model.allStr];
     }
     
     self.numLab.text = [NSString stringWithFormat:@"%.8f",[model.last floatValue]];
+    
     if ([model.last floatValue]>[model.open floatValue]) {
         [self.scaleLab setBackgroundImage:[UIImage imageNamed:@"icon_upBg"] forState:UIControlStateNormal];
-        [self.scaleLab setTitle:[NSString stringWithFormat:@"+%.2f%@",([model.last floatValue]-[model.open floatValue])/[model.open floatValue],@"%"] forState:UIControlStateNormal];
+        [self.scaleLab setTitle:[NSString stringWithFormat:@"+%.2f%@",[model.zhangfu floatValue]*100-100,@"%"] forState:UIControlStateNormal];
         self.numLab.textColor = [UIColor colorWithHex:@"#0ab9bd"];
     }else{
         [self.scaleLab setBackgroundImage:[UIImage imageNamed:@"icon_downBg"] forState:UIControlStateNormal];
-        [self.scaleLab setTitle:[NSString stringWithFormat:@"%.2f%@",([model.last floatValue]-[model.open floatValue])/[model.open floatValue],@"%"] forState:UIControlStateNormal];
+        [self.scaleLab setTitle:[NSString stringWithFormat:@"%.2f%@",[model.zhangfu floatValue]*100-100,@"%"] forState:UIControlStateNormal];
         self.numLab.textColor = [UIColor colorWithHex:@"#f13d68"];
     }
     
@@ -86,7 +87,7 @@
     int r;
     int g;
     int b;
-    if ([model.last floatValue]>=[model.open floatValue]) {
+    if ([model.last floatValue]>[model.open floatValue]) {
         colorStr = @"#0ad9bd";
         r = 10;
         g = 217;

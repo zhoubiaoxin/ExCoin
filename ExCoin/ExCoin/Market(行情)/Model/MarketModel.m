@@ -9,7 +9,7 @@
 #import "MarketModel.h"
 
 @implementation MarketModel
--(instancetype)initWithtickername:(NSString *)tickername date:(NSString*)date buy:(NSString *)buy buy_amount:(NSString *)buy_amount open:(NSString *)open high:(NSString *)high last:(NSString *)last low:(NSString *)low sell:(NSString *)sell sell_amount:(NSString *)sell_amount vol:(NSString *)vol store:(NSString *)store zhangfu:(NSString *)zhangfu{
+-(instancetype)initWithtickername:(NSString *)tickername date:(NSString*)date buy:(NSString *)buy buy_amount:(NSString *)buy_amount open:(NSString *)open high:(NSString *)high last:(NSString *)last low:(NSString *)low sell:(NSString *)sell sell_amount:(NSString *)sell_amount vol:(NSString *)vol store:(NSString *)store zhangfu:(NSString *)zhangfu allStr:(float)allStr{
     self = [super init];
     if (!self) return nil;
     
@@ -26,7 +26,8 @@
     self.vol = [vol copy];
     self.store = [store copy];
     self.zhangfu = [zhangfu copy];
-    
+    self.allStr = allStr;
+
     return self;
 }
 + (NSString *)dbName {
@@ -56,7 +57,8 @@
                        @"sell_amount",
                        @"vol",
                        @"store",
-                       @"zhangfu"
+                       @"zhangfu",
+                       @"allStr"
                        ];
     });
     return properties;
