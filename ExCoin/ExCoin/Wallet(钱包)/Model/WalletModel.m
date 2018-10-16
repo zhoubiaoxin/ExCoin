@@ -9,14 +9,14 @@
 #import "WalletModel.h"
 
 @implementation WalletModel
--(instancetype)initWithtickername:(NSString *)tickername available:(NSString *)available frozen:(NSString *)frozen allNum:(NSString *)allNum{
+-(instancetype)initWithtickername:(NSString *)tickername available:(double)available frozen:(double)frozen allNum:(double)allNum{
     self = [super init];
     if (!self) return nil;
     
     self.tickername = [tickername copy];
-    self.available = [available copy];
-    self.frozen = [frozen copy];
-    self.allNum = [allNum copy];
+    self.available = available;
+    self.frozen = frozen;
+    self.allNum = allNum;
     return self;
 }
 + (NSString *)dbName {

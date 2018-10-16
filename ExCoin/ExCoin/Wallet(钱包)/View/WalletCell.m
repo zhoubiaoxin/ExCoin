@@ -12,9 +12,9 @@
 
 -(void)setCellModel:(WalletModel *)model{
     self.nameLab.text = model.tickername;
-    self.cnyLab1.text = model.frozen;
-    self.priceLab.text = model.allNum;
-    self.cnyLab2.text = [NSString stringWithFormat:@"≈%.2fCNY",([model.frozen doubleValue]+[model.available doubleValue])];
+    self.cnyLab1.text = [NSString stringWithFormat:@"%.2f",model.frozen];
+    self.priceLab.text = [NSString stringWithFormat:@"%.8f",model.allNum];
+    self.cnyLab2.text = [NSString stringWithFormat:@"≈%.2fCNY",(model.frozen+model.available)];
 }
 
 @end

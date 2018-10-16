@@ -21,4 +21,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *cnyLab;
 
 -(void)setCellModel:(MarketModel*)model;
+
 @end

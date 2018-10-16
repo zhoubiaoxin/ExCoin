@@ -151,15 +151,17 @@
             //[dic objectForKey:key];
             NSDictionary * dicList = dic[key];
             NSArray * arr1 = [WalletModel objectsWhere:[NSString stringWithFormat:@"WHERE tickername = '%@'",key] arguments:nil];
-            NSString * allNum= [NSString stringWithFormat:@"%.8f",[dicList[@"available"] doubleValue]+[dicList[@"frozen"] doubleValue]];
+            double availableStr = [dicList[@"available"] doubleValue];
+            double frozenStr = [dicList[@"frozen"] doubleValue];
+            double allNum = [dicList[@"available"] doubleValue]+[dicList[@"frozen"] doubleValue];
             if(arr1.count == 0){
-                WalletModel * walletModel = [[WalletModel alloc] initWithtickername:key available:dicList[@"available"] frozen:dicList[@"frozen"] allNum:allNum];
+                WalletModel * walletModel = [[WalletModel alloc] initWithtickername:key available:availableStr frozen:frozenStr allNum:allNum];
                 [walletModel save];
             }else{
                 NSMutableDictionary *param = [NSMutableDictionary dictionary];
-                param[@"available"] = dicList[@"available"];
-                param[@"frozen"] = dicList[@"frozen"];
-                param[@"allNum"] = allNum;
+                param[@"available"] = [NSString stringWithFormat:@"%.8f",availableStr];
+                param[@"frozen"] = [NSString stringWithFormat:@"%.8f",frozenStr];
+                param[@"allNum"] = [NSString stringWithFormat:@"%.8f",allNum];
                 [WalletModel updateObjectsSet:param Where:[NSString stringWithFormat:@"WHERE tickername = '%@'",key] arguments:nil];
             }
         }

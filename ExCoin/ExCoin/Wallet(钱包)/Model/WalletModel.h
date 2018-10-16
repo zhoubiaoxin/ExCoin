@@ -11,14 +11,14 @@
 @interface WalletModel : GYModelObject
 
 @property (strong, nonatomic) NSString *tickername;
-@property (strong, nonatomic) NSString *available;
-@property (strong, nonatomic) NSString *frozen;
-@property (strong, nonatomic) NSString *allNum;
+@property (assign, nonatomic) double available;
+@property (assign, nonatomic) double frozen;
+@property (assign, nonatomic) double allNum;
 
 
 - (instancetype)initWithtickername:(NSString *)tickername
-                         available:(NSString *)available
-                            frozen:(NSString *)frozen
-                            allNum:(NSString *)allNum;
+                         available:(double)available
+                            frozen:(double)frozen
+                            allNum:(double)allNum;
 
 @end
