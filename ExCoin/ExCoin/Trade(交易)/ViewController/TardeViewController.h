@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TardeViewController : UIViewController
-
+@property (strong, nonatomic) NSString *nameStrLab;
 @end

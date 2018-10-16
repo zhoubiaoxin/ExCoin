@@ -10,6 +10,7 @@
 #import "PYCartesianSeries.h"
 #import "Y_KLineGroupModel.h"
 
+
 @implementation MarketCell
 
 -(void)setCellModel:(MarketModel *)model{
@@ -36,20 +37,21 @@
         self.volLab.text = [NSString stringWithFormat:@"%.2f",model.allStr];
     }
     
-    self.numLab.text = [NSString stringWithFormat:@"%.8f",[model.last floatValue]];
+    self.numLab.text = [NSString stringWithFormat:@"%.8f",[model.last doubleValue]];
     
-    if ([model.last floatValue]>[model.open floatValue]) {
+    if ([model.last doubleValue]>[model.open doubleValue]) {
         [self.scaleLab setBackgroundImage:[UIImage imageNamed:@"icon_upBg"] forState:UIControlStateNormal];
-        [self.scaleLab setTitle:[NSString stringWithFormat:@"+%.2f%@",[model.zhangfu floatValue]*100-100,@"%"] forState:UIControlStateNormal];
+        [self.scaleLab setTitle:[NSString stringWithFormat:@"+%.2f%@",[model.zhangfu doubleValue]*100-100,@"%"] forState:UIControlStateNormal];
         self.numLab.textColor = [UIColor colorWithHex:@"#0ab9bd"];
     }else{
         [self.scaleLab setBackgroundImage:[UIImage imageNamed:@"icon_downBg"] forState:UIControlStateNormal];
-        [self.scaleLab setTitle:[NSString stringWithFormat:@"%.2f%@",[model.zhangfu floatValue]*100-100,@"%"] forState:UIControlStateNormal];
+        [self.scaleLab setTitle:[NSString stringWithFormat:@"%.2f%@",[model.zhangfu doubleValue]*100-100,@"%"] forState:UIControlStateNormal];
         self.numLab.textColor = [UIColor colorWithHex:@"#f13d68"];
     }
     
     [self createCharts:model];
 }
+
 -(void)createCharts:(MarketModel *)model{
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"type"] = @"15min";

@@ -501,13 +501,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSL-ud-rYd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSL-ud-rYd">
                                 <rect key="frame" x="146" y="33" width="25" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="nkX-gG-LeU"/>
                                     <constraint firstAttribute="height" constant="20" id="rfg-IA-X1w"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="icon_unstore"/>
+                                <connections>
+                                    <action selector="storeBtnClick:" destination="a4a-Vr-Cw0" eventType="touchUpInside" id="O5l-he-u2f"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKF-4r-YOY">
                                 <rect key="frame" x="285" y="27" width="30" height="30"/>
@@ -516,6 +518,9 @@
                                     <constraint firstAttribute="height" constant="30" id="lfB-af-ciP"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="icon_kline"/>
+                                <connections>
+                                    <action selector="detailBtnClick:" destination="a4a-Vr-Cw0" eventType="touchUpInside" id="sdm-bt-vet"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/USDT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Iw-aO-BQl">
                                 <rect key="frame" x="96" y="39.5" width="42" height="17"/>
@@ -572,22 +577,36 @@
                         <viewLayoutGuide key="safeArea" id="uIs-Gf-gjL"/>
                     </view>
                     <connections>
+                        <outlet property="aboutLab" destination="lJD-AE-Vgy" id="dys-Yu-dnc"/>
                         <outlet property="bili" destination="xZf-Aa-bNe" id="YMu-fp-l4W"/>
+                        <outlet property="buyBtn" destination="s0L-Eg-DQt" id="lB9-rN-O8P"/>
+                        <outlet property="buyNameLab" destination="6FF-8d-Cpd" id="zZY-TC-dVi"/>
+                        <outlet property="buyText" destination="tiE-n9-AD1" id="ysg-wu-ZcL"/>
+                        <outlet property="cnyLab" destination="bjD-Ew-ZoZ" id="QJR-NA-U0B"/>
+                        <outlet property="detailBtn" destination="tKF-4r-YOY" id="qeJ-0w-5Aa"/>
                         <outlet property="frameCenter" destination="tNK-NQ-1jZ" id="nCN-qX-fYC"/>
                         <outlet property="greebBtn" destination="ODD-AX-k1q" id="DiI-1Z-nUm"/>
                         <outlet property="greenBgH" destination="bxJ-TX-RQ2" id="WfI-GW-gcU"/>
                         <outlet property="greenLine" destination="tHc-jX-Lbe" id="usP-t1-8By"/>
                         <outlet property="leftView" destination="zbA-ps-1pF" id="EA1-sJ-RdI"/>
+                        <outlet property="listBtn" destination="IPH-VE-TBl" id="K4t-Jz-gQU"/>
+                        <outlet property="nameLab" destination="yMb-6u-Ix5" id="Quq-9z-mDP"/>
                         <outlet property="numShowLab" destination="xZf-Aa-bNe" id="MH3-hZ-d1j"/>
+                        <outlet property="numText" destination="zly-Fd-wsK" id="8u0-Lf-FM8"/>
                         <outlet property="numberText" destination="zly-Fd-wsK" id="BJq-NX-bCq"/>
+                        <outlet property="priceLab" destination="NnF-8m-i7m" id="DQH-Rt-e2q"/>
                         <outlet property="redBgH" destination="WTV-TU-7MN" id="IRS-lw-V5w"/>
                         <outlet property="redBtn" destination="WZE-fI-hFf" id="5Nw-ds-qlC"/>
                         <outlet property="redLine" destination="DAa-5e-e74" id="x2D-rb-qqs"/>
                         <outlet property="silder" destination="QLU-fe-gH5" id="uDc-Aq-GMS"/>
+                        <outlet property="storeBtn" destination="mSL-ud-rYd" id="knw-nj-miD"/>
+                        <outlet property="sybLab" destination="3Iw-aO-BQl" id="z1e-lQ-zM9"/>
                         <outlet property="tableView" destination="FNj-uc-49B" id="n9d-Gz-33S"/>
                         <outlet property="tableViewHeadView" destination="CAt-MM-t5a" id="93a-uk-mFr"/>
                         <outlet property="tableViewWidth" destination="qxD-Cn-Q9v" id="B13-eJ-0H2"/>
+                        <outlet property="useLab" destination="RNB-aJ-rew" id="JVm-HR-CuC"/>
                         <outlet property="viewWidth" destination="85C-27-fW6" id="BQG-pn-a5v"/>
+                        <outlet property="zhangfuImg" destination="Ak3-gP-LwD" id="h6e-OD-ayI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d42-AP-crW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -603,7 +622,6 @@
         <image name="icon_redBg" width="172" height="30"/>
         <image name="icon_tradeDown" width="14" height="15"/>
         <image name="icon_triangle" width="6" height="10"/>
-        <image name="icon_unstore" width="17" height="15"/>
         <image name="left_meun" width="30" height="30"/>
     </resources>
 </document>

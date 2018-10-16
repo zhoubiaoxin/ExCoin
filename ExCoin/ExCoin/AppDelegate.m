@@ -28,7 +28,6 @@
     //改变状态栏字体颜色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 
-
     [self.window makeKeyAndVisible];
     
     [self customizeInterface];

@@ -20,6 +20,10 @@
 		BB7D14162150D32B00E7FA5F /* MarketListViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7D14152150D32B00E7FA5F /* MarketListViewController4.m */; };
 		BB7D14192150D33600E7FA5F /* MarketListViewController5.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7D14182150D33600E7FA5F /* MarketListViewController5.m */; };
 		BB88CE342159D10500ED12C7 /* MarketDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB88CE332159D10500ED12C7 /* MarketDetailViewController.m */; };
+		BB899B0C21759402009E5F42 /* TimeUse.m in Sources */ = {isa = PBXBuildFile; fileRef = BB899B0B21759402009E5F42 /* TimeUse.m */; };
+		BB899B0F21759875009E5F42 /* LCMD5Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = BB899B0E21759875009E5F42 /* LCMD5Tool.m */; };
+		BB899B122175B0FE009E5F42 /* WalletModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB899B112175B0FE009E5F42 /* WalletModel.m */; };
+		BB899B172175D5B7009E5F42 /* moneyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB899B162175D5B7009E5F42 /* moneyModel.m */; };
 		BB89B567214B8BC900B00E62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB89B566214B8BC900B00E62 /* AppDelegate.m */; };
 		BB89B56A214B8BC900B00E62 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB89B569214B8BC900B00E62 /* ViewController.m */; };
 		BB89B56D214B8BC900B00E62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB89B56B214B8BC900B00E62 /* Main.storyboard */; };
@@ -105,6 +109,14 @@
 		BB7D14182150D33600E7FA5F /* MarketListViewController5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketListViewController5.m; sourceTree = "<group>"; };
 		BB88CE322159D10500ED12C7 /* MarketDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarketDetailViewController.h; sourceTree = "<group>"; };
 		BB88CE332159D10500ED12C7 /* MarketDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketDetailViewController.m; sourceTree = "<group>"; };
+		BB899B0A21759402009E5F42 /* TimeUse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeUse.h; sourceTree = "<group>"; };
+		BB899B0B21759402009E5F42 /* TimeUse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeUse.m; sourceTree = "<group>"; };
+		BB899B0D21759875009E5F42 /* LCMD5Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMD5Tool.h; sourceTree = "<group>"; };
+		BB899B0E21759875009E5F42 /* LCMD5Tool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCMD5Tool.m; sourceTree = "<group>"; };
+		BB899B102175B0FE009E5F42 /* WalletModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletModel.h; sourceTree = "<group>"; };
+		BB899B112175B0FE009E5F42 /* WalletModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletModel.m; sourceTree = "<group>"; };
+		BB899B152175D5B7009E5F42 /* moneyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = moneyModel.h; sourceTree = "<group>"; };
+		BB899B162175D5B7009E5F42 /* moneyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = moneyModel.m; sourceTree = "<group>"; };
 		BB89B562214B8BC900B00E62 /* ExCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB89B565214B8BC900B00E62 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BB89B566214B8BC900B00E62 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -639,6 +651,8 @@
 			children = (
 				BB7AF06A216CA80800951824 /* MarketModel.h */,
 				BB7AF06B216CA80800951824 /* MarketModel.m */,
+				BB899B152175D5B7009E5F42 /* moneyModel.h */,
+				BB899B162175D5B7009E5F42 /* moneyModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -714,6 +728,8 @@
 		BBDAD9CD214B9ED60058A57F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BB899B102175B0FE009E5F42 /* WalletModel.h */,
+				BB899B112175B0FE009E5F42 /* WalletModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -781,6 +797,10 @@
 				BB728EE82152208300CBE5BF /* Category(分类) */,
 				BB7D1404215095CE00E7FA5F /* XQQScrollerMenuView(顶部菜单) */,
 				BBDAD9EB214BA6790058A57F /* Macros(宏) */,
+				BB899B0A21759402009E5F42 /* TimeUse.h */,
+				BB899B0B21759402009E5F42 /* TimeUse.m */,
+				BB899B0D21759875009E5F42 /* LCMD5Tool.h */,
+				BB899B0E21759875009E5F42 /* LCMD5Tool.m */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -914,7 +934,9 @@
 				BB8F2B77215E22D7009518ED /* Y_KLineGroupModel.m in Sources */,
 				BB8F2B63215E22D7009518ED /* MASCompositeConstraint.m in Sources */,
 				BB8F2B6C215E22D7009518ED /* ViewController+MASAdditions.m in Sources */,
+				BB899B122175B0FE009E5F42 /* WalletModel.m in Sources */,
 				BB8F2B6B215E22D7009518ED /* View+MASAdditions.m in Sources */,
+				BB899B172175D5B7009E5F42 /* moneyModel.m in Sources */,
 				BB8F2B6F215E22D7009518ED /* CATextLayer+DateTextLayer.m in Sources */,
 				BB8A00EB215F5D5100D7035A /* CLCustomSwitch.m in Sources */,
 				BBDAD9E8214BA4620058A57F /* ZBTabBarController.m in Sources */,
@@ -936,6 +958,7 @@
 				BB8F2B64215E22D7009518ED /* MASConstraint.m in Sources */,
 				BBDAD9DE214BA3B90058A57F /* AccountViewController.m in Sources */,
 				BB8F2B68215E22D7009518ED /* MASViewConstraint.m in Sources */,
+				BB899B0F21759875009E5F42 /* LCMD5Tool.m in Sources */,
 				BB89B575214B8BC900B00E62 /* main.m in Sources */,
 				BBB6AB00216AF80900C02D6A /* WalletCell.m in Sources */,
 				BBDAD9DB214BA3A90058A57F /* WalletViewController.m in Sources */,
@@ -946,6 +969,7 @@
 				BB8F2B0C215E0F13009518ED /* NetWorking.m in Sources */,
 				BBB6AB09216B280600C02D6A /* RESideMenu.m in Sources */,
 				BB7D14162150D32B00E7FA5F /* MarketListViewController4.m in Sources */,
+				BB899B0C21759402009E5F42 /* TimeUse.m in Sources */,
 				BB7D14032150951700E7FA5F /* MarketListViewController1.m in Sources */,
 				BB8F2B7D215E22D7009518ED /* Y_VolumeMAView.m in Sources */,
 				BBB6AAFC216AE6B000C02D6A /* TardeViewCell.m in Sources */,

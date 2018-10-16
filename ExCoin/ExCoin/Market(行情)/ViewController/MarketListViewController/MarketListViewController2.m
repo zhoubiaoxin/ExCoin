@@ -88,6 +88,7 @@
         }
     }
     [cell setCellModel:model];
+    cell.isLoaded = NO;
     cell.contentView.backgroundColor = [UIColor clearColor];
     if (indexPath.row%2 ==0) {
         cell.backgroundColor = [UIColor colorWithHex:@"#151935"];

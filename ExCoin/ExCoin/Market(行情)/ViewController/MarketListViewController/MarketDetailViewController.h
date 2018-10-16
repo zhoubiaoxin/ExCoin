@@ -10,5 +10,4 @@
 
 @interface MarketDetailViewController : UIViewController
 @property(nonatomic,strong)NSString * name;
-
 @end

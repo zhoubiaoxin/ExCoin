@@ -10,15 +10,11 @@
 
 @implementation WalletCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setCellModel:(WalletModel *)model{
+    self.nameLab.text = model.tickername;
+    self.cnyLab1.text = model.frozen;
+    self.priceLab.text = model.allNum;
+    self.cnyLab2.text = [NSString stringWithFormat:@"≈%.2fCNY",([model.frozen doubleValue]+[model.available doubleValue])];
 }
 
 @end

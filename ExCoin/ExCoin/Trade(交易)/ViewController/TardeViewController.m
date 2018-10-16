@@ -9,6 +9,8 @@
 #import "TardeViewController.h"
 #import "CLCustomSwitch.h"
 #import "TardeViewCell.h"
+#import "MarketModel.h"
+#import "MarketDetailViewController.h"
 
 @interface TardeViewController ()<CLCustomSwitchDelegate,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *greenBgH;
@@ -34,17 +36,42 @@
 @property (strong, nonatomic) UIImageView *image3;
 @property (strong, nonatomic) UIImageView *image4;
 @property (strong, nonatomic) UIImageView *image5;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLab;
+@property (weak, nonatomic) IBOutlet UILabel *sybLab;
+@property (weak, nonatomic) IBOutlet UIButton *storeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *detailBtn;
+@property (weak, nonatomic) IBOutlet UIButton *listBtn;
+@property (weak, nonatomic) IBOutlet UILabel *useLab;
+@property (weak, nonatomic) IBOutlet UILabel *buyNameLab;
+@property (weak, nonatomic) IBOutlet UITextField *buyText;
+@property (weak, nonatomic) IBOutlet UITextField *numText;
+@property (weak, nonatomic) IBOutlet UILabel *aboutLab;
+@property (weak, nonatomic) IBOutlet UIButton *buyBtn;
+@property (weak, nonatomic) IBOutlet UILabel *priceLab;
+@property (weak, nonatomic) IBOutlet UIImageView *zhangfuImg;
+@property (weak, nonatomic) IBOutlet UILabel *cnyLab;
+
+@property (strong, nonatomic) MarketModel *marketModel;
 @end
 
 @implementation TardeViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor colorWithHex:@"#151935"];
     self.navigationController.navigationBarHidden = YES;
+    [self createBaseUI];
+    [self createUI];
+}
+-(void)createBaseUI{
     self.redBgH.constant = 0;
-    
     self.priceSwitch = [[CLCustomSwitch alloc] initWithFrame:CGRectMake(ScreenW-115, 61, 100, 40)];
     // 开关背景
     self.priceSwitch.bgImageView.image = [UIImage imageNamed:@"icon_switchBg"];
@@ -57,10 +84,10 @@
     [self.numberText setValue:[UIColor colorWithHex:@"#646c8c"] forKeyPath:@"_placeholderLabel.textColor"];
     self.numberText.delegate = self;
     
-//    // 初始化
+    //    // 初始化
     self.silder.frame = CGRectMake(ScreenW/2.0+15, 310, ScreenW/2.0+15, 10);
-//    // 添加到俯视图
-//    [self.view addSubview:self.slider];
+    //    // 添加到俯视图
+    //    [self.view addSubview:self.slider];
     // 设置最小值
     self.silder.minimumValue = 0;
     // 设置最大值
@@ -89,6 +116,42 @@
     [self.view bringSubviewToFront:self.leftView];
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenBtn)];
     [self.leftView addGestureRecognizer:tapGesture];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:@"nameStrLab" object:nil];
+}
+
+-(void)receiveNotification:(NSNotification *)infoNotification {
+    NSDictionary *dic = [infoNotification object];
+    NSString *str = [dic objectForKey:@"info"];
+    self.nameStrLab = str;
+    [self createUI];
+}
+-(void)createUI{
+    if(self.nameStrLab.length == 0){
+        self.nameStrLab = @"BTCBCH";
+    }
+    
+    NSString *last3 = [self.nameStrLab substringFromIndex:self.nameStrLab.length-3];
+    if ([last3 isEqualToString:@"SDT"]) {
+        self.sybLab.text = @"/USDT";
+        NSString *first = [self.nameStrLab substringToIndex:self.nameStrLab.length-4];
+        self.nameLab.text = first;
+    }else{
+        self.sybLab.text = [NSString stringWithFormat:@"/%@",last3];
+        NSString *first = [self.nameStrLab substringToIndex:self.nameStrLab.length-3];
+        self.nameLab.text = first;
+    }
+    
+    NSArray * arr = [MarketModel objectsWhere:[NSString stringWithFormat:@"WHERE tickername = '%@'",self.nameStrLab] arguments:nil];
+    if (arr.count != 0) {
+        self.marketModel = arr[0];
+    }
+    
+    if ([self.marketModel.store isEqualToString:@"0"]) {
+        [self.storeBtn setBackgroundImage:[UIImage imageNamed:@"icon_unstore"] forState:UIControlStateNormal];
+    }else{
+        [self.storeBtn setBackgroundImage:[UIImage imageNamed:@"icon_store"] forState:UIControlStateNormal];
+    }
     
     
 }
@@ -128,6 +191,25 @@
         }];
         self.redLine.hidden = NO;
     }
+}
+//收藏
+- (IBAction)storeBtnClick:(id)sender {
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    if ([self.marketModel.store isEqualToString:@"0"]) {
+        param[@"store"] = @"1";
+    }else{
+        param[@"store"] = @"0";
+    }
+    [MarketModel updateObjectsSet:param Where:[NSString stringWithFormat:@"WHERE tickername = '%@'",self.nameStrLab] arguments:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"refresh" object:nil];
+    [self createUI];
+}
+//详情
+- (IBAction)detailBtnClick:(id)sender {
+    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Market" bundle:nil];
+    MarketDetailViewController *secondViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"MarketDetailViewController"];
+    secondViewController.name = self.nameStrLab;
+    [self.navigationController pushViewController:secondViewController animated:YES];
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self.view endEditing:YES];
@@ -186,5 +268,7 @@
         [self.view layoutIfNeeded];
     }];
 }
-
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end

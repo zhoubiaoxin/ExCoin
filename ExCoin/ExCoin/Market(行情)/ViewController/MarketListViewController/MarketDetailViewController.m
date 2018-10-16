@@ -11,6 +11,7 @@
 #import "Y_KLineGroupModel.h"
 #import "Masonry.h"
 #import "MarketModel.h"
+#import "TardeViewController.h"
 
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -209,6 +210,12 @@
 }
 */
 - (IBAction)dismissView:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (IBAction)doBuyBtnClick:(id)sender {
+    NSDictionary *dataDic = [NSDictionary dictionaryWithObject:self.name forKey:@"info"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"nameStrLab" object:dataDic];
+    [self rdv_tabBarController].selectedIndex = 1;
     [self.navigationController popViewControllerAnimated:YES];
 }
 

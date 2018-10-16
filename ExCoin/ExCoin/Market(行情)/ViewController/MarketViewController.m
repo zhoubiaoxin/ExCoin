@@ -17,6 +17,7 @@
 #import "MarketListViewController6.h"
 #import "MarketDetailViewController.h"
 #import "MarketModel.h"
+#import "WalletModel.h"
 
 
 @interface MarketViewController ()<UIScrollViewDelegate,scrollMenuDelegate,UITextFieldDelegate>
@@ -55,8 +56,7 @@
     self.view.backgroundColor = [UIColor colorWithHex:@"#151935"];
     self.navigationController.navigationBarHidden = YES;
     [self createUI];
-    
-    
+        
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"paixu"];
     NSString * str1 = [[NSUserDefaults standardUserDefaults] objectForKey:@"paixustate"];
     if (str.length != 0) {
@@ -137,6 +137,35 @@
     } fail:^{
         
     }];
+    
+    //请求钱包
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"access_id"] = @"4F76C19E3F57486280715356CA0FDE93";
+    NSString * timeStr = [TimeUse currentTimeStr];
+    param[@"tonce"] = timeStr;
+    [NetWorking requestWithApi2:@"https://api.coinex.com/v1/balance/info" param:param thenSuccess:^(NSDictionary *responseObject) {
+        //NSLog(@"===:%@",responseObject);
+        NSDictionary * dic = responseObject[@"data"];
+        for (NSString * key in dic) {
+//            NSLog(@"%@",key);
+            //[dic objectForKey:key];
+            NSDictionary * dicList = dic[key];
+            NSArray * arr1 = [WalletModel objectsWhere:[NSString stringWithFormat:@"WHERE tickername = '%@'",key] arguments:nil];
+            NSString * allNum= [NSString stringWithFormat:@"%.8f",[dicList[@"available"] doubleValue]+[dicList[@"frozen"] doubleValue]];
+            if(arr1.count == 0){
+                WalletModel * walletModel = [[WalletModel alloc] initWithtickername:key available:dicList[@"available"] frozen:dicList[@"frozen"] allNum:allNum];
+                [walletModel save];
+            }else{
+                NSMutableDictionary *param = [NSMutableDictionary dictionary];
+                param[@"available"] = dicList[@"available"];
+                param[@"frozen"] = dicList[@"frozen"];
+                param[@"allNum"] = allNum;
+                [WalletModel updateObjectsSet:param Where:[NSString stringWithFormat:@"WHERE tickername = '%@'",key] arguments:nil];
+            }
+        }
+    } fail:^{
+        
+    }];
 }
 
 -(void)createAll:(NSArray *)arr{
@@ -148,17 +177,17 @@
             NSString *str = arr[i];
             NSDictionary * dicList = dict[str];
             NSArray * arr1 = [MarketModel objectsWhere:[NSString stringWithFormat:@"WHERE tickername = '%@'",str] arguments:nil];
-            NSString * str1 = [NSString stringWithFormat:@"%.4f",([dicList[@"last"] floatValue]-[dicList[@"open"] floatValue])/[dicList[@"open"] floatValue]+1];
+            NSString * str1 = [NSString stringWithFormat:@"%.4f",([dicList[@"last"] doubleValue]-[dicList[@"open"] doubleValue])/[dicList[@"open"] doubleValue]+1];
             
-            NSString * buyStr= [NSString stringWithFormat:@"%.8f",[dicList[@"buy"] floatValue]];
-            NSString * buy_amountStr= [NSString stringWithFormat:@"%.1f",[dicList[@"buy_amount"] floatValue]];
-            NSString * openStr= [NSString stringWithFormat:@"%.8f",[dicList[@"open"] floatValue]];
-            NSString * highStr= [NSString stringWithFormat:@"%.8f",[dicList[@"high"] floatValue]];
-            NSString * lastStr= [NSString stringWithFormat:@"%.8f",[dicList[@"last"] floatValue]];
-            NSString * lowStr= [NSString stringWithFormat:@"%.8f",[dicList[@"low"] floatValue]];
-            NSString * sellStr= [NSString stringWithFormat:@"%.8f",[dicList[@"sell"] floatValue]];
-            NSString * sell_amountStr= [NSString stringWithFormat:@"%.1f",[dicList[@"sell_amount"] floatValue]];
-            NSString * volStr= [NSString stringWithFormat:@"%.1f",[dicList[@"vol"] floatValue]];
+            NSString * buyStr= [NSString stringWithFormat:@"%.8f",[dicList[@"buy"] doubleValue]];
+            NSString * buy_amountStr= [NSString stringWithFormat:@"%.1f",[dicList[@"buy_amount"] doubleValue]];
+            NSString * openStr= [NSString stringWithFormat:@"%.8f",[dicList[@"open"] doubleValue]];
+            NSString * highStr= [NSString stringWithFormat:@"%.8f",[dicList[@"high"] doubleValue]];
+            NSString * lastStr= [NSString stringWithFormat:@"%.8f",[dicList[@"last"] doubleValue]];
+            NSString * lowStr= [NSString stringWithFormat:@"%.8f",[dicList[@"low"] doubleValue]];
+            NSString * sellStr= [NSString stringWithFormat:@"%.8f",[dicList[@"sell"] doubleValue]];
+            NSString * sell_amountStr= [NSString stringWithFormat:@"%.1f",[dicList[@"sell_amount"] doubleValue]];
+            NSString * volStr= [NSString stringWithFormat:@"%.1f",[dicList[@"vol"] doubleValue]];
             float allStr = [dicList[@"last"] doubleValue]*[dicList[@"vol"] doubleValue];
 //            NSLog(@"%f",allStr);
             if (arr1.count>0) {
@@ -255,7 +284,7 @@
 */
 - (IBAction)changeSe:(id)sender {
     UIButton * btn = (UIButton*)sender;
-    NSLog(@"%ld",(long)btn.tag);
+    //NSLog(@"%ld",(long)btn.tag);
     self.selectNum = (int)btn.tag - 100;
     if (btn.tag == 100||btn.tag == 101) {
         [self.menuBtn setTitle:@"成交额" forState:UIControlStateNormal];

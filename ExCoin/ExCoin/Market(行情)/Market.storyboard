@@ -309,6 +309,9 @@
                                 <state key="normal" title="去交易" backgroundImage="icon_right">
                                     <color key="titleColor" red="0.67843137249999996" green="0.71764705880000002" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="doBuyBtnClick:" destination="ft1-kD-9pj" eventType="touchUpInside" id="lgG-GP-C66"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="高" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQM-co-uo0">
                                 <rect key="frame" x="15" y="85" width="15.5" height="18"/>
@@ -332,7 +335,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0376" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfp-7f-su9">
-                                <rect key="frame" x="40.5" y="117" width="70" height="12"/>
+                                <rect key="frame" x="40.5" y="116" width="70" height="12"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                 <color key="textColor" red="0.67843137249999996" green="0.71764705880000002" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -344,7 +347,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="幅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6T-di-Teu">
-                                <rect key="frame" x="115" y="114" width="15.5" height="18"/>
+                                <rect key="frame" x="115" y="113" width="15.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.67843137249999996" green="0.71764705880000002" blue="0.91764705879999997" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -362,7 +365,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+2.94%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbw-la-n69">
-                                <rect key="frame" x="141" y="116.5" width="43.5" height="13.5"/>
+                                <rect key="frame" x="141" y="115.5" width="43.5" height="13.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                 <color key="textColor" red="0.039215686270000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -383,7 +386,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iW3-BE-GFi">
-                                <rect key="frame" x="15" y="158" width="345" height="38"/>
+                                <rect key="frame" x="15" y="157" width="345" height="38"/>
                                 <subviews>
                                     <button opaque="NO" tag="100" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heU-CF-Yaj">
                                         <rect key="frame" x="0.0" y="0.0" width="69" height="35"/>

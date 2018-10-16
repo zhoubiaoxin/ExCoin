@@ -10,5 +10,6 @@
 
 @interface NetWorking : NSObject
 +(void)requestWithApi:(NSString *)url param:(NSMutableDictionary *)param thenSuccess:(void (^)(NSDictionary *responseObject))success fail:(void (^)(void))fail;
-
++(void)requestWithApi2:(NSString *)url param:(NSMutableDictionary *)param thenSuccess:(void (^)(NSDictionary *responseObject))success fail:(void (^)(void))fail;
++(NSString *)md5:(NSMutableDictionary *)param;
 @end
