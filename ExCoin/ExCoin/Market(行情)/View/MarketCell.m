@@ -9,7 +9,9 @@
 #import "MarketCell.h"
 #import "PYCartesianSeries.h"
 #import "Y_KLineGroupModel.h"
-
+#import "MoneyModel.h"
+#import "PriceModel.h"
+#import "Singleton.h"
 
 @implementation MarketCell
 
@@ -25,10 +27,48 @@
         self.symbolLab.text = @"/USDT";
         NSString *first = [model.tickername substringToIndex:model.tickername.length-4];
         self.nameLab.text = first;
+        NSArray * arr = [MoneyModel objectsWhere:@"where tickername ='USDT'" arguments:nil];
+        if (arr) {
+            MoneyModel * model1 = arr[0];
+            double cnydou = [model.last doubleValue]*[model1.price doubleValue];
+            if (cnydou>1) {
+                self.cnyLab.text = [NSString stringWithFormat:@"%.2f",[model.last doubleValue]*[model1.price doubleValue]];
+            }else{
+                self.cnyLab.text = [NSString stringWithFormat:@"%.4f",[model.last doubleValue]*[model1.price doubleValue]];
+            }
+            NSArray * cnyArr = [PriceModel objectsWhere:[NSString stringWithFormat:@"where tickername ='%@'",first] arguments:nil];
+            if (cnyArr.count > 0) {
+                NSMutableDictionary *param = [NSMutableDictionary dictionary];
+                param[@"price"] = [NSString stringWithFormat:@"%.4f",cnydou];
+                [PriceModel updateObjectsSet:param Where:[NSString stringWithFormat:@"where tickername ='%@'",first] arguments:nil];
+            }else{
+                PriceModel * price = [[PriceModel alloc] initWithtickername:first price:[NSString stringWithFormat:@"%.4f",cnydou]];
+                [price save];
+            }
+        }
     }else{
         self.symbolLab.text = [NSString stringWithFormat:@"/%@",last3];
         NSString *first = [model.tickername substringToIndex:model.tickername.length-3];
         self.nameLab.text = first;
+        NSArray * arr = [MoneyModel objectsWhere:[NSString stringWithFormat:@"where tickername ='%@'",last3] arguments:nil];
+        if (arr) {
+            MoneyModel * model1 = arr[0];
+            double cnydou = [model.last doubleValue]*[model1.price doubleValue];
+            if (cnydou>1) {
+                self.cnyLab.text = [NSString stringWithFormat:@"%.2f",[model.last doubleValue]*[model1.price doubleValue]];
+            }else{
+                self.cnyLab.text = [NSString stringWithFormat:@"%.4f",[model.last doubleValue]*[model1.price doubleValue]];
+            }
+            NSArray * cnyArr = [PriceModel objectsWhere:[NSString stringWithFormat:@"where tickername ='%@'",first] arguments:nil];
+            if (cnyArr.count > 0) {
+                NSMutableDictionary *param = [NSMutableDictionary dictionary];
+                param[@"price"] = [NSString stringWithFormat:@"%.4f",cnydou];
+                [PriceModel updateObjectsSet:param Where:[NSString stringWithFormat:@"where tickername ='%@'",first] arguments:nil];
+            }else{
+                PriceModel * price = [[PriceModel alloc] initWithtickername:first price:[NSString stringWithFormat:@"%.4f",cnydou]];
+                [price save];
+            }
+        }
     }
     
     if (model.allStr>=10000) {
@@ -133,7 +173,14 @@
     if (option != nil) {
         [_kchartView setOption:option];
     }
-    [_kchartView loadEcharts];
+    if (![[Singleton sharedInstance].name containsString:model.tickername]) {
+        [_kchartView loadEcharts];
+    }
+    if ([Singleton sharedInstance].name.length == 0) {
+        [Singleton sharedInstance].name = model.tickername;
+    }else{
+        [Singleton sharedInstance].name = [NSString stringWithFormat:@"%@,%@",[Singleton sharedInstance].name,model.tickername];
+    }
 }
 
 @end

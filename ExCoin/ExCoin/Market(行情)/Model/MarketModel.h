@@ -38,6 +38,6 @@
                                vol:(NSString *)vol
                              store:(NSString *)store
                            zhangfu:(NSString *)zhangfu
-                            allStr:(float)allStr ;
+                            allStr:(float)allStr;
 
 @end

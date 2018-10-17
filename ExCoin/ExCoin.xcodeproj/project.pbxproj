@@ -19,11 +19,14 @@
 		BB7D14132150D32000E7FA5F /* MarketListViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7D14122150D32000E7FA5F /* MarketListViewController3.m */; };
 		BB7D14162150D32B00E7FA5F /* MarketListViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7D14152150D32B00E7FA5F /* MarketListViewController4.m */; };
 		BB7D14192150D33600E7FA5F /* MarketListViewController5.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7D14182150D33600E7FA5F /* MarketListViewController5.m */; };
+		BB84E2CA2176DF9B0020156F /* PriceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB84E2C92176DF9B0020156F /* PriceModel.m */; };
+		BB84E2CE2177053E0020156F /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB84E2CD2177053E0020156F /* CustomAlertView.m */; };
+		BB84E2D1217733680020156F /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = BB84E2CF217733680020156F /* Singleton.m */; };
 		BB88CE342159D10500ED12C7 /* MarketDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB88CE332159D10500ED12C7 /* MarketDetailViewController.m */; };
 		BB899B0C21759402009E5F42 /* TimeUse.m in Sources */ = {isa = PBXBuildFile; fileRef = BB899B0B21759402009E5F42 /* TimeUse.m */; };
 		BB899B0F21759875009E5F42 /* LCMD5Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = BB899B0E21759875009E5F42 /* LCMD5Tool.m */; };
 		BB899B122175B0FE009E5F42 /* WalletModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB899B112175B0FE009E5F42 /* WalletModel.m */; };
-		BB899B172175D5B7009E5F42 /* moneyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB899B162175D5B7009E5F42 /* moneyModel.m */; };
+		BB899B172175D5B7009E5F42 /* MoneyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB899B162175D5B7009E5F42 /* MoneyModel.m */; };
 		BB89B567214B8BC900B00E62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB89B566214B8BC900B00E62 /* AppDelegate.m */; };
 		BB89B56A214B8BC900B00E62 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB89B569214B8BC900B00E62 /* ViewController.m */; };
 		BB89B56D214B8BC900B00E62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB89B56B214B8BC900B00E62 /* Main.storyboard */; };
@@ -107,6 +110,12 @@
 		BB7D14152150D32B00E7FA5F /* MarketListViewController4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketListViewController4.m; sourceTree = "<group>"; };
 		BB7D14172150D33600E7FA5F /* MarketListViewController5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarketListViewController5.h; sourceTree = "<group>"; };
 		BB7D14182150D33600E7FA5F /* MarketListViewController5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketListViewController5.m; sourceTree = "<group>"; };
+		BB84E2C82176DF9B0020156F /* PriceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PriceModel.h; sourceTree = "<group>"; };
+		BB84E2C92176DF9B0020156F /* PriceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PriceModel.m; sourceTree = "<group>"; };
+		BB84E2CC2177053E0020156F /* CustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertView.h; sourceTree = "<group>"; };
+		BB84E2CD2177053E0020156F /* CustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertView.m; sourceTree = "<group>"; };
+		BB84E2CF217733680020156F /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
+		BB84E2D0217733680020156F /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		BB88CE322159D10500ED12C7 /* MarketDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarketDetailViewController.h; sourceTree = "<group>"; };
 		BB88CE332159D10500ED12C7 /* MarketDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketDetailViewController.m; sourceTree = "<group>"; };
 		BB899B0A21759402009E5F42 /* TimeUse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeUse.h; sourceTree = "<group>"; };
@@ -115,8 +124,8 @@
 		BB899B0E21759875009E5F42 /* LCMD5Tool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCMD5Tool.m; sourceTree = "<group>"; };
 		BB899B102175B0FE009E5F42 /* WalletModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletModel.h; sourceTree = "<group>"; };
 		BB899B112175B0FE009E5F42 /* WalletModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletModel.m; sourceTree = "<group>"; };
-		BB899B152175D5B7009E5F42 /* moneyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = moneyModel.h; sourceTree = "<group>"; };
-		BB899B162175D5B7009E5F42 /* moneyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = moneyModel.m; sourceTree = "<group>"; };
+		BB899B152175D5B7009E5F42 /* MoneyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoneyModel.h; sourceTree = "<group>"; };
+		BB899B162175D5B7009E5F42 /* MoneyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoneyModel.m; sourceTree = "<group>"; };
 		BB89B562214B8BC900B00E62 /* ExCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB89B565214B8BC900B00E62 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BB89B566214B8BC900B00E62 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -266,6 +275,10 @@
 			children = (
 				BB728EE92152208300CBE5BF /* UIColor+Extension.h */,
 				BB728EEA2152208300CBE5BF /* UIColor+Extension.m */,
+				BB899B0A21759402009E5F42 /* TimeUse.h */,
+				BB899B0B21759402009E5F42 /* TimeUse.m */,
+				BB899B0D21759875009E5F42 /* LCMD5Tool.h */,
+				BB899B0E21759875009E5F42 /* LCMD5Tool.m */,
 			);
 			path = "Category(分类)";
 			sourceTree = "<group>";
@@ -300,6 +313,15 @@
 				BB88CE332159D10500ED12C7 /* MarketDetailViewController.m */,
 			);
 			path = MarketListViewController;
+			sourceTree = "<group>";
+		};
+		BB84E2CB217705370020156F /* Alert(选择) */ = {
+			isa = PBXGroup;
+			children = (
+				BB84E2CC2177053E0020156F /* CustomAlertView.h */,
+				BB84E2CD2177053E0020156F /* CustomAlertView.m */,
+			);
+			path = "Alert(选择)";
 			sourceTree = "<group>";
 		};
 		BB89B559214B8BC900B00E62 = {
@@ -649,10 +671,14 @@
 		BBDAD9C4214B9EBA0058A57F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BB84E2D0217733680020156F /* Singleton.h */,
+				BB84E2CF217733680020156F /* Singleton.m */,
 				BB7AF06A216CA80800951824 /* MarketModel.h */,
 				BB7AF06B216CA80800951824 /* MarketModel.m */,
-				BB899B152175D5B7009E5F42 /* moneyModel.h */,
-				BB899B162175D5B7009E5F42 /* moneyModel.m */,
+				BB899B152175D5B7009E5F42 /* MoneyModel.h */,
+				BB899B162175D5B7009E5F42 /* MoneyModel.m */,
+				BB84E2C82176DF9B0020156F /* PriceModel.h */,
+				BB84E2C92176DF9B0020156F /* PriceModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -789,6 +815,7 @@
 		BBDAD9EA214BA6460058A57F /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				BB84E2CB217705370020156F /* Alert(选择) */,
 				BBB6AB01216B280600C02D6A /* RESideMenu(侧边栏) */,
 				BB8A00E8215F5D5100D7035A /* CLCustomSwitch(自定义开关) */,
 				BB8F2B28215E22D7009518ED /* BTC_K线图 */,
@@ -797,10 +824,6 @@
 				BB728EE82152208300CBE5BF /* Category(分类) */,
 				BB7D1404215095CE00E7FA5F /* XQQScrollerMenuView(顶部菜单) */,
 				BBDAD9EB214BA6790058A57F /* Macros(宏) */,
-				BB899B0A21759402009E5F42 /* TimeUse.h */,
-				BB899B0B21759402009E5F42 /* TimeUse.m */,
-				BB899B0D21759875009E5F42 /* LCMD5Tool.h */,
-				BB899B0E21759875009E5F42 /* LCMD5Tool.m */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -856,6 +879,7 @@
 			knownRegions = (
 				en,
 				Base,
+				English,
 			);
 			mainGroup = BB89B559214B8BC900B00E62;
 			productRefGroup = BB89B563214B8BC900B00E62 /* Products */;
@@ -936,11 +960,12 @@
 				BB8F2B6C215E22D7009518ED /* ViewController+MASAdditions.m in Sources */,
 				BB899B122175B0FE009E5F42 /* WalletModel.m in Sources */,
 				BB8F2B6B215E22D7009518ED /* View+MASAdditions.m in Sources */,
-				BB899B172175D5B7009E5F42 /* moneyModel.m in Sources */,
+				BB899B172175D5B7009E5F42 /* MoneyModel.m in Sources */,
 				BB8F2B6F215E22D7009518ED /* CATextLayer+DateTextLayer.m in Sources */,
 				BB8A00EB215F5D5100D7035A /* CLCustomSwitch.m in Sources */,
 				BBDAD9E8214BA4620058A57F /* ZBTabBarController.m in Sources */,
 				BB89B56A214B8BC900B00E62 /* ViewController.m in Sources */,
+				BB84E2CA2176DF9B0020156F /* PriceModel.m in Sources */,
 				BB8F2B75215E22D7009518ED /* Y_KLineMAView.m in Sources */,
 				BB8F2B78215E22D7009518ED /* Y_KLineModel.m in Sources */,
 				BB8F2B71215E22D7009518ED /* Y_StockChartGlobalVariable.m in Sources */,
@@ -962,6 +987,7 @@
 				BB89B575214B8BC900B00E62 /* main.m in Sources */,
 				BBB6AB00216AF80900C02D6A /* WalletCell.m in Sources */,
 				BBDAD9DB214BA3A90058A57F /* WalletViewController.m in Sources */,
+				BB84E2CE2177053E0020156F /* CustomAlertView.m in Sources */,
 				BBB6AB0A216B280600C02D6A /* UIViewController+RESideMenu.m in Sources */,
 				BB8F2B7B215E22D7009518ED /* Y_StockChartRightYView.m in Sources */,
 				BBDAD9E6214BA4620058A57F /* ZBBaseNavVC.m in Sources */,
@@ -991,6 +1017,7 @@
 				BBDAD9D8214BA3990058A57F /* TardeViewController.m in Sources */,
 				BB7D140A215095CE00E7FA5F /* XQQScrollerMenuView.m in Sources */,
 				BB8F2B80215E22D7009518ED /* Y_StockChartView.m in Sources */,
+				BB84E2D1217733680020156F /* Singleton.m in Sources */,
 				BB8F2B76215E22D7009518ED /* Y_KLineMainView.m in Sources */,
 				BBB6AB08216B280600C02D6A /* RECommonFunctions.m in Sources */,
 			);

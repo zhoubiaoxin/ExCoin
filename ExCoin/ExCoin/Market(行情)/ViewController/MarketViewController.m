@@ -18,6 +18,8 @@
 #import "MarketDetailViewController.h"
 #import "MarketModel.h"
 #import "WalletModel.h"
+#import "MoneyModel.h"
+#import "PriceModel.h"
 
 
 @interface MarketViewController ()<UIScrollViewDelegate,scrollMenuDelegate,UITextFieldDelegate>
@@ -120,13 +122,35 @@
         self.selectNum = [selectNumStr intValue];
     }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:@"marketDetail" object:nil];
-    [self createData];
     
+    if (@available(iOS 10.0, *)) {
+        [NSTimer scheduledTimerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
+            [self createJBBZ];
+            NSLog(@"NSTimer");
+        }];
+    } else {
+        // Fallback on earlier versions
+    }
 }
 -(void)receiveNotification:(NSNotification *)infoNotification {
     NSDictionary *dic = [infoNotification object];
     NSString *str = [dic objectForKey:@"info"];
     [self marketDetail:str];
+}
+-(void)createJBBZ{
+    [NetWorking requestWithApi2:@"https://otc.coinex.com/res/system/market/price" param:nil thenSuccess:^(NSDictionary *responseObject) {
+        //NSLog(@"===:%@",responseObject);
+        NSDictionary * dic = responseObject[@"data"];
+        NSDictionary * dict = dic[@"CNY"];
+        for (NSString * key in dict) {
+            MoneyModel * moneyModel = [[MoneyModel alloc] initWithtickername:key price:dict[key]];
+            [moneyModel save];
+        }
+
+        [self createData];
+    } fail:^{
+        
+    }];
 }
 
 -(void)createData{
@@ -154,14 +178,22 @@
             double availableStr = [dicList[@"available"] doubleValue];
             double frozenStr = [dicList[@"frozen"] doubleValue];
             double allNum = [dicList[@"available"] doubleValue]+[dicList[@"frozen"] doubleValue];
+            
+            NSArray * firstArr = [PriceModel objectsWhere:[NSString stringWithFormat:@"WHERE tickername = '%@'",key] arguments:nil];
+            double allstr = 0.0;
+            if (firstArr.count > 0) {
+                PriceModel *priceModel = firstArr[0];
+                allstr = [priceModel.price doubleValue]* allNum;
+            }
+            
             if(arr1.count == 0){
-                WalletModel * walletModel = [[WalletModel alloc] initWithtickername:key available:availableStr frozen:frozenStr allNum:allNum];
+                WalletModel * walletModel = [[WalletModel alloc] initWithtickername:key available:availableStr frozen:frozenStr allNum:allstr];
                 [walletModel save];
             }else{
                 NSMutableDictionary *param = [NSMutableDictionary dictionary];
                 param[@"available"] = [NSString stringWithFormat:@"%.8f",availableStr];
                 param[@"frozen"] = [NSString stringWithFormat:@"%.8f",frozenStr];
-                param[@"allNum"] = [NSString stringWithFormat:@"%.8f",allNum];
+                param[@"allNum"] = [NSString stringWithFormat:@"%.8f",allstr];
                 [WalletModel updateObjectsSet:param Where:[NSString stringWithFormat:@"WHERE tickername = '%@'",key] arguments:nil];
             }
         }
@@ -179,7 +211,12 @@
             NSString *str = arr[i];
             NSDictionary * dicList = dict[str];
             NSArray * arr1 = [MarketModel objectsWhere:[NSString stringWithFormat:@"WHERE tickername = '%@'",str] arguments:nil];
-            NSString * str1 = [NSString stringWithFormat:@"%.4f",([dicList[@"last"] doubleValue]-[dicList[@"open"] doubleValue])/[dicList[@"open"] doubleValue]+1];
+            NSString * str1;
+            if ([dicList[@"open"] doubleValue] != 0) {
+                str1 = [NSString stringWithFormat:@"%.4f",([dicList[@"last"] doubleValue]-[dicList[@"open"] doubleValue])/[dicList[@"open"] doubleValue]+1];
+            }else{
+                str1 = @"0";
+            }
             
             NSString * buyStr= [NSString stringWithFormat:@"%.8f",[dicList[@"buy"] doubleValue]];
             NSString * buy_amountStr= [NSString stringWithFormat:@"%.1f",[dicList[@"buy_amount"] doubleValue]];

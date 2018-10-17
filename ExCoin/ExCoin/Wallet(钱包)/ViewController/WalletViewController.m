@@ -9,6 +9,9 @@
 #import "WalletViewController.h"
 #import "WalletModel.h"
 #import "WalletCell.h"
+#import "CustomAlertView.h"
+#import "PriceModel.h"
+#import "MoneyModel.h"
 
 @interface WalletViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -16,8 +19,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *cnyLab;
 @property (weak, nonatomic) IBOutlet UITextField *searchText;
 @property (weak, nonatomic) IBOutlet UIButton *saixuanBtn;
-
+@property (strong, nonatomic) NSArray *languages;
 @property (nonatomic,strong)NSArray * dataArr;
+@property (nonatomic,assign)NSInteger selectNum;
 @end
 
 @implementation WalletViewController
@@ -37,7 +41,29 @@
     [self.searchText setValue:[UIColor colorWithHex:@"#ADB7EA"] forKeyPath:@"_placeholderLabel.textColor"];
     self.searchText.delegate = self;
     
+    self.languages = @[@"BCH",@"BTC",@"ETH",@"CET",@"USDT"];
+    
     [self createData];
+    self.selectNum = 0;
+    [self qhqb:self.selectNum];
+}
+-(void)qhqb:(NSInteger)num{
+    NSArray * arr = [WalletModel objectsWhere:[NSString stringWithFormat:@"where tickername = '%@'",self.languages[num]] arguments:nil];
+    if (arr.count != 0) {
+        WalletModel * model = arr[0];
+        self.cnyLab.text = [NSString stringWithFormat:@"%.4f",model.allNum];
+    }
+
+    NSArray * firstArr = [PriceModel objectsWhere:[NSString stringWithFormat:@"WHERE tickername = '%@'",self.languages[num]] arguments:nil];
+    if (firstArr.count > 0) {
+        PriceModel *priceModel = firstArr[0];
+        self.huilvLab.text = [NSString stringWithFormat:@"%@/CNY=%.2f",self.languages[num],[priceModel.price floatValue]];
+    }
+    NSArray * secondArr = [MoneyModel objectsWhere:[NSString stringWithFormat:@"WHERE tickername = '%@'",self.languages[num]] arguments:nil];
+    if (secondArr.count > 0) {
+        MoneyModel *moneyModel = secondArr[0];
+        self.huilvLab.text = [NSString stringWithFormat:@"%@/CNY=%.2f",self.languages[num],[moneyModel.price floatValue]];
+    }
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self.view endEditing:YES];
@@ -46,7 +72,7 @@
     return YES;
 }
 -(void)createDataSearch:(NSString *)str{
-    NSArray * arr = [WalletModel objectsWhere:[NSString stringWithFormat:@"where tickername like '%@%@' and ORDER BY allNum DESC",str,@"%"] arguments:nil];
+    NSArray * arr = [WalletModel objectsWhere:[NSString stringWithFormat:@"where tickername like '%@%@' ORDER BY allNum DESC",str,@"%"] arguments:nil];
     _dataArr = arr;
     [self.tableView reloadData];
 }
@@ -92,10 +118,30 @@
     
 }
 - (IBAction)changeBiBtnClick:(id)sender {
-    
+    CustomAlertView *alertView = [[CustomAlertView alloc] initWithListData:self.languages andSelect:self.selectNum];
+    alertView.tapDoneAction = ^(NSInteger tag){
+        if (tag==999) {
+            NSLog(@"999:你没有选择啊");
+        }else{
+            NSLog(@"你选中的数据在数组中下标-->Array[index=%ld]",tag);
+            [alertView removeFromSuperview];
+            self.selectNum = tag;
+            [self qhqb:self.selectNum];
+        }
+        
+    };
+    [[UIApplication sharedApplication].delegate.window.rootViewController.view addSubview:alertView];
 }
 - (IBAction)hiddenBtnClick:(id)sender {
-    
+    self.saixuanBtn.selected = !self.saixuanBtn.selected;
+    if (self.saixuanBtn.selected) {
+        NSArray * arr = [WalletModel objectsWhere:@"where allNum > '1' ORDER BY allNum DESC" arguments:nil];
+        _dataArr = arr;
+    }else{
+        NSArray * arr = [WalletModel objectsWhere:@"ORDER BY allNum DESC" arguments:nil];
+        _dataArr = arr;
+    }
+    [self.tableView reloadData];
 }
 
 

@@ -70,9 +70,6 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.2660" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbP-aP-RHg">
                         <rect key="frame" x="331" y="47.5" width="38" height="13.5"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="38" id="s1V-V7-vHJ"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.3921568627" green="0.42352941179999998" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -83,7 +80,7 @@
                             <constraint firstAttribute="height" constant="20" id="1M1-ah-EwQ"/>
                             <constraint firstAttribute="width" constant="55" id="9no-St-8Tm"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <state key="normal" title="+2.92%" backgroundImage="icon_downBg">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>

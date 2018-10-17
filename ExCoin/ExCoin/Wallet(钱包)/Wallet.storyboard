@@ -110,14 +110,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="隐藏资产为0的币种" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGl-mM-vfu">
-                                <rect key="frame" x="237" y="192.5" width="123" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="隐藏小额资产币种" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGl-mM-vfu">
+                                <rect key="frame" x="245" y="192.5" width="115" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.67843137249999996" green="0.71764705880000002" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHC-Sg-wmf">
-                                <rect key="frame" x="197" y="186" width="30" height="30"/>
+                                <rect key="frame" x="205" y="186" width="30" height="30"/>
                                 <state key="normal" backgroundImage="btn_choice_un"/>
                                 <state key="selected" backgroundImage="btn_choice_se"/>
                                 <connections>

@@ -10,6 +10,7 @@
 #import "MarketCell.h"
 #import "MarketDetailViewController.h"
 
+
 @interface MarketListViewController1 ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)NSArray * dataArr;
@@ -38,6 +39,8 @@
     [self.view addSubview:_tableView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createData) name:@"refresh" object:nil];
     [self createData];
+    
+    
 }
 -(void)createData{
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"paixu"];
