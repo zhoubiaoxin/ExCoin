@@ -9,20 +9,15 @@
 #import "MarketViewController.h"
 #import "XQQScrollerMenuView.h"
 #import "XQQScrollBtn.h"
-#import "MarketListViewController1.h"
-#import "MarketListViewController2.h"
-#import "MarketListViewController3.h"
-#import "MarketListViewController4.h"
-#import "MarketListViewController5.h"
-#import "MarketListViewController6.h"
 #import "MarketDetailViewController.h"
 #import "MarketModel.h"
 #import "WalletModel.h"
 #import "MoneyModel.h"
 #import "PriceModel.h"
+#import "MarketCell.h"
 
 
-@interface MarketViewController ()<UIScrollViewDelegate,scrollMenuDelegate,UITextFieldDelegate>
+@interface MarketViewController ()<UIScrollViewDelegate,scrollMenuDelegate,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITextField *searchText;
 /**下方的scrollView*/
 @property(nonatomic, strong)  UIScrollView * scrollView;
@@ -42,7 +37,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *btn6;
 @property (weak, nonatomic) IBOutlet UIButton *btn7;
 @property (weak, nonatomic) IBOutlet UIButton *btn8;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong)  NSArray * controllerNameArr;
+@property(nonatomic,strong)NSArray * dataArr;
+@property(nonatomic,assign)BOOL hasPaixu;
+@property(nonatomic,strong)NSString * selectStr;
+@property(nonatomic,strong)NSString * selectStr2;
+@property(nonatomic,strong)NSTimer * timer;
+
 @end
 
 @implementation MarketViewController
@@ -50,6 +52,19 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
+    
+    if (@available(iOS 10.0, *)) {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
+            [self createJBBZ];
+            NSLog(@"NSTimer");
+        }];
+    } else {
+        // Fallback on earlier versions
+    }
+}
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [self.timer invalidate];
 }
 
 - (void)viewDidLoad {
@@ -82,55 +97,23 @@
         }
     }
 }
+
 - (void)createUI{
-    self.navigationItem.title = @"滚动菜单";
-    NSArray * titleArr = @[@"自选",@"BCH",@"BTC",@"ETH",@"CET",@"USDT"];
-    self.controllerNameArr = @[@"MarketListViewController1",@"MarketListViewController2",@"MarketListViewController3",@"MarketListViewController4",@"MarketListViewController5",@"MarketListViewController6"];
-    _menuView  = [[XQQScrollerMenuView alloc]initWithFrame:CGRectMake(15, 84, ScreenW-30, 44)];
-    _menuView.titleArr = titleArr;
-    _menuView.scrollDelegate = self;
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.view addSubview:_menuView];
-    
     [self.searchText setValue:[UIColor colorWithHex:@"#ADB7EA"] forKeyPath:@"_placeholderLabel.textColor"];
     self.searchText.delegate = self;
     
-    //控制器的滚动视图
-    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_menuView.frame), ScreenW, ScreenH - CGRectGetMaxY(_menuView.frame)-1)];
-    _scrollView.pagingEnabled = YES;
-    _scrollView.showsHorizontalScrollIndicator = NO;
-    _scrollView.showsVerticalScrollIndicator = NO;
-    _scrollView.delegate = self;
-    [self.view addSubview:_scrollView];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.backgroundColor = [UIColor colorWithHex:@"#151935"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    //添加controllers
-//    NSArray * chelidControlls = [_menuView addChildrenControllersWithArr:controllerNameArr AndSuperController:self];
-    [_menuView addChildrenControllersWithArr:self.controllerNameArr AndSuperController:self];
-    //给底部的滚动视图添加View  这个方法 会一次性把所有的控制器都初始化了
-//    [_menuView addSubViewToScrollView:_scrollView controllerArr:chelidControlls];
-    /**根据下标添加控制器的View    刚开始为第一项*/
-    [_menuView addSubViewToScrollViewWithIndex:0 superView:_scrollView];
-    [_menuView changeBtnStatesWithBtnIndex:1];
-    [self scrollMenuDidPressBtn:[[XQQScrollBtn alloc] init] index:1];
+    [self.tableView registerNib:[UINib nibWithNibName:@"MarketCell" bundle:nil] forCellReuseIdentifier:@"MarketCell"];
+
     
-    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenBtn)];
-    [self.meunbg addGestureRecognizer:tapGesture];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.selectStr = @"BCH";
+    [self createDataList:self.selectStr];
     
-    self.selectNum = 1;
-    NSString * selectNumStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"selectNum"];
-    if(selectNumStr.length != 0){
-        self.selectNum = [selectNumStr intValue];
-    }
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:@"marketDetail" object:nil];
-    
-    if (@available(iOS 10.0, *)) {
-        [NSTimer scheduledTimerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
-            [self createJBBZ];
-            NSLog(@"NSTimer");
-        }];
-    } else {
-        // Fallback on earlier versions
-    }
 }
 -(void)receiveNotification:(NSNotification *)infoNotification {
     NSDictionary *dic = [infoNotification object];
@@ -249,7 +232,7 @@
                 [markertModel save];
             }
             if (i == (arr.count-1)) {
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"refresh" object:nil];
+                [self createDataList:self.selectStr];
             }
         }
     } fail:^{
@@ -260,8 +243,9 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self.view endEditing:YES];
     [self.searchText resignFirstResponder];
-    [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"sousu"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"refresh" object:nil];
+//    [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"sousu"];
+    [self createDataList:self.selectStr];
+    self.selectStr2 = textField.text;
     return YES;
 }
 -(void)marketDetail:(NSString*)str{
@@ -353,4 +337,113 @@
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+- (IBAction)btnClick:(id)sender {
+    for (int i = 0; i<6; i++) {
+        UIView *view = (UIView *)[self.view viewWithTag:i+200];
+        view.hidden = YES;
+        UIButton *btn = (UIButton *)[self.view viewWithTag:i+100];
+        btn.selected = NO;
+    }
+    UIButton * btn1 = (UIButton*)sender;
+    UIView *view = (UIView *)[self.view viewWithTag:btn1.tag+100];
+    view.hidden = NO;
+    btn1.selected = YES;
+    self.selectStr = [btn1 currentTitle];
+    [self createDataList:self.selectStr];
+}
+
+-(void)createDataList:(NSString *)selectStr{
+    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"paixu"];
+    NSString * str1 = [[NSUserDefaults standardUserDefaults] objectForKey:@"paixustate"];
+    NSString * str2 = @"";
+    if (str.length !=0&&str1.length !=0) {
+        if ([str1 isEqualToString:@"up"]) {
+            self.hasPaixu = YES;
+        }else{
+            self.hasPaixu = NO;
+        }
+        str2 = [NSString stringWithFormat:@" ORDER BY %@ DESC",str];
+    }else{
+        self.hasPaixu = YES;
+        str2 = @" ORDER BY allstr DESC";
+    }
+    NSString * str3;
+    if ([selectStr isEqualToString:@"自选"]) {
+        str3 = @"WHERE store = '1'";
+    }else{
+        str3 = [NSString stringWithFormat:@"WHERE tickername like '%@%@'",@"%",selectStr];
+    }
+    if (self.selectStr2.length !=0){
+        str3 = [NSString stringWithFormat:@" WHERE tickername like '%@%@%@'",self.selectStr2,@"%",selectStr];
+    }
+    
+    NSArray * arr = [MarketModel objectsWhere:[NSString stringWithFormat:@"%@%@",str3,str2] arguments:nil];
+    _dataArr = arr;
+    if(arr.count>0){
+        [self.tableView reloadData];
+    }
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _dataArr.count;
+}
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    MarketModel * model;
+    if (self.hasPaixu) {
+        model = _dataArr[indexPath.row];
+    }else{
+        model = _dataArr[_dataArr.count-1- indexPath.row];
+    }
+    
+    MarketCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MarketCell"];
+    [cell setCellModel:model];
+    cell.contentView.backgroundColor = [UIColor clearColor];
+    if (indexPath.row%2 ==0) {
+        cell.backgroundColor = [UIColor colorWithHex:@"#151935"];
+    }else{
+        cell.backgroundColor = [UIColor colorWithHex:@"#1b1e3d"];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.storeBtn.tag = 100+indexPath.row;
+    [cell.storeBtn addTarget:self action:@selector(storeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    return cell;
+}
+-(void)storeBtnClick:(UIButton*)btn{
+    MarketModel * model;
+    if (self.hasPaixu) {
+        model = _dataArr[btn.tag-100];
+    }else{
+        model = _dataArr[_dataArr.count-1- btn.tag+100];
+    }
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    if ([model.store isEqualToString:@"0"]) {
+        param[@"store"] = @"1";
+    }else{
+        param[@"store"] = @"0";
+    }
+    [MarketModel updateObjectsSet:param Where:[NSString stringWithFormat:@"WHERE tickername = '%@'",model.tickername] arguments:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"refresh" object:nil];
+    [self createData];
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    MarketModel * model;
+    if (self.hasPaixu) {
+        model = _dataArr[indexPath.row];
+    }else{
+        model = _dataArr[_dataArr.count-1- indexPath.row];
+    }
+//    NSDictionary *dataDic = [NSDictionary dictionaryWithObject:model.tickername forKey:@"info"];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"marketDetail" object:dataDic];
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Market" bundle:nil];
+    MarketDetailViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"MarketDetailViewController"];
+    vc.name = model.tickername;
+    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
 @end

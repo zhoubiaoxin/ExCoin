@@ -10,15 +10,9 @@
 		BB728EEB2152208300CBE5BF /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BB728EEA2152208300CBE5BF /* UIColor+Extension.m */; };
 		BB728EEF2152258D00CBE5BF /* MarketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB728EED2152258D00CBE5BF /* MarketCell.m */; };
 		BB728EF02152258D00CBE5BF /* MarketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB728EEE2152258D00CBE5BF /* MarketCell.xib */; };
-		BB7AF069216CA21100951824 /* MarketListViewController6.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7AF068216CA21100951824 /* MarketListViewController6.m */; };
 		BB7AF06C216CA80800951824 /* MarketModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7AF06B216CA80800951824 /* MarketModel.m */; };
-		BB7D14032150951700E7FA5F /* MarketListViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7D14022150951700E7FA5F /* MarketListViewController1.m */; };
 		BB7D1409215095CE00E7FA5F /* XQQScrollBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7D1406215095CE00E7FA5F /* XQQScrollBtn.m */; };
 		BB7D140A215095CE00E7FA5F /* XQQScrollerMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7D1408215095CE00E7FA5F /* XQQScrollerMenuView.m */; };
-		BB7D14102150D31200E7FA5F /* MarketListViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7D140F2150D31200E7FA5F /* MarketListViewController2.m */; };
-		BB7D14132150D32000E7FA5F /* MarketListViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7D14122150D32000E7FA5F /* MarketListViewController3.m */; };
-		BB7D14162150D32B00E7FA5F /* MarketListViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7D14152150D32B00E7FA5F /* MarketListViewController4.m */; };
-		BB7D14192150D33600E7FA5F /* MarketListViewController5.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7D14182150D33600E7FA5F /* MarketListViewController5.m */; };
 		BB84E2CA2176DF9B0020156F /* PriceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB84E2C92176DF9B0020156F /* PriceModel.m */; };
 		BB84E2CE2177053E0020156F /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB84E2CD2177053E0020156F /* CustomAlertView.m */; };
 		BB84E2D1217733680020156F /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = BB84E2CF217733680020156F /* Singleton.m */; };
@@ -92,24 +86,12 @@
 		BB728EEC2152258D00CBE5BF /* MarketCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarketCell.h; sourceTree = "<group>"; };
 		BB728EED2152258D00CBE5BF /* MarketCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketCell.m; sourceTree = "<group>"; };
 		BB728EEE2152258D00CBE5BF /* MarketCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarketCell.xib; sourceTree = "<group>"; };
-		BB7AF067216CA21100951824 /* MarketListViewController6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarketListViewController6.h; sourceTree = "<group>"; };
-		BB7AF068216CA21100951824 /* MarketListViewController6.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketListViewController6.m; sourceTree = "<group>"; };
 		BB7AF06A216CA80800951824 /* MarketModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarketModel.h; sourceTree = "<group>"; };
 		BB7AF06B216CA80800951824 /* MarketModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketModel.m; sourceTree = "<group>"; };
-		BB7D14012150951700E7FA5F /* MarketListViewController1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarketListViewController1.h; sourceTree = "<group>"; };
-		BB7D14022150951700E7FA5F /* MarketListViewController1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketListViewController1.m; sourceTree = "<group>"; };
 		BB7D1405215095CE00E7FA5F /* XQQScrollBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQScrollBtn.h; sourceTree = "<group>"; };
 		BB7D1406215095CE00E7FA5F /* XQQScrollBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQScrollBtn.m; sourceTree = "<group>"; };
 		BB7D1407215095CE00E7FA5F /* XQQScrollerMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQQScrollerMenuView.h; sourceTree = "<group>"; };
 		BB7D1408215095CE00E7FA5F /* XQQScrollerMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQQScrollerMenuView.m; sourceTree = "<group>"; };
-		BB7D140E2150D31200E7FA5F /* MarketListViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarketListViewController2.h; sourceTree = "<group>"; };
-		BB7D140F2150D31200E7FA5F /* MarketListViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketListViewController2.m; sourceTree = "<group>"; };
-		BB7D14112150D31F00E7FA5F /* MarketListViewController3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarketListViewController3.h; sourceTree = "<group>"; };
-		BB7D14122150D32000E7FA5F /* MarketListViewController3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketListViewController3.m; sourceTree = "<group>"; };
-		BB7D14142150D32B00E7FA5F /* MarketListViewController4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarketListViewController4.h; sourceTree = "<group>"; };
-		BB7D14152150D32B00E7FA5F /* MarketListViewController4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketListViewController4.m; sourceTree = "<group>"; };
-		BB7D14172150D33600E7FA5F /* MarketListViewController5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarketListViewController5.h; sourceTree = "<group>"; };
-		BB7D14182150D33600E7FA5F /* MarketListViewController5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketListViewController5.m; sourceTree = "<group>"; };
 		BB84E2C82176DF9B0020156F /* PriceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PriceModel.h; sourceTree = "<group>"; };
 		BB84E2C92176DF9B0020156F /* PriceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PriceModel.m; sourceTree = "<group>"; };
 		BB84E2CC2177053E0020156F /* CustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertView.h; sourceTree = "<group>"; };
@@ -297,18 +279,6 @@
 		BB7D141A2150D34900E7FA5F /* MarketListViewController */ = {
 			isa = PBXGroup;
 			children = (
-				BB7D14012150951700E7FA5F /* MarketListViewController1.h */,
-				BB7D14022150951700E7FA5F /* MarketListViewController1.m */,
-				BB7D140E2150D31200E7FA5F /* MarketListViewController2.h */,
-				BB7D140F2150D31200E7FA5F /* MarketListViewController2.m */,
-				BB7D14112150D31F00E7FA5F /* MarketListViewController3.h */,
-				BB7D14122150D32000E7FA5F /* MarketListViewController3.m */,
-				BB7D14142150D32B00E7FA5F /* MarketListViewController4.h */,
-				BB7D14152150D32B00E7FA5F /* MarketListViewController4.m */,
-				BB7D14172150D33600E7FA5F /* MarketListViewController5.h */,
-				BB7D14182150D33600E7FA5F /* MarketListViewController5.m */,
-				BB7AF067216CA21100951824 /* MarketListViewController6.h */,
-				BB7AF068216CA21100951824 /* MarketListViewController6.m */,
 				BB88CE322159D10500ED12C7 /* MarketDetailViewController.h */,
 				BB88CE332159D10500ED12C7 /* MarketDetailViewController.m */,
 			);
@@ -970,16 +940,13 @@
 				BB8F2B78215E22D7009518ED /* Y_KLineModel.m in Sources */,
 				BB8F2B71215E22D7009518ED /* Y_StockChartGlobalVariable.m in Sources */,
 				BB728EEF2152258D00CBE5BF /* MarketCell.m in Sources */,
-				BB7D14192150D33600E7FA5F /* MarketListViewController5.m in Sources */,
 				BB7AF06C216CA80800951824 /* MarketModel.m in Sources */,
 				BB8F2B66215E22D7009518ED /* MASLayoutConstraint.m in Sources */,
 				BB8F2B69215E22D7009518ED /* NSArray+MASAdditions.m in Sources */,
 				BBDAD9E7214BA4620058A57F /* ZBTabBar.m in Sources */,
-				BB7AF069216CA21100951824 /* MarketListViewController6.m in Sources */,
 				BB8F2B7C215E22D7009518ED /* Y_StockChartSegmentView.m in Sources */,
 				BB8F2B6D215E22D7009518ED /* CAShapeLayer+YKCandleLayer.m in Sources */,
 				BB8F2B7F215E22D7009518ED /* Y_KLineView.m in Sources */,
-				BB7D14132150D32000E7FA5F /* MarketListViewController3.m in Sources */,
 				BB8F2B64215E22D7009518ED /* MASConstraint.m in Sources */,
 				BBDAD9DE214BA3B90058A57F /* AccountViewController.m in Sources */,
 				BB8F2B68215E22D7009518ED /* MASViewConstraint.m in Sources */,
@@ -994,9 +961,7 @@
 				BB8F2B67215E22D7009518ED /* MASViewAttribute.m in Sources */,
 				BB8F2B0C215E0F13009518ED /* NetWorking.m in Sources */,
 				BBB6AB09216B280600C02D6A /* RESideMenu.m in Sources */,
-				BB7D14162150D32B00E7FA5F /* MarketListViewController4.m in Sources */,
 				BB899B0C21759402009E5F42 /* TimeUse.m in Sources */,
-				BB7D14032150951700E7FA5F /* MarketListViewController1.m in Sources */,
 				BB8F2B7D215E22D7009518ED /* Y_VolumeMAView.m in Sources */,
 				BBB6AAFC216AE6B000C02D6A /* TardeViewCell.m in Sources */,
 				BB8F2B79215E22D7009518ED /* Y_KLinePositionModel.m in Sources */,
@@ -1012,7 +977,6 @@
 				BB7D1409215095CE00E7FA5F /* XQQScrollBtn.m in Sources */,
 				BB8F2B6E215E22D7009518ED /* CAShapeLayer+YKLineLayer.m in Sources */,
 				BB8F2B65215E22D7009518ED /* MASConstraintMaker.m in Sources */,
-				BB7D14102150D31200E7FA5F /* MarketListViewController2.m in Sources */,
 				BB8F2B7E215E22D7009518ED /* Y_KLineVolumeView.m in Sources */,
 				BBDAD9D8214BA3990058A57F /* TardeViewController.m in Sources */,
 				BB7D140A215095CE00E7FA5F /* XQQScrollerMenuView.m in Sources */,

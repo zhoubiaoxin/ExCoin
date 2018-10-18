@@ -12,6 +12,7 @@
 @property (strong, nonatomic) NSString *tickername;
 @property (strong, nonatomic) NSString *price;
 
+
 - (instancetype)initWithtickername:(NSString *)tickername
                              price:(NSString *)price;
 @end

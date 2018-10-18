@@ -44,6 +44,7 @@
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
     self.type = @"15min";
     self.currentIndex = -1;
+    self.indexNum = 1;
     [self reloadData];
 }
 
@@ -177,7 +178,8 @@
         Y_KLineGroupModel *groupModel = [Y_KLineGroupModel objectWithArray:responseObject[@"data"]];
         self.groupModel = groupModel;
         [self.modelsDict setObject:groupModel forKey:self.type];
-        
+        self.stockChartView.dataSource = self;
+
         [self.stockChartView reloadData];
     } fail:^{
         
@@ -195,7 +197,6 @@
                                        [Y_StockChartViewItemModel itemModelWithTitle:@"周线" type:Y_StockChartcenterViewTypeKline],
                                        ];
         self.stockChartView.backgroundColor = RGB(28, 35, 64);
-        _stockChartView.dataSource = self;
         [self.view addSubview:_stockChartView];
     }
     return _stockChartView;

@@ -11,6 +11,9 @@
 #import "TardeViewCell.h"
 #import "MarketModel.h"
 #import "MarketDetailViewController.h"
+#import "WalletModel.h"
+#import "MoneyModel.h"
+#import "PriceModel.h"
 
 @interface TardeViewController ()<CLCustomSwitchDelegate,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *greenBgH;
@@ -46,6 +49,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *buyNameLab;
 @property (weak, nonatomic) IBOutlet UITextField *buyText;
 @property (weak, nonatomic) IBOutlet UITextField *numText;
+@property (weak, nonatomic) IBOutlet UILabel *cnyAboutLab;
 @property (weak, nonatomic) IBOutlet UILabel *aboutLab;
 @property (weak, nonatomic) IBOutlet UIButton *buyBtn;
 @property (weak, nonatomic) IBOutlet UILabel *priceLab;
@@ -84,24 +88,12 @@
     [self.numberText setValue:[UIColor colorWithHex:@"#646c8c"] forKeyPath:@"_placeholderLabel.textColor"];
     self.numberText.delegate = self;
     
-    //    // 初始化
+    //初始化
     self.silder.frame = CGRectMake(ScreenW/2.0+15, 310, ScreenW/2.0+15, 10);
-    //    // 添加到俯视图
-    //    [self.view addSubview:self.slider];
-    // 设置最小值
-    self.silder.minimumValue = 0;
-    // 设置最大值
-    self.silder.maximumValue = 100;
-    // 设置初始值
-    self.silder.value = 0;
-    // 设置可连续变化
-    self.silder.continuous = YES;
     self.frameCenter.constant = -5;
-    
     /// 也可设置为图片
     [self.silder setMinimumTrackImage:[UIImage imageNamed:@"icon_min"] forState:UIControlStateNormal];
     [self.silder setMaximumTrackImage:[UIImage imageNamed:@"icon_max"] forState:UIControlStateNormal];
-    
     //设置了滑轮的颜色，如果设置了滑轮的样式图片就不会显示
     [self.silder setThumbImage:[UIImage imageNamed:@"icon_schedule"] forState:UIControlStateNormal];
     // 针对值变化添加响应方法
@@ -118,6 +110,10 @@
     [self.leftView addGestureRecognizer:tapGesture];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:@"nameStrLab" object:nil];
+    
+    [self.buyText setValue:[UIColor colorWithHex:@"#ADB7EA"] forKeyPath:@"_placeholderLabel.textColor"];
+    self.buyText.textColor = [UIColor colorWithHex:@"#ADB7EA"];
+    self.numText.textColor = [UIColor colorWithHex:@"#ADB7EA"];
 }
 
 -(void)receiveNotification:(NSNotification *)infoNotification {
@@ -130,21 +126,50 @@
     if(self.nameStrLab.length == 0){
         self.nameStrLab = @"BTCBCH";
     }
+    MarketModel * marketModel;
+    NSArray * arr = [MarketModel objectsWhere:[NSString stringWithFormat:@"where tickername = '%@'",self.nameStrLab] arguments:nil];
+    if (arr.count>0) {
+        marketModel = arr[0];
+    }
+    self.buyText.text = marketModel.last;
+    self.priceLab.text = marketModel.last;
     
     NSString *last3 = [self.nameStrLab substringFromIndex:self.nameStrLab.length-3];
     if ([last3 isEqualToString:@"SDT"]) {
         self.sybLab.text = @"/USDT";
         NSString *first = [self.nameStrLab substringToIndex:self.nameStrLab.length-4];
         self.nameLab.text = first;
+        NSArray * moneyArr = [WalletModel objectsWhere:[NSString stringWithFormat:@"where tickername ='%@'",@"USDT"] arguments:nil];
+        if (moneyArr.count > 0) {
+            WalletModel *walletModel = moneyArr[0];
+            self.useLab.text = [NSString stringWithFormat:@"%.4f %@",walletModel.available,@"USDT"];
+        }
+        NSArray * priceModelArr = [PriceModel objectsWhere:[NSString stringWithFormat:@"where tickername ='%@'",first] arguments:nil];
+        if (priceModelArr.count>0) {
+            PriceModel * priceModel = priceModelArr[0];
+            self.cnyAboutLab.text = [NSString stringWithFormat:@"≈%@ CNY",priceModel.price];
+            self.cnyLab.text = [NSString stringWithFormat:@"≈%@ CNY",priceModel.price];
+        }
     }else{
         self.sybLab.text = [NSString stringWithFormat:@"/%@",last3];
         NSString *first = [self.nameStrLab substringToIndex:self.nameStrLab.length-3];
         self.nameLab.text = first;
+        NSArray * moneyArr = [WalletModel objectsWhere:[NSString stringWithFormat:@"where tickername ='%@'",last3] arguments:nil];
+        if (moneyArr.count > 0) {
+            WalletModel *walletModel = moneyArr[0];
+            self.useLab.text = [NSString stringWithFormat:@"%.4f %@",walletModel.available,last3];
+        }
+        NSArray * priceModelArr = [PriceModel objectsWhere:[NSString stringWithFormat:@"where tickername ='%@'",first] arguments:nil];
+        if (priceModelArr.count>0) {
+            PriceModel * priceModel = priceModelArr[0];
+            self.cnyAboutLab.text = [NSString stringWithFormat:@"≈%@ CNY",priceModel.price];
+            self.cnyLab.text = [NSString stringWithFormat:@"≈%@ CNY",priceModel.price];
+        }
     }
     
-    NSArray * arr = [MarketModel objectsWhere:[NSString stringWithFormat:@"WHERE tickername = '%@'",self.nameStrLab] arguments:nil];
-    if (arr.count != 0) {
-        self.marketModel = arr[0];
+    NSArray * arr1 = [MarketModel objectsWhere:[NSString stringWithFormat:@"WHERE tickername = '%@'",self.nameStrLab] arguments:nil];
+    if (arr1.count != 0) {
+        self.marketModel = arr1[0];
     }
     
     if ([self.marketModel.store isEqualToString:@"0"]) {
@@ -153,7 +178,15 @@
         [self.storeBtn setBackgroundImage:[UIImage imageNamed:@"icon_store"] forState:UIControlStateNormal];
     }
     
-    
+    if ([marketModel.last doubleValue]>[marketModel.open doubleValue]) {
+        self.priceLab.textColor = [UIColor colorWithHex:@"#0ab9bd"];
+        self.cnyLab.textColor = [UIColor colorWithHex:@"#0ab9bd"];
+        self.zhangfuImg.image = [UIImage imageNamed:@"icon_tradeUp"];
+    }else{
+        self.priceLab.textColor = [UIColor colorWithHex:@"#f13d68"];
+        self.cnyLab.textColor = [UIColor colorWithHex:@"#f13d68"];
+        self.zhangfuImg.image = [UIImage imageNamed:@"icon_tradeDown"];
+    }
 }
 
 -(void)hiddenBtn{
@@ -184,12 +217,18 @@
             [self.view layoutIfNeeded];
         }];
         self.greenLine.hidden = NO;
+        //买入
+        
     }else{
         [UIView animateWithDuration:0.5 animations:^{
             self.redBgH.constant = 42.5;
             [self.view layoutIfNeeded];
         }];
         self.redLine.hidden = NO;
+        //卖出
+        
+        
+        
     }
 }
 //收藏

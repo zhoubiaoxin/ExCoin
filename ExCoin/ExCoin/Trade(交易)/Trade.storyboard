@@ -582,6 +582,7 @@
                         <outlet property="buyBtn" destination="s0L-Eg-DQt" id="lB9-rN-O8P"/>
                         <outlet property="buyNameLab" destination="6FF-8d-Cpd" id="zZY-TC-dVi"/>
                         <outlet property="buyText" destination="tiE-n9-AD1" id="ysg-wu-ZcL"/>
+                        <outlet property="cnyAboutLab" destination="962-q5-Uu3" id="bZT-V4-kRN"/>
                         <outlet property="cnyLab" destination="bjD-Ew-ZoZ" id="QJR-NA-U0B"/>
                         <outlet property="detailBtn" destination="tKF-4r-YOY" id="qeJ-0w-5Aa"/>
                         <outlet property="frameCenter" destination="tNK-NQ-1jZ" id="nCN-qX-fYC"/>
