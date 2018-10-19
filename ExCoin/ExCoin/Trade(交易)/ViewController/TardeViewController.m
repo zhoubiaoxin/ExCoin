@@ -129,7 +129,6 @@
 -(void)createBaseUI{
     self.redBgH.constant = 0;
     
-    
     self.priceSwitch = [[CLCustomSwitch alloc] initWithFrame:CGRectMake(ScreenW-115, 61, 100, 40)];
     // 开关背景
     self.priceSwitch.bgImageView.image = [UIImage imageNamed:@"icon_switchBg"];
@@ -458,29 +457,39 @@
 - (void)customSwitchStatusWithOn:(CLCustomSwitch *)custonSwitch
 {
     NSLog(@"开启");
-    _shijiaStr.textColor = [UIColor whiteColor];
-    _xianjianStr.textColor = [UIColor colorWithHex:@"#ADB7EA"];
-    self.kaiguan = YES;
-    _shijiaLab.hidden = YES;
-    _buyNameLab.hidden = NO;
-    _buyText.hidden = NO;
-    _cnyAboutLab.hidden = NO;
-    _aboutLab.hidden = NO;
-    _aboutName.hidden = NO;
+    if (custonSwitch.tag == 30) {
+        _shijiaStr.textColor = [UIColor whiteColor];
+        _xianjianStr.textColor = [UIColor colorWithHex:@"#ADB7EA"];
+        self.kaiguan = YES;
+        _shijiaLab.hidden = YES;
+        _buyNameLab.hidden = NO;
+        _buyText.hidden = NO;
+        _cnyAboutLab.hidden = NO;
+        _aboutLab.hidden = NO;
+        _aboutName.hidden = NO;
+    }else{
+        _zhangfuStr.textColor = [UIColor whiteColor];
+        _chengjiaoeStr.textColor = [UIColor colorWithHex:@"#ADB7EA"];
+    }
 }
 
 - (void)customSwitchStatusWithOff:(CLCustomSwitch *)custonSwitch
 {
     NSLog(@"关闭");
-    _xianjianStr.textColor = [UIColor whiteColor];
-    _shijiaStr.textColor = [UIColor colorWithHex:@"#ADB7EA"];
-    self.kaiguan = NO;
-    _shijiaLab.hidden = NO;
-    _buyNameLab.hidden = YES;
-    _buyText.hidden = YES;
-    _cnyAboutLab.hidden = YES;
-    _aboutLab.hidden = YES;
-    _aboutName.hidden = YES;
+    if (custonSwitch.tag == 30) {
+        _xianjianStr.textColor = [UIColor whiteColor];
+        _shijiaStr.textColor = [UIColor colorWithHex:@"#ADB7EA"];
+        self.kaiguan = NO;
+        _shijiaLab.hidden = NO;
+        _buyNameLab.hidden = YES;
+        _buyText.hidden = YES;
+        _cnyAboutLab.hidden = YES;
+        _aboutLab.hidden = YES;
+        _aboutName.hidden = YES;
+    }else{
+        _chengjiaoeStr.textColor = [UIColor whiteColor];
+        _zhangfuStr.textColor = [UIColor colorWithHex:@"#ADB7EA"];
+    }
 }
 
 -(void)createJBBZ{
@@ -561,7 +570,6 @@
     MarketModel * model = _dataArr[indexPath.row];
     self.nameStrLab = model.tickername;
     [self createUI];
-    [self createBaseUI];
     [self hiddenBtnClick];
 }
 
