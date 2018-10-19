@@ -22,9 +22,27 @@
 @property (strong, nonatomic) NSArray *languages;
 @property (nonatomic,strong)NSArray * dataArr;
 @property (nonatomic,assign)NSInteger selectNum;
+@property(nonatomic,strong)NSTimer * timer;
 @end
 
 @implementation WalletViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
+    if (@available(iOS 10.0, *)) {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
+            [self createData];
+            NSLog(@"NSTimer");
+        }];
+    } else {
+        // Fallback on earlier versions
+    }
+}
+//-(void)viewDidDisappear:(BOOL)animated{
+//    [super viewDidDisappear:animated];
+//    [self.timer invalidate];
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,10 +58,11 @@
     
     [self.searchText setValue:[UIColor colorWithHex:@"#ADB7EA"] forKeyPath:@"_placeholderLabel.textColor"];
     self.searchText.delegate = self;
+    [self.searchText addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];
+
     
     self.languages = @[@"BCH",@"BTC",@"ETH",@"CET",@"USDT"];
     
-    [self createData];
     self.selectNum = 0;
     [self qhqb:self.selectNum];
 }
@@ -68,18 +87,25 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self.view endEditing:YES];
     [self.searchText resignFirstResponder];
-    [self createDataSearch:textField.text];
+    [self createData];
     return YES;
 }
--(void)createDataSearch:(NSString *)str{
-    NSArray * arr = [WalletModel objectsWhere:[NSString stringWithFormat:@"where tickername like '%@%@' ORDER BY allNum DESC",str,@"%"] arguments:nil];
-    _dataArr = arr;
-    [self.tableView reloadData];
+- (void)textChange{
+    //变化后的字符串
+    NSLog(@"-----------------%@",_searchText.text);
+    [self createData];
 }
+
 -(void)createData{
-    NSArray * arr = [WalletModel objectsWhere:@"ORDER BY allNum DESC" arguments:nil];
-    _dataArr = arr;
-    [self.tableView reloadData];
+    if (_searchText.text) {
+        NSArray * arr = [WalletModel objectsWhere:[NSString stringWithFormat:@"where tickername like '%@%@' ORDER BY allNum DESC",_searchText.text,@"%"] arguments:nil];
+        _dataArr = arr;
+        [self.tableView reloadData];
+    }else{
+        NSArray * arr = [WalletModel objectsWhere:@"ORDER BY allNum DESC" arguments:nil];
+        _dataArr = arr;
+        [self.tableView reloadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

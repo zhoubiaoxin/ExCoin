@@ -175,6 +175,8 @@
     }
     if (![[Singleton sharedInstance].name containsString:model.tickername]) {
         [_kchartView loadEcharts];
+    }else{
+        [_kchartView refreshEchartsWithOption:option];
     }
     if ([Singleton sharedInstance].name.length == 0) {
         [Singleton sharedInstance].name = model.tickername;

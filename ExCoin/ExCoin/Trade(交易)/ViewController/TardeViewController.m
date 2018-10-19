@@ -14,8 +14,10 @@
 #import "WalletModel.h"
 #import "MoneyModel.h"
 #import "PriceModel.h"
+#import "FSSegmentTitleView.h"
+#import "TradeCell.h"
 
-@interface TardeViewController ()<CLCustomSwitchDelegate,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface TardeViewController ()<CLCustomSwitchDelegate,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource,FSSegmentTitleViewDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *greenBgH;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *redBgH;
 @property (weak, nonatomic) IBOutlet UIView *greenLine;
@@ -72,6 +74,23 @@
 @property (strong, nonatomic) NSArray *sellArr;
 @property (weak, nonatomic) IBOutlet UIView *changeMeView;
 @property (weak, nonatomic) IBOutlet UIButton *changeMeBtn;
+
+
+@property (weak, nonatomic) IBOutlet UIView *leftHeadView;
+@property (weak, nonatomic) IBOutlet UITextField *searchText;
+@property (weak, nonatomic) IBOutlet UIButton *hiddenBtn;
+@property (weak, nonatomic) IBOutlet UIButton *changeBtn1;
+@property (weak, nonatomic) IBOutlet UIButton *changeBtn2;
+@property (weak, nonatomic) IBOutlet UIButton *changeBtn3;
+@property (strong, nonatomic) CLCustomSwitch *switchBtn;
+@property (strong, nonatomic) UILabel *zhangfuStr;
+@property (strong, nonatomic) UILabel *chengjiaoeStr;
+@property (strong, nonatomic) FSSegmentTitleView *changeBZView;
+@property(nonatomic,assign)BOOL hasPaixu;
+@property (strong, nonatomic) NSString *changeBZStr;
+@property(nonatomic,strong)NSString * selectStr2;
+@property(nonatomic,strong)NSArray * dataArr;
+@property (weak, nonatomic) IBOutlet UITableView *leftTableView;
 @end
 
 @implementation TardeViewController
@@ -80,7 +99,7 @@
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
     if (@available(iOS 10.0, *)) {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
             [self createJBBZ];
             NSLog(@"NSTimer");
         }];
@@ -88,10 +107,10 @@
         // Fallback on earlier versions
     }
 }
--(void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
-    [self.timer invalidate];
-}
+//-(void)viewDidDisappear:(BOOL)animated{
+//    [super viewDidDisappear:animated];
+//    [self.timer invalidate];
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -99,12 +118,18 @@
     self.navigationController.navigationBarHidden = YES;
     self.buyOrSell = YES;
     self.kaiguan = YES;
-    [self createBaseUI];
     self.merge = @"0.00000001";
+    self.changeBZStr = @"BCH";
+    self.hasPaixu = YES;
+    
+    
     [self createUI];
+    [self createBaseUI];
 }
 -(void)createBaseUI{
     self.redBgH.constant = 0;
+    
+    
     self.priceSwitch = [[CLCustomSwitch alloc] initWithFrame:CGRectMake(ScreenW-115, 61, 100, 40)];
     // 开关背景
     self.priceSwitch.bgImageView.image = [UIImage imageNamed:@"icon_switchBg"];
@@ -112,6 +137,7 @@
     self.priceSwitch.switchImageView.image = [UIImage imageNamed:@"icon_switchSe"];
     self.priceSwitch.delegate = self;
     self.priceSwitch.on = YES ; // 初始状态为开
+    self.priceSwitch.tag = 30;
     [self.tableViewHeadView addSubview:self.priceSwitch];
     _shijiaStr = [[UILabel alloc] initWithFrame:CGRectMake(0,-5 , 50, 40)];
     _shijiaStr.textAlignment = NSTextAlignmentCenter;
@@ -125,9 +151,40 @@
     _xianjianStr.textColor = [UIColor colorWithHex:@"#ADB7EA"];
     [self.priceSwitch addSubview:_xianjianStr];
     
+    self.switchBtn = [[CLCustomSwitch alloc] initWithFrame:CGRectMake(15, 40, 100, 30)];
+    self.switchBtn.bgImageView.image = [UIImage imageNamed:@"icon_switchBg"];
+    self.switchBtn.switchImageView.image = [UIImage imageNamed:@"icon_switchSe"];
+    self.switchBtn.delegate = self;
+    self.switchBtn.tag = 31;
+    self.switchBtn.on = YES ; // 初始状态为开
+    [self.leftHeadView addSubview:self.switchBtn];
+    _zhangfuStr = [[UILabel alloc] initWithFrame:CGRectMake(0,0 , 50, 30)];
+    _zhangfuStr.textAlignment = NSTextAlignmentCenter;
+    _zhangfuStr.text = @"涨幅";
+    _zhangfuStr.font = [UIFont systemFontOfSize:11];
+    _zhangfuStr.textColor = [UIColor whiteColor];
+    [self.switchBtn addSubview:_zhangfuStr];
+    
+    _chengjiaoeStr = [[UILabel alloc] initWithFrame:CGRectMake(50,0 , 50, 30)];
+    _chengjiaoeStr.textAlignment = NSTextAlignmentCenter;
+    _chengjiaoeStr.text = @"成交额";
+    _chengjiaoeStr.font = [UIFont systemFontOfSize:11];
+    _chengjiaoeStr.textColor = [UIColor colorWithHex:@"#ADB7EA"];
+    [self.switchBtn addSubview:_chengjiaoeStr];
+    
     [self.numberText setValue:[UIColor colorWithHex:@"#646c8c"] forKeyPath:@"_placeholderLabel.textColor"];
     self.numberText.delegate = self;
     
+    
+    self.changeBZView = [[FSSegmentTitleView alloc]initWithFrame:CGRectMake(15, 70, 235, 30) titles:@[@"BCH",@"BTC",@"ETH",@"CET",@"USDT"] delegate:self indicatorType:FSIndicatorTypeEqualTitle];
+    self.changeBZView.titleSelectFont = [UIFont systemFontOfSize:10];
+    self.changeBZView.selectIndex = 0;
+    [self.leftHeadView addSubview:self.changeBZView];
+
+    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(15, 100, 235, 1)];
+    view.backgroundColor = [UIColor colorWithHex:@"ADB7EA"];
+    [self.leftHeadView addSubview:view];
+
     //初始化
     self.silder.frame = CGRectMake(ScreenW/2.0+15, 310, ScreenW/2.0+15, 10);
     self.frameCenter.constant = -5;
@@ -145,15 +202,83 @@
     self.tableView.tag = 1000;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    self.leftTableView.delegate = self;
+    self.leftTableView.dataSource = self;
+    self.leftTableView.tableFooterView = [UIView new];
+    self.leftTableView.tag = 1001;
+    self.leftTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    [self.leftTableView registerNib:[UINib nibWithNibName:@"TradeCell" bundle:nil] forCellReuseIdentifier:@"TradeCell"];
+
+    
     [self.view bringSubviewToFront:self.leftView];
-    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenBtn)];
-    [self.leftView addGestureRecognizer:tapGesture];
+//    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenBtnClick)];
+//    [self.leftView addGestureRecognizer:tapGesture];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:@"nameStrLab" object:nil];
     
     [self.buyText setValue:[UIColor colorWithHex:@"#ADB7EA"] forKeyPath:@"_placeholderLabel.textColor"];
     self.buyText.textColor = [UIColor colorWithHex:@"#ADB7EA"];
     self.numText.textColor = [UIColor colorWithHex:@"#ADB7EA"];
+    
+    [self.searchText setValue:[UIColor colorWithHex:@"#ADB7EA"] forKeyPath:@"_placeholderLabel.textColor"];
+    self.searchText.delegate = self;
+    [self.searchText addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];
+
+    [self createDataList:self.changeBZStr];
+}
+-(void)createDataList:(NSString *)selectStr{
+    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"paixu"];
+    NSString * str1 = [[NSUserDefaults standardUserDefaults] objectForKey:@"paixustate"];
+    NSString * str2 = @"";
+    if (str.length !=0&&str1.length !=0) {
+        if ([str1 isEqualToString:@"up"]) {
+            self.hasPaixu = YES;
+        }else{
+            self.hasPaixu = NO;
+        }
+        str2 = [NSString stringWithFormat:@" ORDER BY %@ DESC",str];
+    }else{
+        self.hasPaixu = YES;
+        str2 = @" ORDER BY allstr DESC";
+    }
+    NSString * str3;
+    if ([selectStr isEqualToString:@"自选"]) {
+        str3 = @"WHERE store = '1'";
+    }else{
+        str3 = [NSString stringWithFormat:@"WHERE tickername like '%@%@'",@"%",selectStr];
+    }
+    if (self.selectStr2.length !=0){
+        str3 = [NSString stringWithFormat:@" WHERE tickername like '%@%@%@'",self.selectStr2,@"%",selectStr];
+    }
+    
+    NSArray * arr = [MarketModel objectsWhere:[NSString stringWithFormat:@"%@%@",str3,str2] arguments:nil];
+    _dataArr = arr;
+    if(arr.count>0){
+        [self.leftTableView reloadData];
+    }
+}
+#pragma mark --
+- (void)FSSegmentTitleView:(FSSegmentTitleView *)titleView startIndex:(NSInteger)startIndex endIndex:(NSInteger)endIndex
+{
+    self.changeBZStr = @[@"BCH",@"BTC",@"ETH",@"CET",@"USDT"][endIndex];
+    [self createDataList:self.changeBZStr];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.view endEditing:YES];
+    [self.searchText resignFirstResponder];
+    [self.numberText resignFirstResponder];
+    //    [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"sousu"];
+//    self.selectStr2 = textField.text;
+//    [self createDataList:self.selectStr];
+    return YES;
+}
+
+- (void)textChange{
+    //变化后的字符串
+    NSLog(@"-----------------%@",_searchText.text);
+//    self.selectStr2 = _searchText.text;
+//    [self createDataList:self.selectStr];
 }
 
 -(void)receiveNotification:(NSNotification *)infoNotification {
@@ -264,7 +389,7 @@
     }
 }
 
--(void)hiddenBtn{
+-(void)hiddenBtnClick{
     [UIView animateWithDuration:0.5 animations:^{
         self.viewWidth.constant = 0;
         self.tableViewWidth.constant = 0;
@@ -325,11 +450,7 @@
     secondViewController.name = self.nameStrLab;
     [self.navigationController pushViewController:secondViewController animated:YES];
 }
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self.view endEditing:YES];
-    [self.numberText resignFirstResponder];
-    return YES;
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -390,48 +511,58 @@
         }else{
             return self.buyArr.count;
         }
-        return 10;
+    }else{
+        return _dataArr.count;
     }
-    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    SuperviseList * model;
-//    if (indexPath.row<_dateArr.count) {
-//        model = _dateArr[indexPath.row];
-//    }
-    
-    TardeViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"TardeViewCell" forIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (tableView.tag == 1000) {
+        TardeViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"TardeViewCell" forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (self.sellArr.count>self.buyArr.count) {
             NSArray * sell = self.sellArr[indexPath.row];
-            cell.sellNum.text = sell[1];
-            cell.sellPrice.text = sell[0];
+            cell.sellPrice.text = sell[1];
+            cell.sellNum.text = sell[0];
             if (indexPath.row < self.buyArr.count) {
                 NSArray * buy = self.buyArr[indexPath.row];
-                cell.buyNum.text = buy[1];
-                cell.buyPrice.text = buy[0];
+                cell.buyPrice.text = buy[1];
+                cell.buyNum.text = buy[0];
             }else{
-                cell.buyNum.text = @"";
                 cell.buyPrice.text = @"";
+                cell.buyNum.text = @"";
             }
         }else{
             NSArray * sell = self.buyArr[indexPath.row];
-            cell.buyPrice.text = sell[1];
-            cell.buyNum.text = sell[0];
+            cell.buyNum.text = sell[1];
+            cell.buyPrice.text = sell[0];
             if (indexPath.row < self.sellArr.count) {
                 NSArray * buy = self.sellArr[indexPath.row];
-                cell.sellPrice.text = buy[1];
-                cell.sellNum.text = buy[0];
+                cell.sellNum.text = buy[1];
+                cell.sellPrice .text = buy[0];
             }else{
                 cell.sellNum.text = @"";
                 cell.sellPrice.text = @"";
             }
         }
+        return cell;
+    }else{
+        MarketModel * model = _dataArr[indexPath.row];
+        TradeCell *cell = [tableView dequeueReusableCellWithIdentifier: @"TradeCell" forIndexPath:indexPath];
+        [cell setCellModel:model];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.storeBtn.tag = 100+indexPath.row;
+        [cell.storeBtn addTarget:self action:@selector(storeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        return cell;
     }
-    return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    MarketModel * model = _dataArr[indexPath.row];
+    self.nameStrLab = model.tickername;
+    [self createUI];
+    [self createBaseUI];
+    [self hiddenBtnClick];
 }
 
 /*

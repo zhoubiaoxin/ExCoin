@@ -44,7 +44,6 @@
 @property(nonatomic,strong)NSString * selectStr;
 @property(nonatomic,strong)NSString * selectStr2;
 @property(nonatomic,strong)NSTimer * timer;
-
 @end
 
 @implementation MarketViewController
@@ -62,10 +61,10 @@
         // Fallback on earlier versions
     }
 }
--(void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
-    [self.timer invalidate];
-}
+//-(void)viewDidDisappear:(BOOL)animated{
+//    [super viewDidDisappear:animated];
+//    [self.timer invalidate];
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -101,6 +100,8 @@
 - (void)createUI{
     [self.searchText setValue:[UIColor colorWithHex:@"#ADB7EA"] forKeyPath:@"_placeholderLabel.textColor"];
     self.searchText.delegate = self;
+    [self.searchText addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];
+
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -244,9 +245,16 @@
     [self.view endEditing:YES];
     [self.searchText resignFirstResponder];
 //    [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"sousu"];
-    [self createDataList:self.selectStr];
     self.selectStr2 = textField.text;
+    [self createDataList:self.selectStr];
     return YES;
+}
+
+- (void)textChange{
+    //变化后的字符串
+    NSLog(@"-----------------%@",_searchText.text);
+    self.selectStr2 = _searchText.text;
+    [self createDataList:self.selectStr];
 }
 -(void)marketDetail:(NSString*)str{
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Market" bundle:nil];
