@@ -44,7 +44,7 @@
     switchImgView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapSwitchImgViewAcion:)];
     tapGR.numberOfTapsRequired = 1;
-    [switchImgView addGestureRecognizer:tapGR];
+    [self addGestureRecognizer:tapGR];
     [self addSubview:switchImgView];
     self.switchImageView = switchImgView;
 }

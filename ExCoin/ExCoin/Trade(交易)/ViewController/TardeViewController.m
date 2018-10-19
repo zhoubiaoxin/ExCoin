@@ -48,15 +48,30 @@
 @property (weak, nonatomic) IBOutlet UILabel *useLab;
 @property (weak, nonatomic) IBOutlet UILabel *buyNameLab;
 @property (weak, nonatomic) IBOutlet UITextField *buyText;
+@property (weak, nonatomic) IBOutlet UILabel *numNameLab;
 @property (weak, nonatomic) IBOutlet UITextField *numText;
 @property (weak, nonatomic) IBOutlet UILabel *cnyAboutLab;
+@property (weak, nonatomic) IBOutlet UILabel *aboutName;
 @property (weak, nonatomic) IBOutlet UILabel *aboutLab;
 @property (weak, nonatomic) IBOutlet UIButton *buyBtn;
 @property (weak, nonatomic) IBOutlet UILabel *priceLab;
 @property (weak, nonatomic) IBOutlet UIImageView *zhangfuImg;
 @property (weak, nonatomic) IBOutlet UILabel *cnyLab;
+@property (weak, nonatomic) IBOutlet UILabel *shijiaLab;
 
 @property (strong, nonatomic) MarketModel *marketModel;
+@property (strong, nonatomic) UILabel *shijiaStr;
+@property (strong, nonatomic) UILabel *xianjianStr;
+
+@property (assign, nonatomic) Boolean buyOrSell;
+@property (assign, nonatomic) Boolean kaiguan;
+
+@property(nonatomic,strong)NSTimer * timer;
+@property (strong, nonatomic) NSString *merge;
+@property (strong, nonatomic) NSArray *buyArr;
+@property (strong, nonatomic) NSArray *sellArr;
+@property (weak, nonatomic) IBOutlet UIView *changeMeView;
+@property (weak, nonatomic) IBOutlet UIButton *changeMeBtn;
 @end
 
 @implementation TardeViewController
@@ -64,14 +79,28 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
+    if (@available(iOS 10.0, *)) {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
+            [self createJBBZ];
+            NSLog(@"NSTimer");
+        }];
+    } else {
+        // Fallback on earlier versions
+    }
 }
-
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [self.timer invalidate];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor colorWithHex:@"#151935"];
     self.navigationController.navigationBarHidden = YES;
+    self.buyOrSell = YES;
+    self.kaiguan = YES;
     [self createBaseUI];
+    self.merge = @"0.00000001";
     [self createUI];
 }
 -(void)createBaseUI{
@@ -82,8 +111,19 @@
     // 开关滑块
     self.priceSwitch.switchImageView.image = [UIImage imageNamed:@"icon_switchSe"];
     self.priceSwitch.delegate = self;
-    self.priceSwitch.on = NO ; // 初始状态为开
+    self.priceSwitch.on = YES ; // 初始状态为开
     [self.tableViewHeadView addSubview:self.priceSwitch];
+    _shijiaStr = [[UILabel alloc] initWithFrame:CGRectMake(0,-5 , 50, 40)];
+    _shijiaStr.textAlignment = NSTextAlignmentCenter;
+    _shijiaStr.text = @"市价";
+    _shijiaStr.textColor = [UIColor whiteColor];
+    [self.priceSwitch addSubview:_shijiaStr];
+    
+    _xianjianStr = [[UILabel alloc] initWithFrame:CGRectMake(50,-5 , 50, 40)];
+    _xianjianStr.textAlignment = NSTextAlignmentCenter;
+    _xianjianStr.text = @"限价";
+    _xianjianStr.textColor = [UIColor colorWithHex:@"#ADB7EA"];
+    [self.priceSwitch addSubview:_xianjianStr];
     
     [self.numberText setValue:[UIColor colorWithHex:@"#646c8c"] forKeyPath:@"_placeholderLabel.textColor"];
     self.numberText.delegate = self;
@@ -133,16 +173,32 @@
     }
     self.buyText.text = marketModel.last;
     self.priceLab.text = marketModel.last;
-    
     NSString *last3 = [self.nameStrLab substringFromIndex:self.nameStrLab.length-3];
     if ([last3 isEqualToString:@"SDT"]) {
         self.sybLab.text = @"/USDT";
         NSString *first = [self.nameStrLab substringToIndex:self.nameStrLab.length-4];
         self.nameLab.text = first;
-        NSArray * moneyArr = [WalletModel objectsWhere:[NSString stringWithFormat:@"where tickername ='%@'",@"USDT"] arguments:nil];
-        if (moneyArr.count > 0) {
-            WalletModel *walletModel = moneyArr[0];
-            self.useLab.text = [NSString stringWithFormat:@"%.4f %@",walletModel.available,@"USDT"];
+        NSArray * moneyArr;
+        if (self.buyOrSell) {
+            moneyArr = [WalletModel objectsWhere:[NSString stringWithFormat:@"where tickername ='%@'",@"USDT"] arguments:nil];
+            self.buyNameLab.text = [NSString stringWithFormat:@"买入价(%@)",last3];
+            if (moneyArr.count > 0) {
+                WalletModel *walletModel = moneyArr[0];
+                self.useLab.text = [NSString stringWithFormat:@"%.4f %@",walletModel.available,@"USDT"];
+            }
+            [self.buyBtn setBackgroundColor:[UIColor colorWithHex:@"#4796F6"]];
+            [self.buyBtn setTitle:[NSString stringWithFormat:@"买入%@",first] forState:UIControlStateNormal];
+            _shijiaLab.text = @"以当前卖盘挂单价格依次买入";
+        }else{
+            moneyArr = [WalletModel objectsWhere:[NSString stringWithFormat:@"where tickername ='%@'",first] arguments:nil];
+            self.buyNameLab.text = [NSString stringWithFormat:@"卖出价(%@)",last3];
+            if (moneyArr.count > 0) {
+                WalletModel *walletModel = moneyArr[0];
+                self.useLab.text = [NSString stringWithFormat:@"%.4f %@",walletModel.available,first];
+            }
+            [self.buyBtn setBackgroundColor:[UIColor colorWithHex:@"#f13d68"]];
+            [self.buyBtn setTitle:@"卖出USDT" forState:UIControlStateNormal];
+            _shijiaLab.text = @"以当前买盘挂单价格依次卖出";
         }
         NSArray * priceModelArr = [PriceModel objectsWhere:[NSString stringWithFormat:@"where tickername ='%@'",first] arguments:nil];
         if (priceModelArr.count>0) {
@@ -150,14 +206,32 @@
             self.cnyAboutLab.text = [NSString stringWithFormat:@"≈%@ CNY",priceModel.price];
             self.cnyLab.text = [NSString stringWithFormat:@"≈%@ CNY",priceModel.price];
         }
+        self.buyNameLab.text = [NSString stringWithFormat:@"买入价(%@)",last3];
     }else{
         self.sybLab.text = [NSString stringWithFormat:@"/%@",last3];
         NSString *first = [self.nameStrLab substringToIndex:self.nameStrLab.length-3];
         self.nameLab.text = first;
-        NSArray * moneyArr = [WalletModel objectsWhere:[NSString stringWithFormat:@"where tickername ='%@'",last3] arguments:nil];
-        if (moneyArr.count > 0) {
-            WalletModel *walletModel = moneyArr[0];
-            self.useLab.text = [NSString stringWithFormat:@"%.4f %@",walletModel.available,last3];
+        NSArray * moneyArr;
+        if (self.buyOrSell) {
+            moneyArr = [WalletModel objectsWhere:[NSString stringWithFormat:@"where tickername ='%@'",last3] arguments:nil];
+            self.buyNameLab.text = [NSString stringWithFormat:@"买入价(%@)",last3];
+            if (moneyArr.count > 0) {
+                WalletModel *walletModel = moneyArr[0];
+                self.useLab.text = [NSString stringWithFormat:@"%.4f %@",walletModel.available,last3];
+            }
+            [self.buyBtn setBackgroundColor:[UIColor colorWithHex:@"#4796F6"]];
+            [self.buyBtn setTitle:[NSString stringWithFormat:@"买入%@",first] forState:UIControlStateNormal];
+            _shijiaLab.text = @"以当前卖盘挂单价格依次买入";
+        }else{
+            moneyArr = [WalletModel objectsWhere:[NSString stringWithFormat:@"where tickername ='%@'",first] arguments:nil];
+            self.buyNameLab.text = [NSString stringWithFormat:@"卖出价(%@)",last3];
+            if (moneyArr.count > 0) {
+                WalletModel *walletModel = moneyArr[0];
+                self.useLab.text = [NSString stringWithFormat:@"%.4f %@",walletModel.available,first];
+            }
+            [self.buyBtn setBackgroundColor:[UIColor colorWithHex:@"#f13d68"]];
+            [self.buyBtn setTitle:[NSString stringWithFormat:@"卖出%@",last3] forState:UIControlStateNormal];
+            _shijiaLab.text = @"以当前买盘挂单价格依次卖出";
         }
         NSArray * priceModelArr = [PriceModel objectsWhere:[NSString stringWithFormat:@"where tickername ='%@'",first] arguments:nil];
         if (priceModelArr.count>0) {
@@ -166,6 +240,7 @@
             self.cnyLab.text = [NSString stringWithFormat:@"≈%@ CNY",priceModel.price];
         }
     }
+
     
     NSArray * arr1 = [MarketModel objectsWhere:[NSString stringWithFormat:@"WHERE tickername = '%@'",self.nameStrLab] arguments:nil];
     if (arr1.count != 0) {
@@ -218,7 +293,8 @@
         }];
         self.greenLine.hidden = NO;
         //买入
-        
+        self.buyOrSell = YES;
+        [self createUI];
     }else{
         [UIView animateWithDuration:0.5 animations:^{
             self.redBgH.constant = 42.5;
@@ -226,9 +302,8 @@
         }];
         self.redLine.hidden = NO;
         //卖出
-        
-        
-        
+        self.buyOrSell = NO;
+        [self createUI];
     }
 }
 //收藏
@@ -262,18 +337,59 @@
 - (void)customSwitchStatusWithOn:(CLCustomSwitch *)custonSwitch
 {
     NSLog(@"开启");
+    _shijiaStr.textColor = [UIColor whiteColor];
+    _xianjianStr.textColor = [UIColor colorWithHex:@"#ADB7EA"];
+    self.kaiguan = YES;
+    _shijiaLab.hidden = YES;
+    _buyNameLab.hidden = NO;
+    _buyText.hidden = NO;
+    _cnyAboutLab.hidden = NO;
+    _aboutLab.hidden = NO;
+    _aboutName.hidden = NO;
 }
 
 - (void)customSwitchStatusWithOff:(CLCustomSwitch *)custonSwitch
 {
     NSLog(@"关闭");
+    _xianjianStr.textColor = [UIColor whiteColor];
+    _shijiaStr.textColor = [UIColor colorWithHex:@"#ADB7EA"];
+    self.kaiguan = NO;
+    _shijiaLab.hidden = NO;
+    _buyNameLab.hidden = YES;
+    _buyText.hidden = YES;
+    _cnyAboutLab.hidden = YES;
+    _aboutLab.hidden = YES;
+    _aboutName.hidden = YES;
 }
+
+-(void)createJBBZ{
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"market"] = self.nameStrLab;
+    param[@"limit"] = @"10";
+    param[@"merge"] = self.merge;
+    [NetWorking requestWithApi2:@"https://api.coinex.com/v1/market/depth" param:param thenSuccess:^(NSDictionary *responseObject) {
+        //NSLog(@"===:%@",responseObject);
+        NSDictionary * dic = responseObject[@"data"];
+        self.sellArr = dic[@"asks"];
+        self.buyArr = dic[@"bids"];
+        [self.tableView reloadData];
+    } fail:^{
+        
+    }];
+}
+
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 30;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView.tag == 1000) {
+        if (self.sellArr.count>self.buyArr.count) {
+            return self.sellArr.count;
+        }else{
+            return self.buyArr.count;
+        }
         return 10;
     }
     return 10;
@@ -285,9 +401,36 @@
 //    if (indexPath.row<_dateArr.count) {
 //        model = _dateArr[indexPath.row];
 //    }
+    
     TardeViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"TardeViewCell" forIndexPath:indexPath];
-//    [cell setupCellWithSupervise:model];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (tableView.tag == 1000) {
+        if (self.sellArr.count>self.buyArr.count) {
+            NSArray * sell = self.sellArr[indexPath.row];
+            cell.sellNum.text = sell[1];
+            cell.sellPrice.text = sell[0];
+            if (indexPath.row < self.buyArr.count) {
+                NSArray * buy = self.buyArr[indexPath.row];
+                cell.buyNum.text = buy[1];
+                cell.buyPrice.text = buy[0];
+            }else{
+                cell.buyNum.text = @"";
+                cell.buyPrice.text = @"";
+            }
+        }else{
+            NSArray * sell = self.buyArr[indexPath.row];
+            cell.buyPrice.text = sell[1];
+            cell.buyNum.text = sell[0];
+            if (indexPath.row < self.sellArr.count) {
+                NSArray * buy = self.sellArr[indexPath.row];
+                cell.sellPrice.text = buy[1];
+                cell.sellNum.text = buy[0];
+            }else{
+                cell.sellNum.text = @"";
+                cell.sellPrice.text = @"";
+            }
+        }
+    }
     return cell;
 }
 
@@ -309,5 +452,25 @@
 }
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+- (IBAction)changeMe:(id)sender {
+    self.changeMeView.hidden = !self.changeMeView.hidden;
+    NSArray * arr = @[@"0.1",@"0.01",@"0.001",@"0.0001",@"0.00001",@"0.000001",@"0.0000001",@"0.00000001"];
+    for (int i = 5000; i<5008; i++) {
+        UIButton *btn = (UIButton *)[self.view viewWithTag:i];
+        if ([self.merge isEqualToString:arr[i-5000]]) {
+            btn.selected = YES;
+        }else{
+            btn.selected = NO;
+        }
+    }
+}
+- (IBAction)changeMeBtn:(id)sender {
+    NSArray * arr = @[@"0.1",@"0.01",@"0.001",@"0.0001",@"0.00001",@"0.000001",@"0.0000001",@"0.00000001"];
+    UIButton * btn = (UIButton*)sender;
+    self.merge = arr[btn.tag- 5000];
+    self.changeMeView.hidden = YES;
+    [self.changeMeBtn setTitle:self.merge forState:UIControlStateNormal];
+    [self createJBBZ];
 }
 @end

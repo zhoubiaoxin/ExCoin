@@ -60,6 +60,7 @@
 		BB8F2B7E215E22D7009518ED /* Y_KLineVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8F2B5D215E22D7009518ED /* Y_KLineVolumeView.m */; };
 		BB8F2B7F215E22D7009518ED /* Y_KLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8F2B5F215E22D7009518ED /* Y_KLineView.m */; };
 		BB8F2B80215E22D7009518ED /* Y_StockChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8F2B61215E22D7009518ED /* Y_StockChartView.m */; };
+		BB9F3AFA21797EF100963294 /* TradeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9F3AF921797EF100963294 /* TradeModel.m */; };
 		BBB6AAFC216AE6B000C02D6A /* TardeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB6AAFB216AE6B000C02D6A /* TardeViewCell.m */; };
 		BBB6AB00216AF80900C02D6A /* WalletCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB6AAFF216AF80900C02D6A /* WalletCell.m */; };
 		BBB6AB08216B280600C02D6A /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB6AB03216B280600C02D6A /* RECommonFunctions.m */; };
@@ -189,6 +190,8 @@
 		BB8F2B5F215E22D7009518ED /* Y_KLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Y_KLineView.m; sourceTree = "<group>"; };
 		BB8F2B60215E22D7009518ED /* Y_StockChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Y_StockChartView.h; sourceTree = "<group>"; };
 		BB8F2B61215E22D7009518ED /* Y_StockChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Y_StockChartView.m; sourceTree = "<group>"; };
+		BB9F3AF821797EF100963294 /* TradeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TradeModel.h; sourceTree = "<group>"; };
+		BB9F3AF921797EF100963294 /* TradeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TradeModel.m; sourceTree = "<group>"; };
 		BBB6AAFA216AE6B000C02D6A /* TardeViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TardeViewCell.h; sourceTree = "<group>"; };
 		BBB6AAFB216AE6B000C02D6A /* TardeViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TardeViewCell.m; sourceTree = "<group>"; };
 		BBB6AAFE216AF80900C02D6A /* WalletCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletCell.h; sourceTree = "<group>"; };
@@ -692,6 +695,8 @@
 		BBDAD9C9214B9ECB0058A57F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BB9F3AF821797EF100963294 /* TradeModel.h */,
+				BB9F3AF921797EF100963294 /* TradeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -969,6 +974,7 @@
 				BB88CE342159D10500ED12C7 /* MarketDetailViewController.m in Sources */,
 				BB8F2B74215E22D7009518ED /* Y_KLineAccessoryView.m in Sources */,
 				BB8F2B70215E22D7009518ED /* UIBezierPath+YKBezierPath.m in Sources */,
+				BB9F3AFA21797EF100963294 /* TradeModel.m in Sources */,
 				BB8F2B7A215E22D7009518ED /* Y_KLineVolumePositionModel.m in Sources */,
 				BB8F2B72215E22D7009518ED /* UIColor+Y_StockChart.m in Sources */,
 				BB8F2B6A215E22D7009518ED /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,

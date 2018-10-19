@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface TardeViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *buyNum;
+@property (weak, nonatomic) IBOutlet UILabel *buyPrice;
+@property (weak, nonatomic) IBOutlet UILabel *sellPrice;
+@property (weak, nonatomic) IBOutlet UILabel *sellNum;
 
 @end
